@@ -1,8 +1,42 @@
-*{
+body {
+    /* overflow: hidden; */
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+/* first-section */
+
+.background-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    z-index: -11;
+}
+
+.flower {
+    z-index: 110000;
 }
