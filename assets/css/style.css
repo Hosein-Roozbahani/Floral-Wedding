@@ -1,10 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
 @font-face {
     font-family: 'charm';
-    src: url('/assets/fonts/Charm-Regular.ttf') format('ttf');
+    src: url('assets/fonts/Charm-Regular.ttf') format('ttf');
     font-style: italic;
 }
 
 body {
+    overflow: hidden;
+}
+
+section {
     overflow: hidden;
 }
 
@@ -41,8 +47,6 @@ img {
     height: 100px;
 }
 
-/* first-slide */
-
 .background-image {
     background-size: cover;
     background-position: center;
@@ -62,25 +66,106 @@ img {
     color: #515050;
     padding-top: 8rem;
     font-weight: 500;
+    animation: blink-caret 0.75s step-end infinite;
+    transition: opacity 1s ease;
+    opacity: 0;
     z-index: 99999999999999999999999999999999999999999;
+    /* white-space: nowrap;
+    overflow: hidden; */
+    /* animation: typing 5s steps(30, end), blink-caret 0.75s step-end infinite; */
+    /* animation: bounce 1s infinite; */
 }
 
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: black;
+    }
+}
+
+@keyframes show {
+    to {
+        opacity: 1;
+    }
+}
+
+/* @keyframes typing {  
+    from { width: 0; }  
+    to { width: 85%; }  
+}  
+
+@keyframes blink-caret {  
+    from, to { border-color: transparent; }  
+    50% { border-color: black; }  
+}  */
 .couples-name {
     font-family: 'charm';
     font-style: italic;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     text-align: center;
     margin-top: 2rem;
     color: #515050;
     z-index: 999999999999999999999999999999999999;
+    /* opacity: 0;
+    white-space: pre; */
+}
+#brides-name {  
+    opacity: 0; /* شروع با شفافیت صفر */  
+    transition: opacity 0.5s ease; /* انیمیشن برای تغییر شفافیت */  
+}
+.title {
+    transform: translateX(-50%) rotate(-10deg);
+    display: block;
+    float: left;
+    left: 50%;
+    position: relative;
+
+    span {
+        transform: skew(-10deg);
+        display: block;
+        float: left;
+        text-shadow: rgba(0, 0, 0, 0.5) 1px 1px, rgba(0, 0, 0, 0.5) 2px 2px, rgba(0, 0, 0, 0.5) 3px 3px, rgba(0, 0, 0, 0.5) 4px 4px, rgba(0, 0, 0, 0.5) 5px 5px, rgba(0, 0, 0, 0.5) 6px 6px;
+        min-width: 10px;
+        min-height: 10px;
+        position: relative;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        /* انیمیشن محو شدن */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        /* حرکت به سمت پایین */
+        opacity: 0;
+        /* در ابتدا محو */
+    }
+
+    to {
+        transform: translateY(0);
+        /* به موقعیت اصلی برمی‌گردد */
+        opacity: 1;
+        /* در انتها نمایان می‌شود */
+    }
 }
 
 .top-right-flower {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: .5rem;
+    right: .5rem;
     filter: brightness(0.95);
+    transform: scale(1.3);
 }
 
 .top-left-flower {
@@ -138,38 +223,51 @@ img {
     height: 10rem;
 }
 
+.top-middle-left-flower {
+    position: absolute;
+    top: 9rem;
+    left: 0;
+    transform: scaleX(-1);
+}
+
 /* second-slide */
 
-.poetry{
+.poetry {
     margin-top: 8rem;
     text-align: center !important;
     color: #5c5c5c;
 }
-.date{
+
+.date {
     text-align: center;
     margin-top: 13rem;
     color: #5c5c5c;
 }
-.address{
+
+.address {
     margin-top: 20rem;
     text-align: center !important;
     color: #5c5c5c;
     font-weight: 100;
 }
-.december{
+
+.december {
     font-size: .8rem;
     margin-right: .7rem;
 }
-.thirty{
+
+.thirty {
     font-size: 3rem;
     margin: 1.2rem;
 }
-.nine-pm{
+
+.nine-pm {
     position: absolute;
     top: 4.5rem;
     left: 11.8rem;
 }
-.Horizontal-data{
+
+.Horizontal-data {
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -177,14 +275,15 @@ img {
     margin-right: 2.5rem;
     margin-top: -1rem;
 }
-.friday, .the-year{
+
+.friday,
+.the-year {
     border-bottom: 1px solid;
     border-top: 1px solid;
     line-height: 2rem;
     position: relative;
     bottom: .5rem;
 }
-
 
 /* responsive */
 
@@ -197,6 +296,7 @@ img {
         margin-left: -3rem;
     }
 }
+
 @media screen and (min-width : 465px) {
     .left-flower-input {
         margin-left: -2.3rem;
@@ -205,12 +305,14 @@ img {
     .button-flower {
         margin-left: -2rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 12.5rem;
     }
 }
+
 @media screen and (min-width : 480px) {
     .left-flower-input {
         margin-left: -1.5rem;
@@ -219,12 +321,14 @@ img {
     .button-flower {
         margin-left: -1.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 13rem;
     }
 }
+
 @media screen and (min-width : 490px) {
     .left-flower-input {
         margin-left: -.7rem;
@@ -233,8 +337,9 @@ img {
     .button-flower {
         margin-left: -.5rem;
     }
-    
+
 }
+
 @media screen and (min-width : 505px) {
     .left-flower-input {
         margin-left: 0rem;
@@ -243,12 +348,14 @@ img {
     .button-flower {
         margin-left: 0rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 13.5rem;
     }
 }
+
 @media screen and (min-width : 515px) {
     .left-flower-input {
         margin-left: .5rem;
@@ -257,40 +364,46 @@ img {
     .button-flower {
         margin-left: .7rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 14rem;
     }
 }
+
 @media screen and (min-width : 525px) {
     .left-flower-input {
-        margin-left: 1.5rem ;
+        margin-left: 1.5rem;
     }
 
     .button-flower {
         margin-left: 1.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 14.5rem;
     }
 }
+
 @media screen and (min-width : 535px) {
     .left-flower-input {
-        margin-left: 2.2rem ;
+        margin-left: 2.2rem;
     }
 
     .button-flower {
         margin-left: 2rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 14.8rem;
     }
 }
+
 @media screen and (min-width : 550px) {
     .left-flower-input {
         margin-left: 3.5rem;
@@ -299,12 +412,14 @@ img {
     .button-flower {
         margin-left: 3rem;
     }
-        .nine-pm{
-            position: absolute;
-            top: 4.5rem;
-            left: 15.3rem;
-        }
+
+    .nine-pm {
+        position: absolute;
+        top: 4.5rem;
+        left: 15.3rem;
+    }
 }
+
 @media screen and (min-width : 570px) {
     .left-flower-input {
         margin-left: 4.5rem;
@@ -313,12 +428,14 @@ img {
     .button-flower {
         margin-left: 4.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 15.7rem;
     }
 }
+
 @media screen and (min-width : 590px) {
     .left-flower-input {
         margin-left: 5.3rem;
@@ -327,12 +444,14 @@ img {
     .button-flower {
         margin-left: 5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 16rem;
     }
 }
+
 @media screen and (min-width : 600px) {
     .left-flower-input {
         margin-left: 6.2rem;
@@ -341,12 +460,14 @@ img {
     .button-flower {
         margin-left: 6rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 16.5rem;
     }
 }
+
 @media screen and (min-width : 615px) {
     .left-flower-input {
         margin-left: 7rem;
@@ -355,12 +476,14 @@ img {
     .button-flower {
         margin-left: 7rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 17rem;
     }
 }
+
 @media screen and (min-width : 625px) {
     .left-flower-input {
         margin-left: 8rem;
@@ -369,12 +492,14 @@ img {
     .button-flower {
         margin-left: 8rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 17.5rem;
     }
 }
+
 @media screen and (min-width : 640px) {
     .left-flower-input {
         margin-left: 8.5rem;
@@ -383,12 +508,14 @@ img {
     .button-flower {
         margin-left: 8.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 17.8rem;
     }
 }
+
 @media screen and (min-width : 650px) {
     .left-flower-input {
         margin-left: 9rem;
@@ -397,12 +524,14 @@ img {
     .button-flower {
         margin-left: 9rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 18rem;
     }
 }
+
 @media screen and (min-width : 660px) {
     .left-flower-input {
         margin-left: 10rem;
@@ -411,12 +540,14 @@ img {
     .button-flower {
         margin-left: 10rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 18.5rem;
     }
 }
+
 @media screen and (min-width : 670px) {
     .left-flower-input {
         margin-left: 11rem;
@@ -425,12 +556,14 @@ img {
     .button-flower {
         margin-left: 11rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 18.8rem;
     }
 }
+
 @media screen and (min-width : 685px) {
     .left-flower-input {
         margin-left: 12rem;
@@ -439,12 +572,14 @@ img {
     .button-flower {
         margin-left: 12rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 19.5rem;
     }
 }
+
 @media screen and (min-width : 700px) {
     .left-flower-input {
         margin-left: 13.5rem;
@@ -453,12 +588,14 @@ img {
     .button-flower {
         margin-left: 13.8rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 20rem;
     }
 }
+
 @media screen and (min-width : 725px) {
     .left-flower-input {
         margin-left: 14.8rem;
@@ -467,19 +604,22 @@ img {
     .button-flower {
         margin-left: 14.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 20.5rem;
     }
 }
+
 @media screen and (min-width : 735px) {
-    .nine-pm{
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 20.9rem;
     }
 }
+
 @media screen and (min-width : 750px) {
     .left-flower-input {
         margin-left: 15.5rem;
@@ -488,12 +628,14 @@ img {
     .button-flower {
         margin-left: 15.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 21.4rem;
     }
 }
+
 @media screen and (min-width : 768px) {
     .left-flower-input {
         margin-left: 16.5rem;
@@ -502,12 +644,14 @@ img {
     .button-flower {
         margin-left: 16.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 21.8rem;
     }
 }
+
 @media screen and (min-width : 780px) {
     .left-flower-input {
         margin-left: 18rem;
@@ -516,12 +660,14 @@ img {
     .button-flower {
         margin-left: 18rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 22.3rem;
     }
 }
+
 @media screen and (min-width : 800px) {
     .left-flower-input {
         margin-left: 18.5rem;
@@ -530,12 +676,14 @@ img {
     .button-flower {
         margin-left: 18.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 23rem;
     }
 }
+
 @media screen and (min-width : 815px) {
     .left-flower-input {
         margin-left: 19.5rem;
@@ -544,12 +692,14 @@ img {
     .button-flower {
         margin-left: 19rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 23.5rem;
     }
 }
+
 @media screen and (min-width : 825px) {
     .left-flower-input {
         margin-left: 21rem;
@@ -558,14 +708,16 @@ img {
     .button-flower {
         margin-left: 21rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 23.8rem;
     }
 }
+
 @media screen and (min-width : 835px) {
-    .nine-pm{
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 24.1rem;
@@ -580,12 +732,14 @@ img {
     .button-flower {
         margin-left: 22.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 24.7rem;
     }
 }
+
 @media screen and (min-width : 875px) {
     .left-flower-input {
         margin-left: 24rem;
@@ -594,12 +748,14 @@ img {
     .button-flower {
         margin-left: 24rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 25.4rem;
     }
 }
+
 @media screen and (min-width : 890px) {
     .left-flower-input {
         margin-left: 24.5rem;
@@ -608,12 +764,14 @@ img {
     .button-flower {
         margin-left: 24.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 25.7rem;
     }
 }
+
 @media screen and (min-width : 900px) {
     .left-flower-input {
         margin-left: 25.5rem;
@@ -622,12 +780,14 @@ img {
     .button-flower {
         margin-left: 25.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 26.3rem;
     }
 }
+
 @media screen and (min-width : 925px) {
     .left-flower-input {
         margin-left: 26.6rem;
@@ -636,12 +796,14 @@ img {
     .button-flower {
         margin-left: 27rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 26.7rem;
     }
 }
+
 @media screen and (min-width : 935px) {
     .left-flower-input {
         margin-left: 27rem;
@@ -650,12 +812,14 @@ img {
     .button-flower {
         margin-left: 27.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 27rem;
     }
-}   
+}
+
 @media screen and (min-width : 940px) {
     .left-flower-input {
         margin-left: 27.8rem;
@@ -664,12 +828,14 @@ img {
     .button-flower {
         margin-left: 28.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 27.2rem;
     }
 }
+
 @media screen and (min-width : 950px) {
     .left-flower-input {
         margin-left: 29rem;
@@ -678,19 +844,22 @@ img {
     .button-flower {
         margin-left: 29.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 27.5rem;
     }
 }
+
 @media screen and (min-width : 960px) {
-    .nine-pm{
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 27.8rem;
     }
 }
+
 @media screen and (min-width : 975px) {
     .left-flower-input {
         margin-left: 31rem;
@@ -699,12 +868,14 @@ img {
     .button-flower {
         margin-left: 31.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 28.2rem;
     }
 }
+
 @media screen and (min-width : 992px) {
     .left-flower-input {
         margin-left: 30.8rem;
@@ -713,12 +884,14 @@ img {
     .button-flower {
         margin-left: 31rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 28.7rem;
     }
 }
+
 @media screen and (min-width : 1000px) {
     .left-flower-input {
         margin-left: 31.8rem;
@@ -727,19 +900,22 @@ img {
     .button-flower {
         margin-left: 32.3rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 29.2rem;
     }
 }
+
 @media screen and (min-width : 1011px) {
-    .nine-pm{
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 29.5rem;
     }
 }
+
 @media screen and (min-width : 1024px) {
     .left-flower-input {
         margin-left: 33rem;
@@ -748,12 +924,14 @@ img {
     .button-flower {
         margin-left: 35rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 29.9rem;
     }
 }
+
 @media screen and (min-width : 1040px) {
     .left-flower-input {
         margin-left: 34rem;
@@ -762,12 +940,14 @@ img {
     .button-flower {
         margin-left: 36rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 30.4rem;
     }
 }
+
 @media screen and (min-width : 1055px) {
     .left-flower-input {
         margin-left: 35rem;
@@ -776,12 +956,14 @@ img {
     .button-flower {
         margin-left: 36.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 30.9rem;
     }
 }
+
 @media screen and (min-width : 1070px) {
     .left-flower-input {
         margin-left: 36rem;
@@ -790,12 +972,14 @@ img {
     .button-flower {
         margin-left: 36.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 31.5rem;
     }
 }
+
 @media screen and (min-width : 1090px) {
     .left-flower-input {
         margin-left: 37rem;
@@ -804,12 +988,14 @@ img {
     .button-flower {
         margin-left: 37.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 31.9rem;
     }
 }
+
 @media screen and (min-width : 1100px) {
     .left-flower-input {
         margin-left: 38rem;
@@ -818,12 +1004,14 @@ img {
     .button-flower {
         margin-left: 38.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 32.2rem;
     }
 }
+
 @media screen and (min-width : 1115px) {
     .left-flower-input {
         margin-left: 38.5rem;
@@ -832,13 +1020,15 @@ img {
     .button-flower {
         margin-left: 39rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 32.5rem;
     }
 
 }
+
 @media screen and (min-width : 1125px) {
     .left-flower-input {
         margin-left: 39.2rem;
@@ -847,12 +1037,14 @@ img {
     .button-flower {
         margin-left: 39.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 33rem;
     }
 }
+
 @media screen and (min-width : 1140px) {
     .left-flower-input {
         margin-left: 40.2rem;
@@ -861,12 +1053,14 @@ img {
     .button-flower {
         margin-left: 40.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 33.5rem;
     }
 }
+
 @media screen and (min-width : 1155px) {
     .left-flower-input {
         margin-left: 41rem;
@@ -875,12 +1069,14 @@ img {
     .button-flower {
         margin-left: 41.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 34rem;
     }
 }
+
 @media screen and (min-width : 1170px) {
     .left-flower-input {
         margin-left: 42rem;
@@ -889,12 +1085,14 @@ img {
     .button-flower {
         margin-left: 42.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 34.6rem;
     }
 }
+
 @media screen and (min-width : 1190px) {
     .left-flower-input {
         margin-left: 43.2rem;
@@ -903,12 +1101,14 @@ img {
     .button-flower {
         margin-left: 43.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 35rem;
     }
 }
+
 @media screen and (min-width : 1205px) {
     .left-flower-input {
         margin-left: 44.2rem;
@@ -917,12 +1117,14 @@ img {
     .button-flower {
         margin-left: 44.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 35.5rem;
     }
 }
+
 @media screen and (min-width : 1220px) {
     .left-flower-input {
         margin-left: 45.3rem;
@@ -931,12 +1133,14 @@ img {
     .button-flower {
         margin-left: 45.7rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 36rem;
     }
 }
+
 @media screen and (min-width : 1240px) {
     .left-flower-input {
         margin-left: 46.4rem;
@@ -945,12 +1149,14 @@ img {
     .button-flower {
         margin-left: 46.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 36.5rem;
     }
 }
+
 @media screen and (min-width : 1255px) {
     .left-flower-input {
         margin-left: 47.2rem;
@@ -959,12 +1165,14 @@ img {
     .button-flower {
         margin-left: 47.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 37rem;
     }
 }
+
 @media screen and (min-width : 1270px) {
     .left-flower-input {
         margin-left: 48.3rem;
@@ -973,12 +1181,14 @@ img {
     .button-flower {
         margin-left: 48.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 37.5rem;
     }
 }
+
 @media screen and (min-width : 1285px) {
     .left-flower-input {
         margin-left: 49.2rem;
@@ -987,12 +1197,14 @@ img {
     .button-flower {
         margin-left: 49.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 38rem;
     }
 }
+
 @media screen and (min-width : 1300px) {
     .left-flower-input {
         margin-left: 50rem;
@@ -1001,12 +1213,14 @@ img {
     .button-flower {
         margin-left: 50.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 38.5rem;
     }
 }
+
 @media screen and (min-width : 1315px) {
     .left-flower-input {
         margin-left: 51.2rem;
@@ -1015,12 +1229,14 @@ img {
     .button-flower {
         margin-left: 51.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 39rem;
     }
 }
+
 @media screen and (min-width : 1330px) {
     .left-flower-input {
         margin-left: 52rem;
@@ -1029,12 +1245,14 @@ img {
     .button-flower {
         margin-left: 52.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 39.5rem;
     }
 }
+
 @media screen and (min-width : 1345px) {
     .left-flower-input {
         margin-left: 53.2rem;
@@ -1043,12 +1261,14 @@ img {
     .button-flower {
         margin-left: 53.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 40rem;
     }
 }
+
 @media screen and (min-width : 1365px) {
     .left-flower-input {
         margin-left: 54.2rem;
@@ -1057,12 +1277,14 @@ img {
     .button-flower {
         margin-left: 54.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 40.5rem;
     }
 }
+
 @media screen and (min-width : 1380px) {
     .left-flower-input {
         margin-left: 55rem;
@@ -1071,12 +1293,14 @@ img {
     .button-flower {
         margin-left: 55.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 41rem;
     }
 }
+
 @media screen and (min-width : 1395px) {
     .left-flower-input {
         margin-left: 56rem;
@@ -1085,12 +1309,14 @@ img {
     .button-flower {
         margin-left: 56.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 41.5rem;
     }
 }
+
 @media screen and (min-width : 1410px) {
     .left-flower-input {
         margin-left: 57rem;
@@ -1099,12 +1325,14 @@ img {
     .button-flower {
         margin-left: 57.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 42rem;
     }
 }
+
 @media screen and (min-width : 1425px) {
     .left-flower-input {
         margin-left: 58.2rem;
@@ -1113,12 +1341,14 @@ img {
     .button-flower {
         margin-left: 58.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 42.5rem;
     }
 }
+
 @media screen and (min-width : 1445px) {
     .left-flower-input {
         margin-left: 59.2rem;
@@ -1127,12 +1357,14 @@ img {
     .button-flower {
         margin-left: 59.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 43rem;
     }
 }
+
 @media screen and (min-width : 1460px) {
     .left-flower-input {
         margin-left: 60rem;
@@ -1141,12 +1373,14 @@ img {
     .button-flower {
         margin-left: 60.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 43.5rem;
     }
 }
+
 @media screen and (min-width : 1475px) {
     .left-flower-input {
         margin-left: 61rem;
@@ -1155,12 +1389,14 @@ img {
     .button-flower {
         margin-left: 61.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 44rem;
     }
 }
+
 @media screen and (min-width : 1495px) {
     .left-flower-input {
         margin-left: 62.3rem;
@@ -1169,12 +1405,14 @@ img {
     .button-flower {
         margin-left: 62.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 44.5rem;
     }
 }
+
 @media screen and (min-width : 1510px) {
     .left-flower-input {
         margin-left: 63rem;
@@ -1183,12 +1421,14 @@ img {
     .button-flower {
         margin-left: 63.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 45rem;
     }
 }
+
 @media screen and (min-width : 1525px) {
     .left-flower-input {
         margin-left: 64.2rem;
@@ -1197,12 +1437,14 @@ img {
     .button-flower {
         margin-left: 64.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 45.5rem;
     }
 }
+
 @media screen and (min-width : 1540px) {
     .left-flower-input {
         margin-left: 65rem;
@@ -1211,12 +1453,14 @@ img {
     .button-flower {
         margin-left: 65.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 46.2rem;
     }
 }
+
 @media screen and (min-width : 1560px) {
     .left-flower-input {
         margin-left: 66.2rem;
@@ -1225,12 +1469,14 @@ img {
     .button-flower {
         margin-left: 66.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 46.6rem;
     }
 }
+
 @media screen and (min-width : 1575px) {
     .left-flower-input {
         margin-left: 67.4rem;
@@ -1239,12 +1485,14 @@ img {
     .button-flower {
         margin-left: 67.8rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 47rem;
     }
 }
+
 @media screen and (min-width : 1590px) {
     .left-flower-input {
         margin-left: 68.2rem;
@@ -1253,12 +1501,14 @@ img {
     .button-flower {
         margin-left: 68.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 47.5rem;
     }
 }
+
 @media screen and (min-width : 1605px) {
     .left-flower-input {
         margin-left: 69.2rem;
@@ -1267,12 +1517,14 @@ img {
     .button-flower {
         margin-left: 69.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 48rem;
     }
 }
+
 @media screen and (min-width : 1620px) {
     .left-flower-input {
         margin-left: 70rem;
@@ -1281,12 +1533,14 @@ img {
     .button-flower {
         margin-left: 70.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 48.5rem;
     }
 }
+
 @media screen and (min-width : 1635px) {
     .left-flower-input {
         margin-left: 71rem;
@@ -1295,12 +1549,14 @@ img {
     .button-flower {
         margin-left: 71.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 49rem;
     }
 }
+
 @media screen and (min-width : 1650px) {
     .left-flower-input {
         margin-left: 72rem;
@@ -1309,12 +1565,14 @@ img {
     .button-flower {
         margin-left: 72.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 49.5rem;
     }
 }
+
 @media screen and (min-width : 1670px) {
     .left-flower-input {
         margin-left: 73.2rem;
@@ -1323,12 +1581,14 @@ img {
     .button-flower {
         margin-left: 73.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 50rem;
     }
 }
+
 @media screen and (min-width : 1685px) {
     .left-flower-input {
         margin-left: 74.2rem;
@@ -1337,12 +1597,14 @@ img {
     .button-flower {
         margin-left: 74.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 50.5rem;
     }
 }
+
 @media screen and (min-width : 1700px) {
     .left-flower-input {
         margin-left: 75rem;
@@ -1351,12 +1613,14 @@ img {
     .button-flower {
         margin-left: 75.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 51rem;
     }
 }
+
 @media screen and (min-width : 1715px) {
     .left-flower-input {
         margin-left: 76rem;
@@ -1365,12 +1629,14 @@ img {
     .button-flower {
         margin-left: 76.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 51.5rem;
     }
 }
+
 @media screen and (min-width : 1730px) {
     .left-flower-input {
         margin-left: 77rem;
@@ -1379,13 +1645,15 @@ img {
     .button-flower {
         margin-left: 77.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 52rem;
     }
-    
+
 }
+
 @media screen and (min-width : 1745px) {
     .left-flower-input {
         margin-left: 78rem;
@@ -1394,12 +1662,14 @@ img {
     .button-flower {
         margin-left: 78.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 52.5rem;
     }
 }
+
 @media screen and (min-width : 1760px) {
     .left-flower-input {
         margin-left: 79rem;
@@ -1408,13 +1678,15 @@ img {
     .button-flower {
         margin-left: 79.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 53rem;
     }
-    
+
 }
+
 @media screen and (min-width : 1775px) {
     .left-flower-input {
         margin-left: 80rem;
@@ -1423,12 +1695,14 @@ img {
     .button-flower {
         margin-left: 80.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 53.5rem;
     }
 }
+
 @media screen and (min-width : 1795px) {
     .left-flower-input {
         margin-left: 81rem;
@@ -1437,12 +1711,14 @@ img {
     .button-flower {
         margin-left: 81.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 54rem;
     }
 }
+
 @media screen and (min-width : 1810px) {
     .left-flower-input {
         margin-left: 82rem;
@@ -1451,12 +1727,14 @@ img {
     .button-flower {
         margin-left: 82.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 54.5rem;
     }
 }
+
 @media screen and (min-width : 1825px) {
     .left-flower-input {
         margin-left: 83rem;
@@ -1465,12 +1743,14 @@ img {
     .button-flower {
         margin-left: 83.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 55rem;
     }
 }
+
 @media screen and (min-width : 1845px) {
     .left-flower-input {
         margin-left: 84rem;
@@ -1479,12 +1759,14 @@ img {
     .button-flower {
         margin-left: 84.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 55.5rem;
     }
 }
+
 @media screen and (min-width : 1860px) {
     .left-flower-input {
         margin-left: 85rem;
@@ -1493,12 +1775,14 @@ img {
     .button-flower {
         margin-left: 85.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 56rem;
     }
 }
+
 @media screen and (min-width : 1875px) {
     .left-flower-input {
         margin-left: 86rem;
@@ -1507,12 +1791,14 @@ img {
     .button-flower {
         margin-left: 86.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 56.5rem;
     }
 }
+
 @media screen and (min-width : 1890px) {
     .left-flower-input {
         margin-left: 87rem;
@@ -1521,12 +1807,14 @@ img {
     .button-flower {
         margin-left: 87.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 57rem;
     }
 }
+
 @media screen and (min-width : 1905px) {
     .left-flower-input {
         margin-left: 88rem;
@@ -1535,12 +1823,14 @@ img {
     .button-flower {
         margin-left: 88.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 57.5rem;
     }
 }
+
 @media screen and (min-width : 1920px) {
     .left-flower-input {
         margin-left: 89.2rem;
@@ -1549,12 +1839,14 @@ img {
     .button-flower {
         margin-left: 89.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 58rem;
     }
 }
+
 @media screen and (min-width : 1940px) {
     .left-flower-input {
         margin-left: 90rem;
@@ -1563,12 +1855,14 @@ img {
     .button-flower {
         margin-left: 90.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 58.5rem;
     }
 }
+
 @media screen and (min-width : 1955px) {
     .left-flower-input {
         margin-left: 91.2rem;
@@ -1577,12 +1871,14 @@ img {
     .button-flower {
         margin-left: 91.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 59rem;
     }
 }
+
 @media screen and (min-width : 1975px) {
     .left-flower-input {
         margin-left: 92.2rem;
@@ -1591,12 +1887,14 @@ img {
     .button-flower {
         margin-left: 92.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 59.5rem;
     }
 }
+
 @media screen and (min-width : 1990px) {
     .left-flower-input {
         margin-left: 93.2rem;
@@ -1605,12 +1903,14 @@ img {
     .button-flower {
         margin-left: 93.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 60rem;
     }
 }
+
 @media screen and (min-width : 2005px) {
     .left-flower-input {
         margin-left: 94.3rem;
@@ -1619,12 +1919,14 @@ img {
     .button-flower {
         margin-left: 94.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 60.5rem;
     }
 }
+
 @media screen and (min-width : 2025px) {
     .left-flower-input {
         margin-left: 95rem;
@@ -1633,12 +1935,14 @@ img {
     .button-flower {
         margin-left: 95.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 61rem;
     }
 }
+
 @media screen and (min-width : 2035px) {
     .left-flower-input {
         margin-left: 96rem;
@@ -1647,12 +1951,14 @@ img {
     .button-flower {
         margin-left: 96.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 61.5rem;
     }
 }
+
 @media screen and (min-width : 2050px) {
     .left-flower-input {
         margin-left: 97.2rem;
@@ -1661,12 +1967,14 @@ img {
     .button-flower {
         margin-left: 97.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 62rem;
     }
 }
+
 @media screen and (min-width : 2065px) {
     .left-flower-input {
         margin-left: 98rem;
@@ -1675,12 +1983,14 @@ img {
     .button-flower {
         margin-left: 98.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 62.5rem;
     }
 }
+
 @media screen and (min-width : 2080px) {
     .left-flower-input {
         margin-left: 99rem;
@@ -1689,12 +1999,14 @@ img {
     .button-flower {
         margin-left: 99.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 63rem;
     }
 }
+
 @media screen and (min-width : 2095px) {
     .left-flower-input {
         margin-left: 100rem;
@@ -1703,12 +2015,14 @@ img {
     .button-flower {
         margin-left: 100.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 63.5rem;
     }
 }
+
 @media screen and (min-width : 2115px) {
     .left-flower-input {
         margin-left: 101rem;
@@ -1717,12 +2031,14 @@ img {
     .button-flower {
         margin-left: 101.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 64rem;
     }
 }
+
 @media screen and (min-width : 2130px) {
     .left-flower-input {
         margin-left: 102rem;
@@ -1731,12 +2047,14 @@ img {
     .button-flower {
         margin-left: 102.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 64.5rem;
     }
 }
+
 @media screen and (min-width : 2145px) {
     .left-flower-input {
         margin-left: 103rem;
@@ -1745,12 +2063,14 @@ img {
     .button-flower {
         margin-left: 103.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 65rem;
     }
 }
+
 @media screen and (min-width : 2160px) {
     .left-flower-input {
         margin-left: 104rem;
@@ -1759,12 +2079,14 @@ img {
     .button-flower {
         margin-left: 104.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 65.5rem;
     }
 }
+
 @media screen and (min-width : 2175px) {
     .left-flower-input {
         margin-left: 105rem;
@@ -1773,12 +2095,14 @@ img {
     .button-flower {
         margin-left: 105.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 66rem;
     }
 }
+
 @media screen and (min-width : 2190px) {
     .left-flower-input {
         margin-left: 106rem;
@@ -1787,12 +2111,14 @@ img {
     .button-flower {
         margin-left: 106.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 66.5rem;
     }
 }
+
 @media screen and (min-width : 2210px) {
     .left-flower-input {
         margin-left: 107rem;
@@ -1801,12 +2127,14 @@ img {
     .button-flower {
         margin-left: 107.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 67rem;
     }
 }
+
 @media screen and (min-width : 2225px) {
     .left-flower-input {
         margin-left: 108rem;
@@ -1815,12 +2143,14 @@ img {
     .button-flower {
         margin-left: 108.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 67.5rem;
     }
 }
+
 @media screen and (min-width : 2560px) {
     .left-flower-input {
         margin-left: 128rem;
@@ -1829,13 +2159,15 @@ img {
     .button-flower {
         margin-left: 128.5rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 77rem;
     }
 }
-@media screen and (min-width : 3840px ) {
+
+@media screen and (min-width : 3840px) {
     .left-flower-input {
         margin-left: 220rem;
     }
@@ -1843,7 +2175,8 @@ img {
     .button-flower {
         margin-left: 220rem;
     }
-    .nine-pm{
+
+    .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 118rem;
