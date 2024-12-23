@@ -1,4 +1,3 @@
-// script.js  
 const swiper = new Swiper('.swiper-container', {  
     slidesPerView: 1,   
     spaceBetween: 0,  
@@ -35,13 +34,6 @@ inviteElement.style.opacity = 1; // محو بودن
 inviteElement.style.animation = 'show 1s forwards'; // نمایش  
 setTimeout(typeWriter, 1000); // شروع تایپ بعد از 1 ثانیه
 
-// couples-name element
-
-
-
-
-
-
 
 // document.addEventListener('DOMContentLoaded', function () {
 //     var elements = document.querySelectorAll('.animated-item');
@@ -53,41 +45,9 @@ setTimeout(typeWriter, 1000); // شروع تایپ بعد از 1 ثانیه
 //     });
 // });
 
-// document.addEventListener('DOMContentLoaded', function () {  
-//     var elements = document.querySelectorAll('.animated-item');  
-//     var delay = 0.5; // زمان پایه تاخیر هر انیمیشن به ثانیه  
 
-//     elements.forEach((element, index) => {  
-//         // تعیین تاخیر بر اساس اندیس المان  
-//         var animationDelay = `${delay + index * 0.2}s`;  
-//         element.style.animationDelay = animationDelay;  
-//         element.style.opacity = '0'; // برای شروع با شفافیت صفر  
-//         element.classList.add('animate__animated', 'animate__fadeInUp'); // اضافه کردن کلاس انیمیشن  
 
-//         // یک تایمر برای نمایش دادن آن  
-//         setTimeout(() => {  
-//             element.style.opacity = '1'; // تنظیم شفافیت به 1 برای ظهور  
-//         }, delay * 1000 + index * 200); // زمان بر حسب میلی ثانیه  
-//     });  
-// });
-
-// document.addEventListener('DOMContentLoaded', function () {  
-//     var elements = document.querySelectorAll('#brides-name .animated-item'); // انتخاب تمام عناصر  
-//     var delay = 0.5; // زمان پایه تاخیر هر انیمیشن به ثانیه  
-
-//     elements.forEach((element, index) => {  
-//         // تعیین تاخیر بر اساس اندیس المان  
-//         var animationDelay = `${delay + index * 0.2}s`;  
-//         element.style.animationDelay = animationDelay;  
-//         element.style.opacity = '0'; // برای شروع با شفافیت صفر  
-//         element.classList.add('animate__animated', 'animate__fadeInUpBig'); // اضافه کردن کلاس انیمیشن  
-
-//         // یک تایمر برای نمایش دادن آن  
-//         setTimeout(() => {  
-//             element.style.opacity = '1'; // تنظیم شفافیت به 1 برای ظهور  
-//         }, (delay * 1000) + (index * 200)); // زمان بر حسب میلی ثانیه  
-//     });  
-// });
+// couples-name
 
 document.addEventListener('DOMContentLoaded', function () {  
     var groomsElements = document.querySelectorAll('#couples-name .animated-item');  
@@ -129,3 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('brides-name').style.opacity = '1';  
     }, totalGroomsAnimationTime); // شروع انیمیشن brides-name بعد از اتمام grooms-name  
 });
+
+// top-middle-left-flower
+

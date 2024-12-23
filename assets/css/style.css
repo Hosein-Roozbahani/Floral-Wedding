@@ -59,6 +59,7 @@ img {
 .images {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .invite-message {
@@ -76,37 +77,10 @@ img {
     /* animation: bounce 1s infinite; */
 }
 
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: black;
-    }
-}
-
-@keyframes show {
-    to {
-        opacity: 1;
-    }
-}
-
-/* @keyframes typing {  
-    from { width: 0; }  
-    to { width: 85%; }  
-}  
-
-@keyframes blink-caret {  
-    from, to { border-color: transparent; }  
-    50% { border-color: black; }  
-}  */
 .couples-name {
     font-family: 'charm';
     font-style: italic;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 600;
     text-align: center;
     margin-top: 2rem;
@@ -115,55 +89,16 @@ img {
     /* opacity: 0;
     white-space: pre; */
 }
-#brides-name {  
-    opacity: 0; /* شروع با شفافیت صفر */  
-    transition: opacity 0.5s ease; /* انیمیشن برای تغییر شفافیت */  
-}
-.title {
-    transform: translateX(-50%) rotate(-10deg);
-    display: block;
-    float: left;
-    left: 50%;
-    position: relative;
 
-    span {
-        transform: skew(-10deg);
-        display: block;
-        float: left;
-        text-shadow: rgba(0, 0, 0, 0.5) 1px 1px, rgba(0, 0, 0, 0.5) 2px 2px, rgba(0, 0, 0, 0.5) 3px 3px, rgba(0, 0, 0, 0.5) 4px 4px, rgba(0, 0, 0, 0.5) 5px 5px, rgba(0, 0, 0, 0.5) 6px 6px;
-        min-width: 10px;
-        min-height: 10px;
-        position: relative;
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        /* انیمیشن محو شدن */
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(30px);
-        /* حرکت به سمت پایین */
-        opacity: 0;
-        /* در ابتدا محو */
-    }
-
-    to {
-        transform: translateY(0);
-        /* به موقعیت اصلی برمی‌گردد */
-        opacity: 1;
-        /* در انتها نمایان می‌شود */
-    }
+#brides-name {
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .top-right-flower {
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    top: 0;
+    right: 0;
     filter: brightness(0.95);
     transform: scale(1.3);
 }
@@ -222,12 +157,18 @@ img {
     width: 10rem;
     height: 10rem;
 }
+.top-right-middle-flower-image{
+    position: absolute;
+    top: 0;
+}
 
 .top-middle-left-flower {
     position: absolute;
     top: 9rem;
     left: 0;
-    transform: scaleX(-1);
+    transform: scaleX(-1) !important;
+    filter: brightness(0.95) !important;
+    z-index: 999999999999;
 }
 
 /* second-slide */
