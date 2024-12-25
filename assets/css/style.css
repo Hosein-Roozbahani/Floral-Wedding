@@ -110,6 +110,75 @@ img {
     filter: brightness(0.95);
 }
 
+/* Animations */
+
+@keyframes moveBackAndForth {  
+    0% { transform: translateX(0); }  
+    50% { transform: translateX(-3px); } /* حرکت به بالا */  
+    100% { transform: translateX(0); }  
+}  
+
+@keyframes moveY {  
+    0% { transform: translateY(0); }  
+    50% { transform: translateY(-3px); } /* حرکت به بالا */  
+    100% { transform: translateY(0); }  
+}
+
+/* animation: moveUpFirst 2s ease-in-out 0s forwards, rotateLeftRight 4s ease-in-out 2s infinite; */
+
+@keyframes rotateLeftRight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* انیمیشن چرخش برای تصویر دوم (چرخش بالا و پایین) */
+
+@keyframes rotateUpDown {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* انیمیشن چرخش برای تصویر سوم (چرخش به راست و چپ) */
+
+@keyframes rotateRightLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);        
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.animated-move {  
+    animation: rotateLeftRight 3s ease-in-out infinite; /* زمان و مقدار انیمیشن */  
+}
+.animated-move-y {  
+    animation: moveY 2s ease-in-out infinite; /* زمان و مقدار انیمیشن */  
+}
+
 .maghbareh {
     position: absolute;
     bottom: 3rem;
@@ -157,7 +226,7 @@ img {
     width: 10rem;
     height: 10rem;
 }
-.top-right-middle-flower-image{
+.top-left-middle-flower-image{
     position: absolute;
     top: 0;
 }
@@ -169,6 +238,14 @@ img {
     transform: scaleX(-1) !important;
     filter: brightness(0.95) !important;
     z-index: 999999999999;
+}
+
+.late-fadeIn{
+    animation-delay: 3s;
+}
+.custom-fadeIn {  
+    animation-duration: 3s; /* زمان انیمیشن را به دلخواه تغییر دهید */  
+    animation-delay: 2.5s;
 }
 
 /* second-slide */
