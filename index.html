@@ -5,34 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animation's Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
 
-    <section class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide first-slide" id="first-slide">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" id="first-slide">
                 <div class="relative">
-                    <img src="/assets/images/Background-mobile.png" class="background-image" id="background-image"
-                        alt="">
+                    <img src="/assets/images/Background-mobile.png" class="background-image" alt="">
                     <div class="images">
-                        <div class="top-left-flower-image ">
+                        <div class="top-left-flower-image">
                             <img src="/assets/images/Top-Left-Flower.png"
                                 class="top-left-flower animate__animated animate__backInDown" alt="">
                         </div>
                         <div class="tavoos-image">
                             <img src="/assets/images/TAVOOS.png"
-                                class="tavoos animate__animated animate__zoomIn late-fadeIn" alt="">
+                                class="tavoos animate__animated animate__zoomIn custom-fadeIn" alt="">
                         </div>
                         <div class="top-right-flower-image">
                             <img src="/assets/images/Top-Right-Flower.png"
                                 class="top-right-flower animate__animated animate__backInDown" alt="">
                         </div>
                         <div class="top-left-middle-flower-image animate__animated animate__backInLeft">
-                            <img src="/assets/images/Top-Right-Flower.png" class="top-middle-left-flower animated-move-y" alt="">
+                            <img src="/assets/images/Top-Right-Flower.png"
+                                class="top-middle-left-flower animated-move-y" alt="">
                         </div>
                         <div class="maghbareh-image">
                             <img src="/assets/images/maghbareh.png"
@@ -58,7 +59,7 @@
                         </div>
                     </div>
                     <div class="absolute w-100">
-                        <h3 class="invite-message animate__animated" id="invite-message"></h3>
+                        <h3 class="invite-message animate__animated fs-6" id="invite-message"></h3>
                         <div class="couples-name">
                             <h1 class="grooms-name" id="couples-name">
                                 <span class="animated-item Murad">Murad</span>
@@ -70,90 +71,109 @@
                                 <span class="animated-item Dewi">Dewi</span>
                             </h1>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            <!-- سایر بخش‌ها -->
-            <div class="swiper-slide second-slide" id="second-slide">
+            <!-- Slide دوم -->
+            <div class="carousel-item" id="second-slide">
                 <div class="relative">
-                    <img src="/assets/images/Background-mobile.png" class="background-image" id="background-image"
-                        alt="">
-                        <div class="images">
-                            <div class="top-left-flower-image ">
-                                <img src="/assets/images/Top-Left-Flower.png"
-                                    class="top-left-flower animate__animated animate__backInDown" alt="">
+                    <img src="/assets/images/Background-mobile.png" class="background-image" alt="">
+                    <div class="images">
+                        <div class="top-left-flower-image">
+                            <img src="/assets/images/Top-Left-Flower.png"
+                                class="top-left-flower animate__animated animate__backInDown" alt="">
+                        </div>
+                        <div class="tavoos-image late-fadeIn">
+                            <img src="/assets/images/TAVOOS.png"
+                                class="tavoos animate__animated animate__zoomIn custom-fadeIn" alt="">
+                        </div>
+                        <div class="top-right-flower-image">
+                            <img src="/assets/images/Top-Right-Flower.png"
+                                class="top-right-flower animate__animated animate__backInDown" alt="">
+                        </div>
+                        <div class="top-left-middle-flower-image second-image animate__animated animate__backInLeft">
+                            <img src="/assets/images/Top-Right-Flower.png" class="top-middle-left-flower second-img"
+                                alt="">
+                        </div>
+                        <div class="maghbareh-image">
+                            <img src="/assets/images/maghbareh.png"
+                                class="maghbareh animate__animated animate__fadeIn custom-fadeIn" alt="">
+                        </div>
+                        <div class="voorodi-container">
+                            <div class="voorodi-image">
+                                <img src="/assets/images/VOORODI.png"
+                                    class="voorodi animate__animated animate__fadeIn custom-fadeIn" alt="">
                             </div>
-                            <div class="tavoos-image">
-                                <img src="/assets/images/TAVOOS.png"
-                                    class="tavoos animate__animated animate__zoomIn late-fadeIn" alt="">
+                            <div class="button-flower-image">
+                                <img src="/assets/images/Buttom-Flower.png"
+                                    class="button-flower animate__animated animate__fadeIn custom-fadeIn" alt="">
                             </div>
-                            <div class="top-right-flower-image">
-                                <img src="/assets/images/Top-Right-Flower.png"
-                                    class="top-right-flower animate__animated animate__backInDown" alt="">
-                            </div>
-                            <div class="top-left-middle-flower-image second-image animate__animated animate__backInLeft">
-                                <img src="/assets/images/Top-Right-Flower.png" class="top-middle-left-flower second-img" alt="">
-                            </div>
-                            <div class="maghbareh-image">
-                                <img src="/assets/images/maghbareh.png"
-                                    class="maghbareh animate__animated animate__fadeIn custom-fadeIn" alt="">
-                            </div>
-                            <div class="voorodi-container">
-                                <div class="voorodi-image">
-                                    <img src="/assets/images/VOORODI.png"
-                                        class="voorodi animate__animated animate__fadeIn custom-fadeIn" alt="">
-                                </div>
-                                <div class="button-flower-image">
-                                    <img src="/assets/images/Buttom-Flower.png"
-                                        class="button-flower animate__animated animate__fadeIn custom-fadeIn" alt="">
-                                </div>
-                                <div class="left-flower-input-image-1">
-                                    <img src="/assets/images/left-flower-input-maghbareh.png"
-                                        class="left-flower-input animate__animated animate__fadeIn custom-fadeIn" alt="">
-                                </div>
-                            </div>
-                            <div class="left-flower-input-image-2">
+                            <div class="left-flower-input-image-1">
                                 <img src="/assets/images/left-flower-input-maghbareh.png"
-                                    class="left-flower-input-1 animate__animated animate__fadeIn custom-fadeIn" alt="">
+                                    class="left-flower-input animate__animated animate__fadeIn custom-fadeIn" alt="">
                             </div>
                         </div>
-
+                        <div class="left-flower-input-image-2">
+                            <img src="/assets/images/left-flower-input-maghbareh.png"
+                                class="left-flower-input-1 animate__animated animate__fadeIn custom-fadeIn" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="poetry absolute w-100">
+                <div class="poetry absolute w-100 animate__animated animate__fadeInUp">
                     <h3>Two souls, one heart. Join us as we <br> celebrate love, laughter and the beginning <br> of our
                         forever</h3>
                 </div>
                 <div class="date absolute w-100">
-                    <div class="december">DECEMBER</div>
+                    <div class="december animate__animated animate__fadeInDownBig">DECEMBER</div>
                     <div class="Horizontal-data">
-                        <span class="friday">FRIDAY</span>
-                        <span class="thirty">30</span>
-                        <span class="the-year">2025</span>
+                        <span class="friday animate__animated animate__fadeInLeftBig">FRIDAY</span>
+                        <span class="thirty animate__animated animate__fadeIn">30</span>
+                        <span class="the-year animate__animated animate__fadeInRightBig">2025</span>
                     </div>
-                    <div class="nine-pm">09:00 PM</div>
+                    <div class="nine-pm animate__animated animate__fadeInUp">09:00 PM</div>
                 </div>
                 <div class="address absolute w-100">
-                    123 Anywhere St. Any City, <br> ST 12345
+                    <!-- 123 Anywhere St. Any City, <br> ST 12345   -->
                 </div>
             </div>
-            <div class="swiper-slide third-slide" id="third-slide">
+
+            <div class="carousel-item" id="third-slide">
                 <h1>Third Slide Content</h1>
             </div>
-            <div class="swiper-slide fourth-slide" id="fourth-slide">
+
+            <!-- اسلاید چهارم -->
+            <div class="carousel-item" id="fourth-slide">
                 <h1>Fourth Slide Content</h1>
             </div>
+
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class=" text-black" id="Previous-button" aria-hidden="true">
+                    <</span> <span class="visually-hidden">Previous
+                </span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="text-black" id="Next-button" aria-hidden="true">></span>
+                <span class="visually-hidden">Next</span>
+            </button> -->
+
+            <button class="carousel-control-prev position-fixed right-0" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">  
+                <span class="text-black" id="Previous-button" aria-hidden="true">  
+                    &lt;</span>   
+                <span class="visually-hidden">Previous</span>  
+            </button>  
+            <button class="carousel-control-next position-fixed " type="button" data-bs-target="#carouselExample" data-bs-slide="next">  
+                <span class="text-black" id="Next-button" aria-hidden="true">&gt;</span>  
+                <span class="visually-hidden">Next</span>  
+            </button>
         </div>
+    </div>
 
-        <!-- دکمه‌های ناوبری -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </section>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="/assets/js/script.js"></script> <!-- حرکت رو به پایین -->
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
