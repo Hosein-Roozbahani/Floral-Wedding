@@ -46,6 +46,10 @@ img {
     width: 100px;
     height: 100px;
 }
+object{
+    width: 110px;
+    height: 110px; 
+}
 .right-0{
     right: 0;
 }
@@ -69,29 +73,34 @@ img {
     height: 100px;
     opacity: 1;
     z-index: 10;
-    top: 50%;
+    top: 45%;
     transform: translateY(-80%);
     font-size: 4rem;
     border-radius: 50%;
     margin: 0 -1rem;
 }
 
+.arrows{
+    width: 70px;
+    height: 70px;
+}
 
 .carousel-item {
     animation-timeline: view();
     animation-range: entry 0% cover 50%;
 }
 
-/* .carousel-item.active {
-    opacity: 1;
-}
-
-.carousel-item.show {
-    opacity: 1;
-} */
-
-
 /* first slide */
+
+/* .background-image {  
+    background-image: url('/assets/images/Background-mobile.png');
+    background-size: cover;  
+    background-position:top;  
+    background-repeat: no-repeat;  
+    width: 100vw;  
+    height: 100vh;  
+    z-index: -11;  
+}   */
 
 .background-image {
     background-size: cover;
@@ -100,6 +109,14 @@ img {
     width: 100vw;
     height: 100vh;
     z-index: -11;
+}
+
+#z {  
+    position: absolute;
+    top: 1rem;
+    z-index: 999999999;         
+    text-align: center;
+    width: 100%;
 }
 
 .images {
@@ -147,17 +164,18 @@ img {
 
 .top-right-flower {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1.5rem;
+    right: -.8rem;
     filter: brightness(0.95);
-    transform: scale(1.3);
+    /* transform: scale(1.3); */
 }
 
 .top-left-flower {
-    transform: scaleX(-1);
+    /* transform: scaleX(-1) !important; */
     position: absolute;
-    top: -2rem;
+    top: -2.2rem;
     filter: brightness(0.95);
+    margin-left: 1rem;
 }
 
 /* Animations */
@@ -243,44 +261,59 @@ img {
 
 .animated-move {
     animation: rotateLeftRight 3s ease-in-out infinite;
-    /* زمان و مقدار انیمیشن */
 }
 
 .animated-move-x {
     animation: rotateRightLeft 3s ease-in-out infinite;
-    /* زمان و مقدار انیمیشن */
+}
+.move-y {
+    animation: moveY 3s ease-in-out infinite;
 }
 
 .animated-move-y {
     animation: rotateUpDown 3s ease-in-out infinite;
-    /* زمان و مقدار انیمیشن */
-}
 
-.move-y {
-    animation: moveY 3s ease-in-out infinite;
-    /* زمان و مقدار انیمیشن */
 }
 
 .maghbareh {
     position: absolute;
-    bottom: 3rem;
-    right: -3rem;
-    width: 25rem;
-    height: 20rem;
+    bottom: 2.8rem;
+    right: -3.5rem;
+    width: 28rem;
+    height: 22rem;
+    background-size: contain;
+    z-index: 9999;
 }
 
 .voorodi {
     position: absolute;
-    bottom: -2rem;
-    right: 6rem;
-    width: 20rem;
+    bottom: -2.1rem;
+    right: 4.4rem;
+    width: 25rem;
     height: 12rem;
+    background-size: cover;
+    
 }
 
 .left-flower-input {
     position: absolute;
-    bottom: 0;
-    left: 5rem;
+    bottom: -1rem;
+    right: .5rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.left-flower-input-1 {
+    position: absolute;
+    bottom: -.5rem;
+    right: 2.4rem;
+    width: 10rem;
+    height: 10rem;
+}
+.left-flower-input-2{
+    position: absolute;
+    bottom: -.5rem;
+    right: -2rem;
     width: 10rem;
     height: 10rem;
 }
@@ -288,25 +321,19 @@ img {
 .tavoos {
     z-index: 11111111111111111111;
     position: absolute;
-    right: 0;
-    bottom: 15rem;
-    width: 10rem;
-    height: 8rem;
+    right: -1rem;
+    bottom: 15.5rem;
+    width: 11rem;
+    height: 9rem;
+    background-size: contain;
 }
 
 .button-flower {
     position: absolute;
-    bottom: 2.5rem;
-    left: 3rem;
+    bottom: 8rem;
+    right: 0;
     filter: brightness(0.95);
-}
-
-.left-flower-input-1 {
-    position: absolute;
-    bottom: -.5rem;
-    right: 3rem;
-    width: 10rem;
-    height: 10rem;
+    z-index: 999;
 }
 
 .top-left-middle-flower-image {
@@ -317,7 +344,7 @@ img {
 .top-middle-left-flower {
     position: absolute;
     top: 9rem;
-    left: 0;
+    left: -1rem;
     transform: scaleX(-1) !important;
     filter: brightness(0.95) !important;
     z-index: 999999999999;
@@ -352,7 +379,7 @@ img {
 }
 
 .address {
-    margin-top: 20rem;
+    margin-top: 19rem;
     text-align: center !important;
     color: #5c5c5c;
     font-weight: 100;
@@ -392,6 +419,25 @@ img {
     bottom: .5rem;
 }
 
+/* thrid slide */
+
+/* .wedding-title, .weddings-plan {
+    z-index: 99999999 !important;
+} */
+.our-plan{
+    height: 100vh;
+}
+.wedding-title{
+    width: 100%;
+    text-align: center;
+    margin-top: 5.5rem;
+}
+.weddings-plan{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    padding-top: 10rem;
+}
 /* responsive */
 
 @media screen and (min-width : 450px) {
@@ -405,14 +451,6 @@ img {
 }
 
 @media screen and (min-width : 465px) {
-    .left-flower-input {
-        margin-left: -2.3rem;
-    }
-
-    .button-flower {
-        margin-left: -2rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -421,14 +459,6 @@ img {
 }
 
 @media screen and (min-width : 480px) {
-    .left-flower-input {
-        margin-left: -1.5rem;
-    }
-
-    .button-flower {
-        margin-left: -1.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -436,26 +466,7 @@ img {
     }
 }
 
-@media screen and (min-width : 490px) {
-    .left-flower-input {
-        margin-left: -.7rem;
-    }
-
-    .button-flower {
-        margin-left: -.5rem;
-    }
-
-}
-
 @media screen and (min-width : 505px) {
-    .left-flower-input {
-        margin-left: 0rem;
-    }
-
-    .button-flower {
-        margin-left: 0rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -464,14 +475,6 @@ img {
 }
 
 @media screen and (min-width : 515px) {
-    .left-flower-input {
-        margin-left: .5rem;
-    }
-
-    .button-flower {
-        margin-left: .7rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -480,14 +483,6 @@ img {
 }
 
 @media screen and (min-width : 525px) {
-    .left-flower-input {
-        margin-left: 1.5rem;
-    }
-
-    .button-flower {
-        margin-left: 1.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -496,14 +491,6 @@ img {
 }
 
 @media screen and (min-width : 535px) {
-    .left-flower-input {
-        margin-left: 2.2rem;
-    }
-
-    .button-flower {
-        margin-left: 2rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -512,14 +499,6 @@ img {
 }
 
 @media screen and (min-width : 550px) {
-    .left-flower-input {
-        margin-left: 3.5rem;
-    }
-
-    .button-flower {
-        margin-left: 3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -528,14 +507,6 @@ img {
 }
 
 @media screen and (min-width : 570px) {
-    .left-flower-input {
-        margin-left: 4.5rem;
-    }
-
-    .button-flower {
-        margin-left: 4.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -544,14 +515,6 @@ img {
 }
 
 @media screen and (min-width : 590px) {
-    .left-flower-input {
-        margin-left: 5.3rem;
-    }
-
-    .button-flower {
-        margin-left: 5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -560,14 +523,6 @@ img {
 }
 
 @media screen and (min-width : 600px) {
-    .left-flower-input {
-        margin-left: 6.2rem;
-    }
-
-    .button-flower {
-        margin-left: 6rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -576,14 +531,6 @@ img {
 }
 
 @media screen and (min-width : 615px) {
-    .left-flower-input {
-        margin-left: 7rem;
-    }
-
-    .button-flower {
-        margin-left: 7rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -592,14 +539,6 @@ img {
 }
 
 @media screen and (min-width : 625px) {
-    .left-flower-input {
-        margin-left: 8rem;
-    }
-
-    .button-flower {
-        margin-left: 8rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -608,14 +547,6 @@ img {
 }
 
 @media screen and (min-width : 640px) {
-    .left-flower-input {
-        margin-left: 8.5rem;
-    }
-
-    .button-flower {
-        margin-left: 8.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -624,14 +555,6 @@ img {
 }
 
 @media screen and (min-width : 650px) {
-    .left-flower-input {
-        margin-left: 9rem;
-    }
-
-    .button-flower {
-        margin-left: 9rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -640,14 +563,6 @@ img {
 }
 
 @media screen and (min-width : 660px) {
-    .left-flower-input {
-        margin-left: 10rem;
-    }
-
-    .button-flower {
-        margin-left: 10rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -656,14 +571,6 @@ img {
 }
 
 @media screen and (min-width : 670px) {
-    .left-flower-input {
-        margin-left: 11rem;
-    }
-
-    .button-flower {
-        margin-left: 11rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -672,14 +579,6 @@ img {
 }
 
 @media screen and (min-width : 685px) {
-    .left-flower-input {
-        margin-left: 12rem;
-    }
-
-    .button-flower {
-        margin-left: 12rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -688,14 +587,6 @@ img {
 }
 
 @media screen and (min-width : 700px) {
-    .left-flower-input {
-        margin-left: 13.5rem;
-    }
-
-    .button-flower {
-        margin-left: 13.8rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -704,14 +595,6 @@ img {
 }
 
 @media screen and (min-width : 725px) {
-    .left-flower-input {
-        margin-left: 14.8rem;
-    }
-
-    .button-flower {
-        margin-left: 14.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -728,14 +611,6 @@ img {
 }
 
 @media screen and (min-width : 750px) {
-    .left-flower-input {
-        margin-left: 15.5rem;
-    }
-
-    .button-flower {
-        margin-left: 15.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -744,30 +619,17 @@ img {
 }
 
 @media screen and (min-width : 768px) {
-    .left-flower-input {
-        margin-left: 16.5rem;
-    }
-
-    .button-flower {
-        margin-left: 16.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 21.8rem;
     }
+    .background-image {  
+        background-image: url('/assets/images/Background-tablet.png') !important; 
+    } 
 }
 
 @media screen and (min-width : 780px) {
-    .left-flower-input {
-        margin-left: 18rem;
-    }
-
-    .button-flower {
-        margin-left: 18rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -776,14 +638,6 @@ img {
 }
 
 @media screen and (min-width : 800px) {
-    .left-flower-input {
-        margin-left: 18.5rem;
-    }
-
-    .button-flower {
-        margin-left: 18.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -792,14 +646,6 @@ img {
 }
 
 @media screen and (min-width : 815px) {
-    .left-flower-input {
-        margin-left: 19.5rem;
-    }
-
-    .button-flower {
-        margin-left: 19rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -808,14 +654,6 @@ img {
 }
 
 @media screen and (min-width : 825px) {
-    .left-flower-input {
-        margin-left: 21rem;
-    }
-
-    .button-flower {
-        margin-left: 21rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -832,14 +670,6 @@ img {
 }
 
 @media screen and (min-width : 850px) {
-    .left-flower-input {
-        margin-left: 22.5rem;
-    }
-
-    .button-flower {
-        margin-left: 22.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -848,14 +678,6 @@ img {
 }
 
 @media screen and (min-width : 875px) {
-    .left-flower-input {
-        margin-left: 24rem;
-    }
-
-    .button-flower {
-        margin-left: 24rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -864,14 +686,6 @@ img {
 }
 
 @media screen and (min-width : 890px) {
-    .left-flower-input {
-        margin-left: 24.5rem;
-    }
-
-    .button-flower {
-        margin-left: 24.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -880,14 +694,6 @@ img {
 }
 
 @media screen and (min-width : 900px) {
-    .left-flower-input {
-        margin-left: 25.5rem;
-    }
-
-    .button-flower {
-        margin-left: 25.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -896,14 +702,6 @@ img {
 }
 
 @media screen and (min-width : 925px) {
-    .left-flower-input {
-        margin-left: 26.6rem;
-    }
-
-    .button-flower {
-        margin-left: 27rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -912,14 +710,6 @@ img {
 }
 
 @media screen and (min-width : 935px) {
-    .left-flower-input {
-        margin-left: 27rem;
-    }
-
-    .button-flower {
-        margin-left: 27.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -928,14 +718,6 @@ img {
 }
 
 @media screen and (min-width : 940px) {
-    .left-flower-input {
-        margin-left: 27.8rem;
-    }
-
-    .button-flower {
-        margin-left: 28.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -944,14 +726,6 @@ img {
 }
 
 @media screen and (min-width : 950px) {
-    .left-flower-input {
-        margin-left: 29rem;
-    }
-
-    .button-flower {
-        margin-left: 29.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -968,14 +742,6 @@ img {
 }
 
 @media screen and (min-width : 975px) {
-    .left-flower-input {
-        margin-left: 31rem;
-    }
-
-    .button-flower {
-        margin-left: 31.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -984,14 +750,6 @@ img {
 }
 
 @media screen and (min-width : 992px) {
-    .left-flower-input {
-        margin-left: 30.8rem;
-    }
-
-    .button-flower {
-        margin-left: 31rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1000,14 +758,6 @@ img {
 }
 
 @media screen and (min-width : 1000px) {
-    .left-flower-input {
-        margin-left: 31.8rem;
-    }
-
-    .button-flower {
-        margin-left: 32.3rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1024,14 +774,6 @@ img {
 }
 
 @media screen and (min-width : 1024px) {
-    .left-flower-input {
-        margin-left: 33rem;
-    }
-
-    .button-flower {
-        margin-left: 35rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1040,14 +782,6 @@ img {
 }
 
 @media screen and (min-width : 1040px) {
-    .left-flower-input {
-        margin-left: 34rem;
-    }
-
-    .button-flower {
-        margin-left: 36rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1056,14 +790,6 @@ img {
 }
 
 @media screen and (min-width : 1055px) {
-    .left-flower-input {
-        margin-left: 35rem;
-    }
-
-    .button-flower {
-        margin-left: 36.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1072,14 +798,6 @@ img {
 }
 
 @media screen and (min-width : 1070px) {
-    .left-flower-input {
-        margin-left: 36rem;
-    }
-
-    .button-flower {
-        margin-left: 36.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1088,14 +806,6 @@ img {
 }
 
 @media screen and (min-width : 1090px) {
-    .left-flower-input {
-        margin-left: 37rem;
-    }
-
-    .button-flower {
-        margin-left: 37.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1104,14 +814,6 @@ img {
 }
 
 @media screen and (min-width : 1100px) {
-    .left-flower-input {
-        margin-left: 38rem;
-    }
-
-    .button-flower {
-        margin-left: 38.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1120,14 +822,6 @@ img {
 }
 
 @media screen and (min-width : 1115px) {
-    .left-flower-input {
-        margin-left: 38.5rem;
-    }
-
-    .button-flower {
-        margin-left: 39rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1137,14 +831,6 @@ img {
 }
 
 @media screen and (min-width : 1125px) {
-    .left-flower-input {
-        margin-left: 39.2rem;
-    }
-
-    .button-flower {
-        margin-left: 39.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1153,14 +839,6 @@ img {
 }
 
 @media screen and (min-width : 1140px) {
-    .left-flower-input {
-        margin-left: 40.2rem;
-    }
-
-    .button-flower {
-        margin-left: 40.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1169,14 +847,6 @@ img {
 }
 
 @media screen and (min-width : 1155px) {
-    .left-flower-input {
-        margin-left: 41rem;
-    }
-
-    .button-flower {
-        margin-left: 41.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1185,14 +855,6 @@ img {
 }
 
 @media screen and (min-width : 1170px) {
-    .left-flower-input {
-        margin-left: 42rem;
-    }
-
-    .button-flower {
-        margin-left: 42.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1201,14 +863,6 @@ img {
 }
 
 @media screen and (min-width : 1190px) {
-    .left-flower-input {
-        margin-left: 43.2rem;
-    }
-
-    .button-flower {
-        margin-left: 43.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1217,14 +871,6 @@ img {
 }
 
 @media screen and (min-width : 1205px) {
-    .left-flower-input {
-        margin-left: 44.2rem;
-    }
-
-    .button-flower {
-        margin-left: 44.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1233,14 +879,6 @@ img {
 }
 
 @media screen and (min-width : 1220px) {
-    .left-flower-input {
-        margin-left: 45.3rem;
-    }
-
-    .button-flower {
-        margin-left: 45.7rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1249,14 +887,6 @@ img {
 }
 
 @media screen and (min-width : 1240px) {
-    .left-flower-input {
-        margin-left: 46.4rem;
-    }
-
-    .button-flower {
-        margin-left: 46.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1265,14 +895,6 @@ img {
 }
 
 @media screen and (min-width : 1255px) {
-    .left-flower-input {
-        margin-left: 47.2rem;
-    }
-
-    .button-flower {
-        margin-left: 47.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1281,14 +903,6 @@ img {
 }
 
 @media screen and (min-width : 1270px) {
-    .left-flower-input {
-        margin-left: 48.3rem;
-    }
-
-    .button-flower {
-        margin-left: 48.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1297,14 +911,6 @@ img {
 }
 
 @media screen and (min-width : 1285px) {
-    .left-flower-input {
-        margin-left: 49.2rem;
-    }
-
-    .button-flower {
-        margin-left: 49.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1313,14 +919,6 @@ img {
 }
 
 @media screen and (min-width : 1300px) {
-    .left-flower-input {
-        margin-left: 50rem;
-    }
-
-    .button-flower {
-        margin-left: 50.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1329,14 +927,6 @@ img {
 }
 
 @media screen and (min-width : 1315px) {
-    .left-flower-input {
-        margin-left: 51.2rem;
-    }
-
-    .button-flower {
-        margin-left: 51.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1345,14 +935,6 @@ img {
 }
 
 @media screen and (min-width : 1330px) {
-    .left-flower-input {
-        margin-left: 52rem;
-    }
-
-    .button-flower {
-        margin-left: 52.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1361,14 +943,6 @@ img {
 }
 
 @media screen and (min-width : 1345px) {
-    .left-flower-input {
-        margin-left: 53.2rem;
-    }
-
-    .button-flower {
-        margin-left: 53.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1377,14 +951,6 @@ img {
 }
 
 @media screen and (min-width : 1365px) {
-    .left-flower-input {
-        margin-left: 54.2rem;
-    }
-
-    .button-flower {
-        margin-left: 54.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1393,14 +959,6 @@ img {
 }
 
 @media screen and (min-width : 1380px) {
-    .left-flower-input {
-        margin-left: 55rem;
-    }
-
-    .button-flower {
-        margin-left: 55.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1409,14 +967,6 @@ img {
 }
 
 @media screen and (min-width : 1395px) {
-    .left-flower-input {
-        margin-left: 56rem;
-    }
-
-    .button-flower {
-        margin-left: 56.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1425,14 +975,6 @@ img {
 }
 
 @media screen and (min-width : 1410px) {
-    .left-flower-input {
-        margin-left: 57rem;
-    }
-
-    .button-flower {
-        margin-left: 57.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1441,14 +983,6 @@ img {
 }
 
 @media screen and (min-width : 1425px) {
-    .left-flower-input {
-        margin-left: 58.2rem;
-    }
-
-    .button-flower {
-        margin-left: 58.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1457,14 +991,6 @@ img {
 }
 
 @media screen and (min-width : 1445px) {
-    .left-flower-input {
-        margin-left: 59.2rem;
-    }
-
-    .button-flower {
-        margin-left: 59.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1473,14 +999,6 @@ img {
 }
 
 @media screen and (min-width : 1460px) {
-    .left-flower-input {
-        margin-left: 60rem;
-    }
-
-    .button-flower {
-        margin-left: 60.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1489,14 +1007,6 @@ img {
 }
 
 @media screen and (min-width : 1475px) {
-    .left-flower-input {
-        margin-left: 61rem;
-    }
-
-    .button-flower {
-        margin-left: 61.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1505,14 +1015,6 @@ img {
 }
 
 @media screen and (min-width : 1495px) {
-    .left-flower-input {
-        margin-left: 62.3rem;
-    }
-
-    .button-flower {
-        margin-left: 62.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1521,14 +1023,6 @@ img {
 }
 
 @media screen and (min-width : 1510px) {
-    .left-flower-input {
-        margin-left: 63rem;
-    }
-
-    .button-flower {
-        margin-left: 63.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1537,14 +1031,6 @@ img {
 }
 
 @media screen and (min-width : 1525px) {
-    .left-flower-input {
-        margin-left: 64.2rem;
-    }
-
-    .button-flower {
-        margin-left: 64.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1553,14 +1039,6 @@ img {
 }
 
 @media screen and (min-width : 1540px) {
-    .left-flower-input {
-        margin-left: 65rem;
-    }
-
-    .button-flower {
-        margin-left: 65.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1569,14 +1047,6 @@ img {
 }
 
 @media screen and (min-width : 1560px) {
-    .left-flower-input {
-        margin-left: 66.2rem;
-    }
-
-    .button-flower {
-        margin-left: 66.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1585,14 +1055,6 @@ img {
 }
 
 @media screen and (min-width : 1575px) {
-    .left-flower-input {
-        margin-left: 67.4rem;
-    }
-
-    .button-flower {
-        margin-left: 67.8rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1601,14 +1063,6 @@ img {
 }
 
 @media screen and (min-width : 1590px) {
-    .left-flower-input {
-        margin-left: 68.2rem;
-    }
-
-    .button-flower {
-        margin-left: 68.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1617,14 +1071,6 @@ img {
 }
 
 @media screen and (min-width : 1605px) {
-    .left-flower-input {
-        margin-left: 69.2rem;
-    }
-
-    .button-flower {
-        margin-left: 69.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1633,14 +1079,6 @@ img {
 }
 
 @media screen and (min-width : 1620px) {
-    .left-flower-input {
-        margin-left: 70rem;
-    }
-
-    .button-flower {
-        margin-left: 70.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1649,14 +1087,6 @@ img {
 }
 
 @media screen and (min-width : 1635px) {
-    .left-flower-input {
-        margin-left: 71rem;
-    }
-
-    .button-flower {
-        margin-left: 71.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1665,14 +1095,6 @@ img {
 }
 
 @media screen and (min-width : 1650px) {
-    .left-flower-input {
-        margin-left: 72rem;
-    }
-
-    .button-flower {
-        margin-left: 72.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1681,14 +1103,6 @@ img {
 }
 
 @media screen and (min-width : 1670px) {
-    .left-flower-input {
-        margin-left: 73.2rem;
-    }
-
-    .button-flower {
-        margin-left: 73.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1697,14 +1111,6 @@ img {
 }
 
 @media screen and (min-width : 1685px) {
-    .left-flower-input {
-        margin-left: 74.2rem;
-    }
-
-    .button-flower {
-        margin-left: 74.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1713,14 +1119,6 @@ img {
 }
 
 @media screen and (min-width : 1700px) {
-    .left-flower-input {
-        margin-left: 75rem;
-    }
-
-    .button-flower {
-        margin-left: 75.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1729,14 +1127,6 @@ img {
 }
 
 @media screen and (min-width : 1715px) {
-    .left-flower-input {
-        margin-left: 76rem;
-    }
-
-    .button-flower {
-        margin-left: 76.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1745,14 +1135,6 @@ img {
 }
 
 @media screen and (min-width : 1730px) {
-    .left-flower-input {
-        margin-left: 77rem;
-    }
-
-    .button-flower {
-        margin-left: 77.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1762,14 +1144,6 @@ img {
 }
 
 @media screen and (min-width : 1745px) {
-    .left-flower-input {
-        margin-left: 78rem;
-    }
-
-    .button-flower {
-        margin-left: 78.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1778,14 +1152,6 @@ img {
 }
 
 @media screen and (min-width : 1760px) {
-    .left-flower-input {
-        margin-left: 79rem;
-    }
-
-    .button-flower {
-        margin-left: 79.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1795,14 +1161,6 @@ img {
 }
 
 @media screen and (min-width : 1775px) {
-    .left-flower-input {
-        margin-left: 80rem;
-    }
-
-    .button-flower {
-        margin-left: 80.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1811,14 +1169,6 @@ img {
 }
 
 @media screen and (min-width : 1795px) {
-    .left-flower-input {
-        margin-left: 81rem;
-    }
-
-    .button-flower {
-        margin-left: 81.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1827,14 +1177,6 @@ img {
 }
 
 @media screen and (min-width : 1810px) {
-    .left-flower-input {
-        margin-left: 82rem;
-    }
-
-    .button-flower {
-        margin-left: 82.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1843,14 +1185,6 @@ img {
 }
 
 @media screen and (min-width : 1825px) {
-    .left-flower-input {
-        margin-left: 83rem;
-    }
-
-    .button-flower {
-        margin-left: 83.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1859,14 +1193,6 @@ img {
 }
 
 @media screen and (min-width : 1845px) {
-    .left-flower-input {
-        margin-left: 84rem;
-    }
-
-    .button-flower {
-        margin-left: 84.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1875,14 +1201,6 @@ img {
 }
 
 @media screen and (min-width : 1860px) {
-    .left-flower-input {
-        margin-left: 85rem;
-    }
-
-    .button-flower {
-        margin-left: 85.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1891,14 +1209,6 @@ img {
 }
 
 @media screen and (min-width : 1875px) {
-    .left-flower-input {
-        margin-left: 86rem;
-    }
-
-    .button-flower {
-        margin-left: 86.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1907,14 +1217,6 @@ img {
 }
 
 @media screen and (min-width : 1890px) {
-    .left-flower-input {
-        margin-left: 87rem;
-    }
-
-    .button-flower {
-        margin-left: 87.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1923,14 +1225,6 @@ img {
 }
 
 @media screen and (min-width : 1905px) {
-    .left-flower-input {
-        margin-left: 88rem;
-    }
-
-    .button-flower {
-        margin-left: 88.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1939,14 +1233,6 @@ img {
 }
 
 @media screen and (min-width : 1920px) {
-    .left-flower-input {
-        margin-left: 89.2rem;
-    }
-
-    .button-flower {
-        margin-left: 89.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1955,14 +1241,6 @@ img {
 }
 
 @media screen and (min-width : 1940px) {
-    .left-flower-input {
-        margin-left: 90rem;
-    }
-
-    .button-flower {
-        margin-left: 90.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1971,14 +1249,6 @@ img {
 }
 
 @media screen and (min-width : 1955px) {
-    .left-flower-input {
-        margin-left: 91.2rem;
-    }
-
-    .button-flower {
-        margin-left: 91.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -1987,14 +1257,6 @@ img {
 }
 
 @media screen and (min-width : 1975px) {
-    .left-flower-input {
-        margin-left: 92.2rem;
-    }
-
-    .button-flower {
-        margin-left: 92.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2003,14 +1265,6 @@ img {
 }
 
 @media screen and (min-width : 1990px) {
-    .left-flower-input {
-        margin-left: 93.2rem;
-    }
-
-    .button-flower {
-        margin-left: 93.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2019,14 +1273,6 @@ img {
 }
 
 @media screen and (min-width : 2005px) {
-    .left-flower-input {
-        margin-left: 94.3rem;
-    }
-
-    .button-flower {
-        margin-left: 94.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2035,14 +1281,6 @@ img {
 }
 
 @media screen and (min-width : 2025px) {
-    .left-flower-input {
-        margin-left: 95rem;
-    }
-
-    .button-flower {
-        margin-left: 95.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2051,14 +1289,6 @@ img {
 }
 
 @media screen and (min-width : 2035px) {
-    .left-flower-input {
-        margin-left: 96rem;
-    }
-
-    .button-flower {
-        margin-left: 96.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2067,14 +1297,6 @@ img {
 }
 
 @media screen and (min-width : 2050px) {
-    .left-flower-input {
-        margin-left: 97.2rem;
-    }
-
-    .button-flower {
-        margin-left: 97.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2083,14 +1305,6 @@ img {
 }
 
 @media screen and (min-width : 2065px) {
-    .left-flower-input {
-        margin-left: 98rem;
-    }
-
-    .button-flower {
-        margin-left: 98.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2099,14 +1313,6 @@ img {
 }
 
 @media screen and (min-width : 2080px) {
-    .left-flower-input {
-        margin-left: 99rem;
-    }
-
-    .button-flower {
-        margin-left: 99.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2115,14 +1321,6 @@ img {
 }
 
 @media screen and (min-width : 2095px) {
-    .left-flower-input {
-        margin-left: 100rem;
-    }
-
-    .button-flower {
-        margin-left: 100.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2131,14 +1329,6 @@ img {
 }
 
 @media screen and (min-width : 2115px) {
-    .left-flower-input {
-        margin-left: 101rem;
-    }
-
-    .button-flower {
-        margin-left: 101.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2147,13 +1337,6 @@ img {
 }
 
 @media screen and (min-width : 2130px) {
-    .left-flower-input {
-        margin-left: 102rem;
-    }
-
-    .button-flower {
-        margin-left: 102.5rem;
-    }
 
     .nine-pm {
         position: absolute;
@@ -2163,13 +1346,6 @@ img {
 }
 
 @media screen and (min-width : 2145px) {
-    .left-flower-input {
-        margin-left: 103rem;
-    }
-
-    .button-flower {
-        margin-left: 103.5rem;
-    }
 
     .nine-pm {
         position: absolute;
@@ -2179,14 +1355,6 @@ img {
 }
 
 @media screen and (min-width : 2160px) {
-    .left-flower-input {
-        margin-left: 104rem;
-    }
-
-    .button-flower {
-        margin-left: 104.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2195,14 +1363,6 @@ img {
 }
 
 @media screen and (min-width : 2175px) {
-    .left-flower-input {
-        margin-left: 105rem;
-    }
-
-    .button-flower {
-        margin-left: 105.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2211,14 +1371,6 @@ img {
 }
 
 @media screen and (min-width : 2190px) {
-    .left-flower-input {
-        margin-left: 106rem;
-    }
-
-    .button-flower {
-        margin-left: 106.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2227,14 +1379,6 @@ img {
 }
 
 @media screen and (min-width : 2210px) {
-    .left-flower-input {
-        margin-left: 107rem;
-    }
-
-    .button-flower {
-        margin-left: 107.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2243,14 +1387,6 @@ img {
 }
 
 @media screen and (min-width : 2225px) {
-    .left-flower-input {
-        margin-left: 108rem;
-    }
-
-    .button-flower {
-        margin-left: 108.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2259,14 +1395,6 @@ img {
 }
 
 @media screen and (min-width : 2560px) {
-    .left-flower-input {
-        margin-left: 128rem;
-    }
-
-    .button-flower {
-        margin-left: 128.5rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;
@@ -2275,14 +1403,6 @@ img {
 }
 
 @media screen and (min-width : 3840px) {
-    .left-flower-input {
-        margin-left: 220rem;
-    }
-
-    .button-flower {
-        margin-left: 220rem;
-    }
-
     .nine-pm {
         position: absolute;
         top: 4.5rem;

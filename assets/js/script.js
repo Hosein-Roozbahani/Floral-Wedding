@@ -58,102 +58,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }, totalGroomsAnimationTime); // شروع انیمیشن brides-name بعد از اتمام grooms-name  
 });
 
-// added the second animation to the flowers and the tavoos  
-document.addEventListener("DOMContentLoaded", function () {
-    // انتخاب تمام تصویرها  
-    const flowerImages = document.querySelectorAll('.top-left-flower-image img, .top-right-flower-image img');
-    const tavoosImage = document.querySelectorAll('.tavoos-image img');
-    const buttonFlowers = document.querySelectorAll('.button-flower-image img');
 
-    // اعمال انیمیشن حرکت نرم پس از پایان انیمیشن  
-    flowerImages.forEach((img) => {
-        img.addEventListener('animationend', () => {
-            // بررسی اگر انیمیشن backInDown یا zoomIn یا fadeIn انجام شده باشد  
-            if (img.classList.contains('animate__backInDown')) {
-                img.classList.add('animated-move');
-            }
-        });
-    });
-
-    tavoosImage.forEach(function (tavoos) {
-        tavoos.addEventListener('animationend', function () {
-            if (tavoos.classList.contains('animate__zoomIn')) {
-                tavoos.classList.add('animated-move');
-            }
-        });
-    });
-
-    buttonFlowers.forEach(function (buttonFlower) {
-        buttonFlower.addEventListener('animationend', function () {
-            if (buttonFlower.classList.contains('animate__fadeIn')) {
-                buttonFlower.classList.add('animated-move-x');
-            }
-        });
-    });
-
-    
-
-    // مشکل انیمیشن top-left-middle-flower-image  
-    const topLeftMiddleFlower = document.querySelector('.top-left-middle-flower-image img');
-    const topLeftMiddleFlowerContainer = document.querySelector('.top-left-middle-flower-image');
-
-    topLeftMiddleFlowerContainer.addEventListener('animationend', function () {
-        if (topLeftMiddleFlowerContainer.classList.contains('animate__backInLeft')) {
-            topLeftMiddleFlower.parentElement.classList.add('move-y');
-        }
-    });
-
-    const topLeftMiddleFlowerSecond = document.querySelector('.top-left-middle-flower-image.second-image img'); // انتخاب گل دوم  
-    const topLeftMiddleFlowerContainerSecond = document.querySelector('.top-left-middle-flower-image.second-image'); // انتخاب container گل دوم  
-
-    topLeftMiddleFlowerContainerSecond.addEventListener('animationend', function () {
-        if (topLeftMiddleFlowerContainerSecond.classList.contains('animate__backInLeft')) {
-            topLeftMiddleFlowerSecond.parentElement.classList.add('move-y'); // افزودن حرکت به تصویر گل  
-        }
-    });
-
-    // second slide  
-
-    // متن آدرس  
-    const addressText = "123 Anywhere St. Any City, ST 12345";
-
-    // انتخاب عنصر آدرس  
-    const addressElement = document.querySelector('.address');
-
-    let addressIndex = 0; // اندیس برای آدرس  
-
-    // تابع تایپ برای آدرس  
-    function typeWriterAddress() {
-        if (addressIndex < addressText.length) {
-            addressElement.innerHTML += addressText.charAt(addressIndex); // اضافه کردن یک حرف به آدرس  
-            addressIndex++;
-            setTimeout(typeWriterAddress, 100); // زمان تأخیر بین حروف (100 میلی‌ثانیه)  
-        }
-    }
-
-    // اجرای انیمیشن  
-    setTimeout(typeWriterAddress, 3000); // شروع تایپ آدرس بعد از 3 ثانیه  
-
-    // انیمیشن برای carousel  
-    
-    
-    // اگر نیاز دارید که این تابع بر اساس عوض شدن اسلایدها فراخوانی شود  
-    document.querySelectorAll('.carousel-control').forEach(control => {  
-        control.addEventListener('click', runAnimations);  
-    });  
-    
-    // همچنین می‌توانید بر اساس رویداد تغییر اسلاید مثل wheel در carousel هم فراخوانی شود   
-
-    // اضافه کردن رویدادهای carousel  
-    myCarousel.addEventListener('slid.bs.carousel', runAnimations);
-    
-}); // اینجا پرانتز و اکولاد بسته می‌شود
 
 window.addEventListener('load', function () {
     console.log('loaded');
 })
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     var myCarousel = document.querySelector('#carouselExample');
@@ -175,23 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // اضافه کردن رویداد به تغییر اسلاید  
-    myCarousel.addEventListener('slide.bs.carousel', function () {
-        var activeSlide = myCarousel.querySelector('.carousel-item.active');
-        var animatedItems = activeSlide.querySelectorAll('.animated-item');
 
-        // مخفی کردن المان‌های اسلاید قبلی  
-        animatedItems.forEach((item) => {
-            item.style.opacity = '0'; // مخفی کردن عنصر  
-            setTimeout(() => {
-                item.classList.remove('animate__fadeIn'); // حذف کلید واژه انیمیشن  
-            }, 500); // مدت زمان انیمیشن (بخش مهم)  
-        });
-    });
-
-    // اجرای انیمیشن برای اسلاید اول به محض بارگذاری  
-    runAnimations();
-    myCarousel.addEventListener('slid.bs.carousel', runAnimations);
 });
 
-// removing the custom-fadeIn attribute to thoses elements that have it
