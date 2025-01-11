@@ -84,6 +84,103 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
 });
 
+// snow
+
+document.addEventListener('DOMContentLoaded', () => {  
+    // تابع ایجاد برف  
+    function createSnowflake(snowContainer) {  
+        const snowflake = document.createElement('div');  
+        snowflake.className = 'snowflake';  
+
+        // تنظیم موقعیت افقی برف  
+        const randomX = Math.random() * window.innerWidth;  
+        snowflake.style.left = `${randomX}px`;  
+
+        // تنظیم اندازه ذره برف  
+        const size = Math.random() * 5 + 2; // اندازه‌ای بین 2 تا 7 پیکسل  
+        snowflake.style.width = `${size}px`;  
+        snowflake.style.height = `${size}px`;  
+
+        // افزودن برف به صفحه  
+        snowContainer.appendChild(snowflake);  
+
+        // انیمیشن سقوط  
+        const duration = `${Math.random() * 3 + 2}s`; // بین 2 تا 5 ثانیه  
+        snowflake.style.animation = `fall ${duration} linear`;  
+        
+        // حذف ذره برف بعد از اتمام انیمیشن  
+        snowflake.addEventListener('animationend', () => {  
+            snowflake.remove();  
+        });  
+    }  
+
+    // تابع شروع بارش برف  
+    function startSnowfall() {  
+        const snowContainers = document.querySelectorAll('.snow'); // انتخاب تمامی عناصر برف  
+        // شروع بارش برف در تمامی اسلایدها  
+        setTimeout(() => {  
+            snowContainers.forEach(snowContainer => {  
+                setInterval(() => createSnowflake(snowContainer), 200); // هر 200 میلی‌ثانیه یک ذره برف ایجاد کن  
+            });  
+        }, 1000); // 1 ثانیه تاخیر قبل از شروع بارش  
+    }  
+
+    // آغاز بارش برف  
+    startSnowfall();  
+});
+
+//perload
+
+let loader = document.querySelector('.loader');
+
+window.addEventListener('load', function () {
+    loader.classList.add('hidden');
+});
+
+// playing background song 
+
+// document.addEventListener('DOMContentLoaded', () => {  
+//     const music = document.getElementById('background-music');  
+//     music.play().catch(error => {  
+//         // اگر پخش خودکار به دلیل تنظیمات مرورگر متوقف شد، می‌توانید پیغام خطا را لاگ کنید  
+//         console.log('The autoplay was prevented:', error);  
+//     });  
+// });
+
+document.addEventListener('DOMContentLoaded', (event) => {  
+    event.preventDefault();
+    const music = document.getElementById('background-music');  
+    music.volume = 0; // تنظیم صدا به ۰.  
+    music.play().then(() => {  
+        setTimeout(() => {  
+            music.volume = 1; // حجم صدا را زیاد کنید.  
+        }, 1000);  
+    }).catch(error => {  
+        console.error('The autoplay was prevented:', error);  
+    });  
+});
+
+// disable the prve btn arrow for firt slide
+
+document.addEventListener("DOMContentLoaded", function() {  
+    const carouselElement = document.querySelector('#carouselExample');  
+
+    // دکمه قبلی  
+    const prevButton = document.querySelector('#prevButton');  
+
+    // بررسی وضعیت اسلاید  
+    carouselElement.addEventListener('slid.bs.carousel', function () {  
+        const activeIndex = [...carouselElement.querySelectorAll('.carousel-item')].findIndex(item => item.classList.contains('active'));  
+        
+        if (activeIndex === 0) {  
+            prevButton.classList.add('disabled-button');  
+        } else {  
+            prevButton.classList.remove('disabled-button');  
+        }  
+    });  
+
+    // غیر فعال کردن دکمه در بارگذاری اولیه  
+    prevButton.classList.add('disabled-button');  
+});

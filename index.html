@@ -12,13 +12,21 @@
 
 <body>
 
+    <div class="loader">
+        <img src="/assets/images/loading.gif" alt="loading...">
+    </div>
+    <audio id="background-music" loop>
+        <source src="/assets/music/Shadmehr bi ehsas vilion.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <div id="carouselExample" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
             <!-- slide اول -->
             <div class="carousel-item active" id="first-slide" data-bs-interval="15000">
                 <div class="relative">
                     <img src="/assets/images/Background-tablet.png" class="background-image" alt="">
-
+                    <div class="snow"></div> <!-- اضافه کردن این خط برای بارش برف -->
                     <div class="images">
                         <img src="/assets/images/SVG's/zanguleh.svg" class="animate__animated animate__fadeInDownBig"
                             id="z" alt="">
@@ -93,6 +101,7 @@
             <div class="carousel-item" id="second-slide" data-bs-interval="15000">
                 <div class="relative">
                     <img src="/assets/images/Background-tablet.png" class="background-image" alt="">
+                    <div class="snow"></div> <!-- اضافه کردن این خط برای بارش برف -->
                     <div class="images">
                         <img src="/assets/images/SVG's/zanguleh.svg" class="animate__animated animate__fadeInDownBig"
                             id="z" alt="">
@@ -169,6 +178,7 @@
             <div class="carousel-item" id="third-slide" data-bs-interval="15000">
                 <div class="relative">
                     <img src="/assets/images/Background-tablet.png" class="background-image" alt="">
+                    <div class="snow"></div> <!-- اضافه کردن این خط برای بارش برف -->
                     <div class="images">
                         <img src="/assets/images/SVG's/zanguleh.svg" class="animate__animated animate__fadeInDownBig"
                             id="z" alt="">
@@ -193,30 +203,48 @@
                         </div>
                     </div>
                     <div class="our-plan">
-                        <div class="wedding-title absolute">
+                        <div class="wedding-title absolute animate__animated animate__fadeInDown">
                             <h1>### Our Dream Wedding Night Program:</h1>
                         </div>
                         <div class="weddings-plan absolute">
-                            <h2 class="Welcoming-the-Guests"> Welcoming the Guests
-                                <h5> - We greet you warmly with smiles and respect.</h5>
+                            <h2 class="Welcoming-the-Guests animate__animated animate__fadeInLeftBig animate__delay-2s">
+                                Welcoming the Guests
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - We greet you warmly
+                                    with smiles and respect.</h5>
                             </h2>
-                            <h2 class="Aryan-Wedding-Ceremony"> Aryan Wedding Ceremony
-                                <h5> - Witness our sacred union and share these unique moments with us.</h5>
+                            <h2
+                                class="Aryan-Wedding-Ceremony animate__animated animate__fadeInRightBig animate__delay-2s">
+                                Aryan Wedding Ceremony
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - Witness our sacred
+                                    union and share these unique moments with us.</h5>
                             </h2>
-                            <h2 class="Serving-Guests-with-Fruits-and-Sweets"> Serving Guests with Fruits and Sweets
-                                <h5> - Enjoy fresh fruits and delicious sweets.</h5>
+                            <h2
+                                class="Serving-Guests-with-Fruits-and-Sweets animate__animated animate__fadeInLeftBig animate__delay-2s">
+                                Serving Guests with Fruits and Sweets
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - Enjoy fresh fruits
+                                    and delicious sweets.</h5>
                             </h2>
-                            <h2 class="Serving-Natural-Juices"> Serving Natural Juices
-                                <h5> - Refreshing natural juices for your thirst and pleasure.</h5>
+                            <h2
+                                class="Serving-Natural-Juices animate__animated animate__fadeInRightBig animate__delay-2s">
+                                Serving Natural Juices
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - Refreshing natural
+                                    juices for your thirst and pleasure.</h5>
                             </h2>
-                            <h2 class=" Serving-Sherbet"> Serving Sherbet
-                                <h5> - Tasty sherbets for every taste.</h5>
+                            <h2 class=" Serving-Sherbet animate__animated animate__fadeInLeftBig animate__delay-2s">
+                                Serving Sherbet
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - Tasty sherbets for
+                                    every taste.</h5>
                             </h2>
-                            <h2 class=" Serving-Finger-Foods"> Serving Finger Foods
-                                <h5> - A variety of delightful finger foods for more enjoyment.</h5>
+                            <h2
+                                class=" Serving-Finger-Foods animate__animated animate__fadeInRightBig animate__delay-2s">
+                                Serving Finger Foods
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - A variety of
+                                    delightful finger foods for more enjoyment.</h5>
                             </h2>
-                            <h2 class=" Dancing-and-Music"> Dancing and Music
-                                <h5> - Experience joy with cheerful songs and dancing until late into the night.</h5>
+                            <h2 class=" Dancing-and-Music animate__animated animate__fadeInLeftBig animate__delay-2s">
+                                Dancing and Music
+                                <h5 class="animate__animated animate__zoomIn animate__delay-3s"> - Experience joy with
+                                    cheerful songs and dancing until late into the night.</h5>
                             </h2>
                         </div>
 
@@ -225,21 +253,19 @@
                 </div>
             </div>
 
-
-
             <!-- arrow left & right -->
 
             <button class="carousel-control-prev position-fixed right-0" type="button" data-bs-target="#carouselExample"
-                data-bs-slide="prev">
-                <span class="text-black" id="Previous-button" aria-hidden="true"> <img
-                        src="/assets/images/SVG's/arrow-left.svg" class="arrows" alt="">
+                data-bs-slide="prev" id="prevButton">
+                <span class="text-black" id="Previous-button" aria-hidden="true">
+                    <img src="/assets/images/SVG's/arrow-left.svg" class="arrows" alt="">
                 </span>
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next position-fixed " type="button" data-bs-target="#carouselExample"
                 data-bs-slide="next">
-                <span class="text-black" id="Next-button" aria-hidden="true"> <img
-                        src="/assets/images/SVG's/arrow-Right.svg" class="arrows" alt="">
+                <span class="text-black" id="Next-button" aria-hidden="true">
+                    <img src="/assets/images/SVG's/arrow-Right.svg" class="arrows" alt="">
                 </span>
                 <span class="visually-hidden">Next</span>
             </button>

@@ -46,41 +46,110 @@ img {
     width: 100px;
     height: 100px;
 }
-object{
+
+object {
     width: 110px;
-    height: 110px; 
+    height: 110px;
 }
-.right-0{
+
+.right-0 {
     right: 0;
 }
 
-/* .animate-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+/* snow */
+
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
 }
 
-.animate-element.active {
-    opacity: 1;
-    transform: translateY(0);
-} */
+.snowflake {
+    position: absolute;
+    background: white;
+    opacity: 0.9;
+    border-radius: 50%;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+
+/* loader */
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(227, 247, 255);
+}
+
+.loader>img {
+    width: 100px;
+}
+
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 
 /* carousel styles */
+.carousel-inner {  
+    max-width: 50rem;  
+    margin: 0 auto;  
+    position: relative;
+}  
 
 .carousel-control-prev,
 .carousel-control-next {
+    position: absolute;
     width: 100px;
     height: 100px;
     opacity: 1;
     z-index: 10;
     top: 45%;
-    transform: translateY(-80%);
+    transform: translateY(-50%);
     font-size: 4rem;
     border-radius: 50%;
     margin: 0 -1rem;
+    padding: 0 10px;
 }
+.carousel-control-prev {  
+    left: 0; /* دکمه قبلی در سمت چپ */  
+}  
 
-.arrows{
+.carousel-control-next {  
+    right: 0; /* دکمه بعدی در سمت راست */  
+} 
+
+.arrows {
     width: 70px;
     height: 70px;
 }
@@ -90,17 +159,7 @@ object{
     animation-range: entry 0% cover 50%;
 }
 
-/* first slide */
-
-/* .background-image {  
-    background-image: url('/assets/images/Background-mobile.png');
-    background-size: cover;  
-    background-position:top;  
-    background-repeat: no-repeat;  
-    width: 100vw;  
-    height: 100vh;  
-    z-index: -11;  
-}   */
+/* first slide styles */
 
 .background-image {
     background-size: cover;
@@ -111,10 +170,10 @@ object{
     z-index: -11;
 }
 
-#z {  
+#z {
     position: absolute;
     top: 1rem;
-    z-index: 999999999;         
+    z-index: 999999999;
     text-align: center;
     width: 100%;
 }
@@ -134,23 +193,16 @@ object{
     transition: opacity 1s ease;
     opacity: 0;
     z-index: 99999999999999999999999999999999999999999;
-    /* white-space: nowrap;
-    overflow: hidden; */
-    /* animation: typing 5s steps(30, end), blink-caret 0.75s step-end infinite; */
-    /* animation: bounce 1s infinite; */
 }
 
 .couples-name {
     font-family: 'charm';
     font-style: italic;
-    /* font-size: 2.5rem !important; */
     font-weight: 600;
     text-align: center;
     margin-top: 2rem;
     color: #515050;
     z-index: 999999999999999999999999999999999999;
-    /* opacity: 0;
-    white-space: pre; */
 }
 
 #brides-name {
@@ -158,7 +210,8 @@ object{
     transition: opacity 0.5s ease;
     font-size: 2.5rem !important;
 }
-.grooms-name{
+
+.grooms-name {
     font-size: 2.5rem !important;
 }
 
@@ -178,102 +231,6 @@ object{
     margin-left: 1rem;
 }
 
-/* Animations */
-
-@keyframes moveBackAndForth {
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-3px);
-    }
-
-    /* حرکت به بالا */
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes moveY {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-3px);
-    }
-
-    /* حرکت به بالا */
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* animation: moveUpFirst 2s ease-in-out 0s forwards, rotateLeftRight 4s ease-in-out 2s infinite; */
-
-@keyframes rotateLeftRight {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    50% {
-        transform: rotate(-4deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-/* انیمیشن چرخش برای تصویر سوم (چرخش به راست و چپ) */
-
-@keyframes rotateRightLeft {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    50% {
-        transform: rotate(-11deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-/* انیمیشن چرخش برای تصویر دوم (چرخش بالا و پایین) */
-
-@keyframes rotateUpDown {
-    0% {
-        transform: rotateY(0deg);
-    }
-
-    50% {
-        transform: rotateY(-4deg)
-    }
-
-    100% {
-        transform: rotateY(0deg);
-    }
-}
-
-
-.animated-move {
-    animation: rotateLeftRight 3s ease-in-out infinite;
-}
-
-.animated-move-x {
-    animation: rotateRightLeft 3s ease-in-out infinite;
-}
-.move-y {
-    animation: moveY 3s ease-in-out infinite;
-}
-
-.animated-move-y {
-    animation: rotateUpDown 3s ease-in-out infinite;
-
-}
 
 .maghbareh {
     position: absolute;
@@ -292,7 +249,7 @@ object{
     width: 25rem;
     height: 12rem;
     background-size: cover;
-    
+
 }
 
 .left-flower-input {
@@ -310,7 +267,8 @@ object{
     width: 10rem;
     height: 10rem;
 }
-.left-flower-input-2{
+
+.left-flower-input-2 {
     position: absolute;
     bottom: -.5rem;
     right: -2rem;
@@ -321,7 +279,7 @@ object{
 .tavoos {
     z-index: 11111111111111111111;
     position: absolute;
-    right: -1rem;
+    right: -.7rem;
     bottom: 15.5rem;
     width: 11rem;
     height: 9rem;
@@ -350,21 +308,12 @@ object{
     z-index: 999999999999;
 }
 
-.late-fadeIn {
-    animation-delay: 3s;
-}
-
-/* .custom-fadeIn {
+.custom-fadeIn {
     animation-duration: 3s;
     animation-delay: 2.5s;
-} */
-
-.custom-fadeIn {  
-    animation-duration: 3s;  
-    animation-delay: 2.5s;  
 }
 
-/* second-slide */
+/* second-slide styles */
 
 .poetry {
     margin-top: 6rem;
@@ -419,25 +368,45 @@ object{
     bottom: .5rem;
 }
 
-/* thrid slide */
+/* thrid slide styles */
 
 /* .wedding-title, .weddings-plan {
     z-index: 99999999 !important;
 } */
-.our-plan{
+.our-plan {
     height: 100vh;
 }
-.wedding-title{
+
+.wedding-title {
     width: 100%;
     text-align: center;
     margin-top: 5.5rem;
 }
-.weddings-plan{
+
+.wedding-title>h1 {
+    font-size: 2.5rem;
+}
+
+.weddings-plan {
     width: 100%;
     height: 100vh;
     text-align: center;
     padding-top: 10rem;
 }
+
+.weddings-plan>h2 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 17px;
+    color: #4d4d4d !important;
+}
+.disabled-button {  
+    opacity: 0.5; /* نسبت به حالت عادی کم رنگ‌تر بشه */  
+    pointer-events: none; /* غیرفعال کردن کلیک روی دکمه */  
+}
+
 /* responsive */
 
 @media screen and (min-width : 450px) {
@@ -624,16 +593,19 @@ object{
         top: 4.5rem;
         left: 21.8rem;
     }
-    .background-image {  
-        background-image: url('/assets/images/Background-tablet.png') !important; 
-    } 
+
+    /* making a white space from right anf left to moveing the porject in the center */
+    .carousel-inner {
+        max-width: 50rem;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (min-width : 780px) {
     .nine-pm {
         position: absolute;
         top: 4.5rem;
-        left: 22.3rem;
+        left: 22.5rem;
     }
 }
 
@@ -641,376 +613,422 @@ object{
     .nine-pm {
         position: absolute;
         top: 4.5rem;
-        left: 23rem;
-    }
-}
-
-@media screen and (min-width : 815px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 23.5rem;
-    }
-}
-
-@media screen and (min-width : 825px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 23.8rem;
-    }
-}
-
-@media screen and (min-width : 835px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 24.1rem;
+        left: 22.8rem;
     }
 }
 
 @media screen and (min-width : 850px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 24.7rem;
-    }
+    .carousel-control-prev {  
+        left: 1rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 1rem;
+    } 
 }
 
 @media screen and (min-width : 875px) {
     .nine-pm {
         position: absolute;
         top: 4.5rem;
-        left: 25.4rem;
+        left: 22.8rem;
     }
+    .carousel-control-prev {  
+        left: 1.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 1.5rem;
+    } 
 }
 
 @media screen and (min-width : 890px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 25.7rem;
-    }
-}
+    .carousel-control-prev {  
+        left: 2rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 2rem;
+    } 
+} 
 
 @media screen and (min-width : 900px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 26.3rem;
-    }
+    .carousel-control-prev {  
+        left: 2.8rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 2.8rem;
+    } 
 }
 
 @media screen and (min-width : 925px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 26.7rem;
-    }
-}
-
-@media screen and (min-width : 935px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 27rem;
-    }
+    .carousel-control-prev {  
+        left: 3.3rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 3.3rem;
+    } 
 }
 
 @media screen and (min-width : 940px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 27.2rem;
-    }
+    .carousel-control-prev {  
+        left: 4rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 4rem;
+    } 
 }
 
 @media screen and (min-width : 950px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 27.5rem;
-    }
-}
-
-@media screen and (min-width : 960px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 27.8rem;
+    .carousel-control-prev {  
+        left: 4.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 4.5rem;
     }
 }
 
 @media screen and (min-width : 975px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 28.2rem;
+    .carousel-control-prev {  
+        left: 5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 5rem;
     }
 }
 
 @media screen and (min-width : 992px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 28.7rem;
+    .carousel-control-prev {  
+        left: 5.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 5.5rem;
     }
 }
 
 @media screen and (min-width : 1000px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 29.2rem;
+    .carousel-control-prev {  
+        left: 6rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 6rem;
     }
 }
 
 @media screen and (min-width : 1011px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 29.5rem;
+    .carousel-control-prev {  
+        left: 6.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 6.5rem;
     }
 }
 
 @media screen and (min-width : 1024px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 29.9rem;
+    .carousel-control-prev {  
+        left: 7rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 7rem;
     }
 }
 
 @media screen and (min-width : 1040px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 30.4rem;
+    .carousel-control-prev {  
+        left: 7.2rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 7.2rem;
     }
 }
 
 @media screen and (min-width : 1055px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 30.9rem;
+    .carousel-control-prev {  
+        left: 7.7rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 7.7rem;
     }
 }
 
 @media screen and (min-width : 1070px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 31.5rem;
+    .carousel-control-prev {  
+        left: 8rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 8rem;
     }
 }
 
 @media screen and (min-width : 1090px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 31.9rem;
+    .carousel-control-prev {  
+        left: 8.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 8.5rem;
     }
 }
 
 @media screen and (min-width : 1100px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 32.2rem;
+    .carousel-control-prev {  
+        left: 9rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 9rem;
     }
 }
 
 @media screen and (min-width : 1115px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 32.5rem;
+    .carousel-control-prev {  
+        left: 9.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 9.5rem;
     }
-
 }
 
 @media screen and (min-width : 1125px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 33rem;
+    .carousel-control-prev {  
+        left: 10rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 10rem;
     }
 }
 
 @media screen and (min-width : 1140px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 33.5rem;
+    .carousel-control-prev {  
+        left: 10.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 10.5rem;
     }
 }
 
 @media screen and (min-width : 1155px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 34rem;
+    .carousel-control-prev {  
+        left: 11rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 11rem;
     }
 }
 
 @media screen and (min-width : 1170px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 34.6rem;
+    .carousel-control-prev {  
+        left: 11.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 11.5rem;
     }
 }
 
 @media screen and (min-width : 1190px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 35rem;
+    .carousel-control-prev {  
+        left: 12rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 12rem;
     }
 }
 
 @media screen and (min-width : 1205px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 35.5rem;
+    .carousel-control-prev {  
+        left: 12.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 12.5rem;
     }
 }
 
 @media screen and (min-width : 1220px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 36rem;
+    .carousel-control-prev {  
+        left: 13rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 13rem;
     }
 }
 
 @media screen and (min-width : 1240px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 36.5rem;
+    .carousel-control-prev {  
+        left: 13.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 13.5rem;
     }
 }
 
 @media screen and (min-width : 1255px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 37rem;
+    .carousel-control-prev {  
+        left: 14rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 14rem;
     }
 }
 
 @media screen and (min-width : 1270px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 37.5rem;
+    .carousel-control-prev {  
+        left: 14.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 14.5rem;
     }
 }
 
 @media screen and (min-width : 1285px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 38rem;
+    .carousel-control-prev {  
+        left: 15rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 15rem;
     }
 }
 
 @media screen and (min-width : 1300px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 38.5rem;
+    .carousel-control-prev {  
+        left: 15.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 15.5rem;
     }
 }
 
 @media screen and (min-width : 1315px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 39rem;
+    .carousel-control-prev {  
+        left: 16rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 16rem;
     }
 }
 
 @media screen and (min-width : 1330px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 39.5rem;
+    .carousel-control-prev {  
+        left: 16.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 16.5rem;
     }
 }
 
 @media screen and (min-width : 1345px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 40rem;
+    .carousel-control-prev {  
+        left: 17rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 17rem;
     }
 }
 
 @media screen and (min-width : 1365px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 40.5rem;
+    .carousel-control-prev {  
+        left: 17.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 17.5rem;
     }
 }
 
 @media screen and (min-width : 1380px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 41rem;
+    .carousel-control-prev {  
+        left: 18rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 18rem;
     }
 }
 
 @media screen and (min-width : 1395px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 41.5rem;
+    .carousel-control-prev {  
+        left: 18.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 18.5rem;
     }
 }
 
 @media screen and (min-width : 1410px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 42rem;
+    .carousel-control-prev {  
+        left: 19rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 19rem;
     }
 }
 
 @media screen and (min-width : 1425px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 42.5rem;
+    .carousel-control-prev {  
+        left: 19.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 19.5rem;
     }
 }
 
 @media screen and (min-width : 1445px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 43rem;
+    .carousel-control-prev {  
+        left: 20rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 20rem;
     }
 }
 
 @media screen and (min-width : 1460px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 43.5rem;
+    .carousel-control-prev {  
+        left: 20.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 20.5rem;
     }
 }
 
 @media screen and (min-width : 1475px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 44rem;
+    .carousel-control-prev {  
+        left: 21rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 21rem;
     }
 }
 
@@ -1023,389 +1041,482 @@ object{
 }
 
 @media screen and (min-width : 1510px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 45rem;
+    .carousel-control-prev {  
+        left: 21.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 21.5rem;
     }
 }
 
 @media screen and (min-width : 1525px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 45.5rem;
+    .carousel-control-prev {  
+        left: 22rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 22rem;
     }
 }
 
 @media screen and (min-width : 1540px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 46.2rem;
+    .carousel-control-prev {  
+        left: 22.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 22.5rem;
     }
 }
 
 @media screen and (min-width : 1560px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 46.6rem;
+    .carousel-control-prev {  
+        left: 23rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 23rem;
     }
 }
 
 @media screen and (min-width : 1575px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 47rem;
+    .carousel-control-prev {  
+        left: 23.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 23.5rem;
     }
 }
 
 @media screen and (min-width : 1590px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 47.5rem;
+    .carousel-control-prev {  
+        left: 24rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 24rem;
     }
 }
 
 @media screen and (min-width : 1605px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 48rem;
+    .carousel-control-prev {  
+        left: 24.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 24.5rem;
     }
 }
 
 @media screen and (min-width : 1620px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 48.5rem;
+    .carousel-control-prev {  
+        left: 25rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 25rem;
     }
 }
 
 @media screen and (min-width : 1635px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 49rem;
+    .carousel-control-prev {  
+        left: 25.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 25.5rem;
     }
 }
 
 @media screen and (min-width : 1650px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 49.5rem;
+    .carousel-control-prev {  
+        left: 26rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 26rem;
     }
 }
 
 @media screen and (min-width : 1670px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 50rem;
+    .carousel-control-prev {  
+        left: 26.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 26.5rem;
     }
 }
 
 @media screen and (min-width : 1685px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 50.5rem;
+    .carousel-control-prev {  
+        left: 27rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 27rem;
     }
 }
 
 @media screen and (min-width : 1700px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 51rem;
+    .carousel-control-prev {  
+        left: 27.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 27.5rem;
     }
 }
 
 @media screen and (min-width : 1715px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 51.5rem;
+    .carousel-control-prev {  
+        left: 28rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 28rem;
     }
 }
 
 @media screen and (min-width : 1730px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 52rem;
+    .carousel-control-prev {  
+        left: 28.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 28.5rem;
     }
-
 }
 
 @media screen and (min-width : 1745px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 52.5rem;
+    .carousel-control-prev {  
+        left: 29rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 29rem;
     }
 }
 
 @media screen and (min-width : 1760px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 53rem;
+    .carousel-control-prev {  
+        left: 29.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 29.5rem;
     }
-
 }
 
 @media screen and (min-width : 1775px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 53.5rem;
+    .carousel-control-prev {  
+        left: 30rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 30rem;
     }
 }
 
 @media screen and (min-width : 1795px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 54rem;
+    .carousel-control-prev {  
+        left: 30.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 30.5rem;
     }
 }
 
 @media screen and (min-width : 1810px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 54.5rem;
+    .carousel-control-prev {  
+        left: 31rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 31rem;
     }
 }
 
 @media screen and (min-width : 1825px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 55rem;
+    .carousel-control-prev {  
+        left: 31.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 31.5rem;
     }
 }
 
 @media screen and (min-width : 1845px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 55.5rem;
+    .carousel-control-prev {  
+        left: 32rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 32rem;
     }
 }
 
 @media screen and (min-width : 1860px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 56rem;
+    .carousel-control-prev {  
+        left: 32.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 32.5rem;
     }
 }
 
 @media screen and (min-width : 1875px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 56.5rem;
+    .carousel-control-prev {  
+        left: 33rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 33rem;
     }
 }
 
 @media screen and (min-width : 1890px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 57rem;
-    }
+    .carousel-control-prev {  
+        left: 33.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 33.5rem;
+}
 }
 
 @media screen and (min-width : 1905px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 57.5rem;
+    .carousel-control-prev {  
+        left: 34rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 34rem;
     }
 }
 
 @media screen and (min-width : 1920px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 58rem;
+    .carousel-control-prev {  
+        left: 34.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 34.5rem;
     }
 }
 
 @media screen and (min-width : 1940px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 58.5rem;
+    .carousel-control-prev {  
+        left: 35rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 35rem;
     }
 }
 
 @media screen and (min-width : 1955px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 59rem;
+    .carousel-control-prev {  
+        left: 35.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 35.5rem;
     }
 }
 
 @media screen and (min-width : 1975px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 59.5rem;
+    .carousel-control-prev {  
+        left: 36rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 36rem;
     }
 }
 
 @media screen and (min-width : 1990px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 60rem;
+    .carousel-control-prev {  
+        left: 36.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 36.5rem;
     }
 }
 
 @media screen and (min-width : 2005px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 60.5rem;
+    .carousel-control-prev {  
+        left: 37rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 37rem;
     }
 }
 
 @media screen and (min-width : 2025px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 61rem;
+    .carousel-control-prev {  
+        left: 37.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 37.5rem;
     }
 }
 
 @media screen and (min-width : 2035px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 61.5rem;
+    .carousel-control-prev {  
+        left: 38rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 38rem;
     }
 }
 
 @media screen and (min-width : 2050px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 62rem;
+    .carousel-control-prev {  
+        left: 38.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 38.5rem;
     }
 }
 
 @media screen and (min-width : 2065px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 62.5rem;
+    .carousel-control-prev {  
+        left: 39rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 39rem;
     }
 }
 
 @media screen and (min-width : 2080px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 63rem;
+    .carousel-control-prev {  
+        left: 39.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 39.5rem;
     }
 }
 
 @media screen and (min-width : 2095px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 63.5rem;
+    .carousel-control-prev {  
+        left: 40rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 40rem;
     }
 }
 
 @media screen and (min-width : 2115px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 64rem;
+    .carousel-control-prev {  
+        left: 40.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 40.5rem;
     }
 }
 
 @media screen and (min-width : 2130px) {
 
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 64.5rem;
+    .carousel-control-prev {  
+        left: 41rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 41rem;
     }
 }
 
 @media screen and (min-width : 2145px) {
-
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 65rem;
+    .carousel-control-prev {  
+        left: 42rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 42rem;
     }
 }
 
 @media screen and (min-width : 2160px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 65.5rem;
+    .carousel-control-prev {  
+        left: 42.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 42.5rem;
     }
 }
 
 @media screen and (min-width : 2175px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 66rem;
+    .carousel-control-prev {  
+        left: 43rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 43rem;
     }
 }
 
 @media screen and (min-width : 2190px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 66.5rem;
+    .carousel-control-prev {  
+        left: 43.5rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 43.5rem;
     }
 }
 
 @media screen and (min-width : 2210px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 67rem;
+    .carousel-control-prev {  
+        left: 44rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 44rem;
     }
 }
 
 @media screen and (min-width : 2225px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 67.5rem;
+    .carousel-control-prev {  
+        left: 44.4rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 44.4rem;
     }
 }
 
 @media screen and (min-width : 2560px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 77rem;
+    .carousel-control-prev {  
+        left: 50rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 50rem;
     }
 }
 
 @media screen and (min-width : 3840px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 118rem;
+    .carousel-control-prev {  
+        left: 80rem; 
+    }  
+    
+    .carousel-control-next {  
+        right: 80rem;
     }
 }
