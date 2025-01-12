@@ -592,6 +592,9 @@ h5 {
         margin-top: 13rem;
         color: #5c5c5c;
     }
+    .address{
+        margin-top: 19rem
+    }
 }
 
 @media screen and (min-width : 415px) {
@@ -1266,14 +1269,6 @@ h5 {
 
     .carousel-control-next {
         right: 21rem;
-    }
-}
-
-@media screen and (min-width : 1495px) {
-    .nine-pm {
-        position: absolute;
-        top: 4.5rem;
-        left: 44.5rem;
     }
 }
 
