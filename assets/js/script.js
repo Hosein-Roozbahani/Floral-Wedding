@@ -142,31 +142,31 @@ window.addEventListener('load', function () {
 // playing background song 
 
 // انتخاب عناصر  
-const playButton = document.querySelectorAll('play-icon');  
-const pauseButton = document.querySelectorAll('pause-icon');  
-const audio = document.getElementById('background-music'); // انتخاب تگ audio  
+// const playButton = document.querySelectorAll('play-icon');  
+// const pauseButton = document.querySelectorAll('pause-icon');  
+// const audio = document.getElementById('background-music'); // انتخاب تگ audio  
 
-console.log(playButton, pauseButton, audio);
+// console.log(playButton, pauseButton, audio);
 
-let isPlaying = false; // وضعیت پخش  
+// let isPlaying = false; // وضعیت پخش  
 
-// تابع پخش و توقف موسیقی  
-function togglePlayPause() {  
-    if (!isPlaying) {  
-        audio.play(); // پخش موسیقی  
-        playButton.style.display = 'none'; // مخفی کردن دکمه پخش  
-        pauseButton.style.display = 'block'; // نمایش دکمه توقف  
-    } else {  
-        audio.pause(); // توقف موسیقی  
-        playButton.style.display = 'block'; // نمایش دکمه پخش  
-        pauseButton.style.display = 'none'; // مخفی کردن دکمه توقف  
-    }  
-    isPlaying = !isPlaying; // تغییر وضعیت  
-}  
+// // تابع پخش و توقف موسیقی  
+// function togglePlayPause() {  
+//     if (!isPlaying) {  
+//         audio.play(); // پخش موسیقی  
+//         playButton.style.display = 'none'; // مخفی کردن دکمه پخش  
+//         pauseButton.style.display = 'block'; // نمایش دکمه توقف  
+//     } else {  
+//         audio.pause(); // توقف موسیقی  
+//         playButton.style.display = 'block'; // نمایش دکمه پخش  
+//         pauseButton.style.display = 'none'; // مخفی کردن دکمه توقف  
+//     }  
+//     isPlaying = !isPlaying; // تغییر وضعیت  
+// }  
 
-// اضافه کردن رویداد کلیک به دکمه پخش و توقف  
-playButton.addEventListener('click', togglePlayPause);  
-pauseButton.addEventListener('click', togglePlayPause);
+// // اضافه کردن رویداد کلیک به دکمه پخش و توقف  
+// playButton.addEventListener('click', togglePlayPause);  
+// pauseButton.addEventListener('click', togglePlayPause);
 
 // document.addEventListener('DOMContentLoaded', () => {  
 //     const music = document.getElementById('background-music');  
@@ -213,6 +213,35 @@ pauseButton.addEventListener('click', togglePlayPause);
 //     });
 // });
 
+// handling the background music
+
+document.addEventListener("DOMContentLoaded", function () {  
+    const playPauseButton = document.getElementById('playPauseButton'); // این حالا درست است  
+    const music = document.getElementById('background-music');  
+    const playIcon = '/assets/images/SVG\'s/play-icon.svg'; // مسیر تصویر Play  
+    const pauseIcon = '/assets/images/SVG\'s/pause-icon.svg'; // مسیر تصویر Pause  
+    const img = playPauseButton.querySelector('img');  
+
+    music.oncanplaythrough = function () {  
+        playPauseButton.style.display = 'block'; // نمایش دکمه play/pause  
+    };  
+
+    playPauseButton.addEventListener('click', function () {  
+        if (music.paused) {  
+            music.play().then(() => { // pخplay و مدیریت خطا  
+                img.src = pauseIcon; // تغییر تصویر به Pause  
+                img.alt = 'Pause'; // تغییر متن alt  
+            }).catch(error => {  
+                console.error('Error trying to play the audio:', error);  
+            });  
+        } else {  
+            music.pause(); // توقف موسیقی  
+            img.src = playIcon; // تغییر تصویر به Play  
+            img.alt = 'Play'; // تغییر متن alt  
+        }  
+    });  
+});
+
 // disable the prve btn arrow for firt slide
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -220,7 +249,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // دکمه قبلی  
     const prevButton = document.querySelector('#prevButton');
-
+    // console.log(prevButton);
+    
     // بررسی وضعیت اسلاید  
     carouselElement.addEventListener('slid.bs.carousel', function () {
         const activeIndex = [...carouselElement.querySelectorAll('.carousel-item')].findIndex(item => item.classList.contains('active'));
@@ -231,7 +261,6 @@ document.addEventListener("DOMContentLoaded", function () {
             prevButton.classList.remove('disabled-button');
         }
     });
-
     // غیر فعال کردن دکمه در بارگذاری اولیه  
     prevButton.classList.add('disabled-button');
 });

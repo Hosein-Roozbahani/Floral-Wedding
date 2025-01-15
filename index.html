@@ -15,10 +15,14 @@
     <div class="loader">
         <img src="/assets/images/loading.gif" alt="loading...">
     </div>
-    <audio id="background-music" loop>
+    <!-- <audio id="background-music" loop>
         <source src="/assets/music/Shadmehr bi ehsas vilion.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio>
+    </audio> -->
+    <audio id="background-music" loop>  
+        <source src="/assets/music/Shadmehr bi ehsas vilion.mp3" type="audio/mpeg">  
+        Your browser does not support the audio element.  
+    </audio> 
 
     <div id="carouselExample" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
@@ -79,9 +83,9 @@
                             <img src="/assets/images/left-flower-input-maghbareh.png"
                                 class="left-flower-input-2 animate__animated animate__fadeIn custom-fadeIn" alt="">
                         </div>
-                        <div class="play-pause-icon">
-                            <img src="/assets/images/SVG's/play-icon.svg" class="play-pause-music" alt="">
-                        </div>
+                        <div class="play-pause-icon animate__animated animate__fadeIn animate__delay-3s" id="playPauseButton">  <!-- افزودن id به div -->  
+                            <img src="/assets/images/SVG's/play-icon.svg" class="play-pause-music" alt="Play">  
+                        </div>  
                     </div>
                     <div class="absolute w-100">
                         <h3 class="invite-message animate__animated fs-6" id="invite-message"></h3>

@@ -157,6 +157,11 @@ object {
     width: 70px;
     height: 70px;
 }
+.disabled-button {  
+    pointer-events: none; /* جلوگیری از کلیک روی دکمه */  
+    opacity: 0.5; /* کاهش شفافیت دکمه برای نمایش غیرفعالی */  
+    cursor: not-allowed; /* تغییر نشانگر ماوس */  
+}
 
 .carousel-item {
     animation-timeline: view();
@@ -176,19 +181,7 @@ object {
 .play-pause-music {
     width: 3.5rem;
     height: 3.5rem;
-}
-
-.play-pause-icon-3 {
-    position: absolute;
-    top: 45%;
-    right: 0;
-    z-index: 11;
     cursor: pointer;
-}
-
-.play-pause-music-3 {
-    width: 3.5rem;
-    height: 3.5rem;
 }
 
 /* first slide styles */
