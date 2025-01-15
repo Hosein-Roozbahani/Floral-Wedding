@@ -6,7 +6,7 @@ function typeWriter() {
     if (index < message.length) {
         inviteElement.innerHTML += message.charAt(index);
         index++;
-        setTimeout(typeWriter, 100); // زمان تاخیر بین حروف (100 میلی‌ثانیه)  
+        setTimeout(typeWriter, 50); // زمان تاخیر بین حروف (100 میلی‌ثانیه)  
     }
 }
 
@@ -20,8 +20,8 @@ setTimeout(typeWriter, 1000); // شروع تایپ بعد از 1 ثانیه
 document.addEventListener('DOMContentLoaded', function () {
     var groomsElements = document.querySelectorAll('#couples-name .animated-item');
     var bridesElements = document.querySelectorAll('#brides-name .animated-item');
-    var groomsDelay = 0.5; // زمان پایه تاخیر برای grooms-name  
-    var bridesDelay = 0.5; // زمان پایه تاخیر برای brides-name  
+    var groomsDelay = 3; // زمان پایه تاخیر برای grooms-name  
+    var bridesDelay = 3.5; // زمان پایه تاخیر برای brides-name  
 
     // انیمیشن grooms-name  
     groomsElements.forEach((element, index) => {
@@ -141,6 +141,33 @@ window.addEventListener('load', function () {
 
 // playing background song 
 
+// انتخاب عناصر  
+const playButton = document.querySelectorAll('play-icon');  
+const pauseButton = document.querySelectorAll('pause-icon');  
+const audio = document.getElementById('background-music'); // انتخاب تگ audio  
+
+console.log(playButton, pauseButton, audio);
+
+let isPlaying = false; // وضعیت پخش  
+
+// تابع پخش و توقف موسیقی  
+function togglePlayPause() {  
+    if (!isPlaying) {  
+        audio.play(); // پخش موسیقی  
+        playButton.style.display = 'none'; // مخفی کردن دکمه پخش  
+        pauseButton.style.display = 'block'; // نمایش دکمه توقف  
+    } else {  
+        audio.pause(); // توقف موسیقی  
+        playButton.style.display = 'block'; // نمایش دکمه پخش  
+        pauseButton.style.display = 'none'; // مخفی کردن دکمه توقف  
+    }  
+    isPlaying = !isPlaying; // تغییر وضعیت  
+}  
+
+// اضافه کردن رویداد کلیک به دکمه پخش و توقف  
+playButton.addEventListener('click', togglePlayPause);  
+pauseButton.addEventListener('click', togglePlayPause);
+
 // document.addEventListener('DOMContentLoaded', () => {  
 //     const music = document.getElementById('background-music');  
 //     music.play().catch(error => {  
@@ -149,18 +176,18 @@ window.addEventListener('load', function () {
 //     });  
 // });
 
-document.addEventListener('DOMContentLoaded', (event) => {  
-    event.preventDefault();
-    const music = document.getElementById('background-music');  
-    music.volume = 0; // تنظیم صدا به ۰.  
-    music.play().then(() => {  
-        setTimeout(() => {  
-            music.volume = 1; // حجم صدا را زیاد کنید.  
-        }, 1000);  
-    }).catch(error => {  
-        console.error('The autoplay was prevented:', error);  
-    });  
-});
+// document.addEventListener('DOMContentLoaded', (event) => {  
+//     event.preventDefault();
+//     const music = document.getElementById('background-music');  
+//     music.volume = 0; // تنظیم صدا به ۰.  
+//     music.play().then(() => {  
+//         setTimeout(() => {  
+//             music.volume = 1; // حجم صدا را زیاد کنید.  
+//         }, 1000);  
+//     }).catch(error => {  
+//         console.error('The autoplay was prevented:', error);  
+//     });  
+// });
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     const music = document.getElementById('background-music');

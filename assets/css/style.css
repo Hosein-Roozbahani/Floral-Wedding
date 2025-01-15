@@ -56,37 +56,6 @@ object {
     right: 0;
 }
 
-/* play and pasue music */
-#play-pause-button {
-    position: absolute;
-    top: 10rem;
-    /* موقعیت عمودی */
-    left: 1rem;
-    /* موقعیت افقی */
-    width: 50px;
-    /* عرض دکمه */
-    height: 50px;
-    /* ارتفاع دکمه */
-    cursor: pointer;
-    /* نشانگر ماوس تغییر کند */
-    z-index: 1000;
-    /* اطمینان از اینکه دکمه بالای سایر عناصر قرار گیرد */
-}
-
-#play-pause-button {
-    background-color: transparent;
-    /* ست کردن پس‌زمینه به شفاف */
-    -webkit-mask-image: url('/assets/images/play image.png');
-    /* استفاده از ماسک برای پنهان کردن پس‌زمینه */
-    mask-image: url('/assets/images/play image.png');
-    /* استفاده از ماسک برای پنهان کردن پس‌زمینه */
-    width: 50px;
-    /* اندازه دکمه */
-    height: 50px;
-    /* اندازه دکمه */
-    background-color: transparent;
-    /* پس‌زمینه شفاف */
-}
 
 /* snow */
 
@@ -162,15 +131,15 @@ object {
 .carousel-control-prev,
 .carousel-control-next {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px !important;
+    height: 50px !important;
     opacity: 1;
     z-index: 10;
-    top: 45%;
+    top: 42%;
     transform: translateY(-50%);
     font-size: 4rem;
     border-radius: 50%;
-    margin: 0 -1rem;
+    margin: 0 -.5rem;
     padding: 0 10px;
 }
 
@@ -192,6 +161,34 @@ object {
 .carousel-item {
     animation-timeline: view();
     animation-range: entry 0% cover 50%;
+}
+
+/* play and pause icons */
+
+.play-pause-icon {
+    position: absolute;
+    z-index: 11;
+    bottom: .5rem;
+    right: .5rem;
+    cursor: pointer;
+}
+
+.play-pause-music {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.play-pause-icon-3 {
+    position: absolute;
+    top: 45%;
+    right: 0;
+    z-index: 11;
+    cursor: pointer;
+}
+
+.play-pause-music-3 {
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 /* first slide styles */
@@ -271,8 +268,8 @@ object {
     position: absolute;
     bottom: 2.8rem;
     right: -3.5rem;
-    width: 28rem;
-    height: 22rem;
+    width: 26rem;
+    height: 20rem;
     background-size: contain;
     z-index: 9999;
 }
@@ -312,21 +309,23 @@ object {
 }
 
 .tavoos {
-    z-index: 11111111111111111111;
+    z-index: 1;
     position: absolute;
     right: -.7rem;
     bottom: 15.5rem;
-    width: 11rem;
-    height: 9rem;
+    width: 10rem;
+    height: 8rem !important;
     background-size: contain;
 }
 
 .button-flower {
     position: absolute;
-    bottom: 8rem;
-    right: 0;
+    bottom: 2.5rem !important;
+    right: 20.5rem !important;
     filter: brightness(0.95);
-    z-index: 999;
+    /* z-index: 999; */
+    width: 6rem !important;
+    height: 6rem !important;
 }
 
 .top-left-middle-flower-image {
@@ -354,6 +353,7 @@ object {
     margin-top: 6rem;
     text-align: center !important;
     color: #5c5c5c;
+    font-size: 1rem !important;
 }
 
 .date {
@@ -405,9 +405,6 @@ object {
 
 /* thrid slide styles */
 
-/* .wedding-title, .weddings-plan {
-    z-index: 99999999 !important;
-} */
 .our-plan {
     height: 100vh;
 }
@@ -415,19 +412,19 @@ object {
 .wedding-title {
     width: 100%;
     text-align: center;
-    margin-top: 5.5rem;
+    margin-top: 6rem;
 }
 
 .wedding-title>h1 {
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
     font-weight: 700;
 }
 
 .weddings-plan {
     width: 100%;
     height: 100vh;
-    text-align: center;
-    padding-top: 10rem;
+    margin-top: 10rem;
+    margin-left: .5rem;
 }
 
 .weddings-plan>h2 {
@@ -435,8 +432,10 @@ object {
 }
 
 h5 {
+    margin-left: .7rem;
     font-size: 17px;
     color: #4d4d4d !important;
+    /* line-height: 1.5rem; */
 }
 
 .disabled-button {
@@ -446,9 +445,26 @@ h5 {
 
 /* responsive */
 
-@media screen and (min-width : 300px) {
+@media screen and (min-width: 300px) and (min-height: 500px) and (max-width: 499px) and (max-height: 800px) {
+    object {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .invite-message {
+        padding-top: 5rem;
+    }
+
+    .couples-name {
+        margin-top: 1rem;
+    }
+
+    .poetry {
+        margin-top: 5rem;
+    }
+
     .maghbareh {
-        width: 20rem;
+        width: 17rem;
         height: 15rem;
         bottom: 2.2rem;
     }
@@ -457,29 +473,55 @@ h5 {
         width: 20rem;
         height: 10rem;
         bottom: -2.1rem;
-        right: 2rem;
+        right: 0rem;
     }
 
     .button-flower {
-        width: 5rem;
-        height: 5rem;
-        bottom: 5.5rem;
+        width: 80px !important;
+        height: 80px !important;
+        bottom: 5rem;
+        right: 11.5rem !important;
+    }
+
+    .left-flower-input {
+        position: absolute;
+        bottom: -1rem;
         right: 0;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .left-flower-input-1 {
+        position: absolute;
+        bottom: -1rem;
+        right: -3rem !important;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .left-flower-input-2 {
+        position: absolute;
+        bottom: -1rem;
+        right: -5rem !important;
+        width: 10rem;
+        height: 10rem;
     }
 
     .tavoos {
         width: 5rem;
         height: 5rem;
-        right: 0;
-        bottom: 11rem;
+        right: 0 !important;
+        bottom: 11.5rem;
     }
 
     .date {
-        margin-top: 15rem;
+        margin-top: 9rem;
+        left: 3%;
     }
 
     .address {
-        margin-top: 21rem;
+        margin-top: 15rem;
+        text-align: start !important;
     }
 
     .nine-pm {
@@ -488,8 +530,17 @@ h5 {
         left: 7rem;
     }
 
+    .wedding-title {
+        margin-top: 5rem;
+        font-size: 1rem !important;
+    }
+
     .wedding-title>h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
+    }
+
+    .weddings-plan {
+        margin-top: 10rem;
     }
 
     .Welcoming-the-Guests,
@@ -497,10 +548,50 @@ h5 {
     .Serving-Guests-with-Fruits-and-Sweets,
     .Serving-Natural-Juices,
     .Serving-Sherbet,
-    .Serving-Finger-Foods, .Dancing-and-Music{
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
         font-size: 1.2rem !important;
+        line-height: 1rem !important;
     }
-    h5{
+
+    h5 {
+        font-size: .9rem;
+    }
+}
+
+@media screen and(min-width : 301px) and (max-width : 555px) and (min-height : 600px) and (max-height : 916px) {
+    .address {
+        margin-top: 19rem;
+        text-align: center !important;
+    }
+
+    .wedding-title {
+        margin-top: 5rem;
+    }
+
+    .wedding-title>h1 {
+        font-size: 1rem !important;
+    }
+
+    .weddings-plan {
+        margin-top: 10rem;
+    }
+    .weddings-plan>h2 {
+        font-size: 1rem !important;
+    }
+
+    .Welcoming-the-Guests,
+    .Aryan-Wedding-Ceremony,
+    .Serving-Guests-with-Fruits-and-Sweets,
+    .Serving-Natural-Juices,
+    .Serving-Sherbet,
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
+        font-size: 1rem !important;
+        line-height: 1rem !important;
+    }
+
+    h5 {
         font-size: .9rem;
     }
 }
@@ -527,6 +618,10 @@ h5 {
         top: 4.5rem;
         left: 9rem;
     }
+    .address {
+        /* margin-top: 17rem; */
+        text-align: center !important;
+    }
 }
 
 @media screen and (min-width : 370px) {
@@ -545,56 +640,99 @@ h5 {
     }
 }
 
-@media screen and (min-width : 400px) {
+@media screen and (min-width: 400px) and (min-height: 600px) and (max-width: 600px) and (max-height: 920px) {
+    object {
+        width: 90px !important;
+        height: 90px !important;
+    }
+
+    .invite-message {
+        padding-top: 6rem !important;
+    }
+
+    .couples-name {
+        margin-top: .5rem;
+    }
+
+    .date {
+        margin-top: 10rem !important;
+    }
+
+    .address {
+        margin-top: 17rem;
+        text-align: center !important;
+    }
+
     .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 10.5rem;
     }
+
     .maghbareh {
         position: absolute;
         bottom: 2.8rem;
         right: -3.5rem;
-        width: 28rem;
-        height: 22rem;
+        width: 19rem;
+        height: 16rem;
         background-size: contain;
         z-index: 9999;
     }
-    
+
     .voorodi {
         position: absolute;
         bottom: -2.1rem;
-        right: 4.4rem;
+        right: 0 !important;
         width: 25rem;
         height: 12rem;
         background-size: cover;
-    
+
     }
+
     .tavoos {
         z-index: 11111111111111111111;
         position: absolute;
-        right: -.7rem;
-        bottom: 15.5rem;
-        width: 11rem;
-        height: 9rem;
+        right: -1rem;
+        bottom: 12rem;
+        width: 7rem;
+        height: 6rem;
         background-size: contain;
     }
-    
+
     .button-flower {
         position: absolute;
         bottom: 8rem;
-        right: 0;
+        right: 18rem !important;
         filter: brightness(0.95);
-        z-index: 999;
+        z-index: 9999999999999;
     }
-    .date {
-        text-align: center;
-        margin-top: 13rem;
-        color: #5c5c5c;
+    .wedding-title {
+        margin-top: 5rem;
     }
-    .address{
-        margin-top: 19rem
+
+    .wedding-title>h1 {
+        font-size: 2rem !important;
     }
+
+    .weddings-plan {
+        margin-top: 11rem;
+    }
+
+    .Welcoming-the-Guests,
+    .Aryan-Wedding-Ceremony,
+    .Serving-Guests-with-Fruits-and-Sweets,
+    .Serving-Natural-Juices,
+    .Serving-Sherbet,
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+    }
+
+    h5 {
+        font-size: .9rem;
+    }
+
 }
 
 @media screen and (min-width : 415px) {
@@ -617,14 +755,16 @@ h5 {
     .left-flower-input {
         margin-left: -3.3rem;
     }
+
     .nine-pm {
         position: absolute;
         top: 4.5rem;
         left: 12rem;
     }
+
     .wedding-title>h1 {
         font-size: 2rem;
-        margin-top: -1rem;
+        margin-top: 1rem;
     }
 
     .Welcoming-the-Guests,
@@ -632,11 +772,14 @@ h5 {
     .Serving-Guests-with-Fruits-and-Sweets,
     .Serving-Natural-Juices,
     .Serving-Sherbet,
-    .Serving-Finger-Foods, .Dancing-and-Music{
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
         font-size: 1.7rem !important;
         margin-top: -.5rem;
+        line-height: 1.5rem;
     }
-    h5{
+
+    h5 {
         font-size: 1.2rem;
     }
 }
@@ -720,12 +863,14 @@ h5 {
     .Serving-Guests-with-Fruits-and-Sweets,
     .Serving-Natural-Juices,
     .Serving-Sherbet,
-    .Serving-Finger-Foods, .Dancing-and-Music{
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
         font-size: 1.2rem !important;
         line-height: 1rem;
         margin-top: 2rem;
     }
-    h5{
+
+    h5 {
         font-size: .9rem;
     }
 }
@@ -743,6 +888,9 @@ h5 {
         position: absolute;
         top: 4.5rem;
         left: 17rem;
+    }
+    .poetry > h6{
+        font-size: 1.5rem !important;
     }
 }
 
@@ -856,13 +1004,33 @@ h5 {
     }
 }
 
-@media screen and (min-width : 850px) {
+@media screen and (min-width : 810px) {
     .carousel-control-prev {
         left: 1rem;
     }
 
     .carousel-control-next {
         right: 1rem;
+    }
+}
+
+@media screen and (min-width : 835px) {
+    .carousel-control-prev {
+        left: 1.5rem;
+    }
+
+    .carousel-control-next {
+        right: 1.5rem;
+    }
+}
+
+@media screen and (min-width : 850px) {
+    .carousel-control-prev {
+        left: 2rem;
+    }
+
+    .carousel-control-next {
+        right: 2rem;
     }
 }
 
@@ -874,45 +1042,35 @@ h5 {
     }
 
     .carousel-control-prev {
-        left: 1.5rem;
+        left: 2.5rem;
     }
 
     .carousel-control-next {
-        right: 1.5rem;
+        right: 2.5rem;
     }
 }
 
 @media screen and (min-width : 890px) {
     .carousel-control-prev {
-        left: 2rem;
+        left: 3rem;
     }
 
     .carousel-control-next {
-        right: 2rem;
+        right: 3rem;
     }
 }
 
 @media screen and (min-width : 900px) {
     .carousel-control-prev {
-        left: 2.8rem;
+        left: 3.5rem;
     }
 
     .carousel-control-next {
-        right: 2.8rem;
+        right: 3.5rem;
     }
 }
 
 @media screen and (min-width : 925px) {
-    .carousel-control-prev {
-        left: 3.3rem;
-    }
-
-    .carousel-control-next {
-        right: 3.3rem;
-    }
-}
-
-@media screen and (min-width : 940px) {
     .carousel-control-prev {
         left: 4rem;
     }
@@ -922,7 +1080,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 950px) {
+@media screen and (min-width : 940px) {
     .carousel-control-prev {
         left: 4.5rem;
     }
@@ -932,7 +1090,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 975px) {
+@media screen and (min-width : 950px) {
     .carousel-control-prev {
         left: 5rem;
     }
@@ -942,17 +1100,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 992px) {
-    .carousel-control-prev {
-        left: 5.5rem;
-    }
-
-    .carousel-control-next {
-        right: 5.5rem;
-    }
-}
-
-@media screen and (min-width : 1000px) {
+@media screen and (min-width : 975px) {
     .carousel-control-prev {
         left: 6rem;
     }
@@ -962,7 +1110,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1011px) {
+@media screen and (min-width : 992px) {
     .carousel-control-prev {
         left: 6.5rem;
     }
@@ -972,7 +1120,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1024px) {
+@media screen and (min-width : 1000px) {
     .carousel-control-prev {
         left: 7rem;
     }
@@ -982,27 +1130,17 @@ h5 {
     }
 }
 
+@media screen and (min-width : 1024px) {
+    .carousel-control-prev {
+        left: 7.5rem;
+    }
+
+    .carousel-control-next {
+        right: 7.5rem;
+    }
+}
+
 @media screen and (min-width : 1040px) {
-    .carousel-control-prev {
-        left: 7.2rem;
-    }
-
-    .carousel-control-next {
-        right: 7.2rem;
-    }
-}
-
-@media screen and (min-width : 1055px) {
-    .carousel-control-prev {
-        left: 7.7rem;
-    }
-
-    .carousel-control-next {
-        right: 7.7rem;
-    }
-}
-
-@media screen and (min-width : 1070px) {
     .carousel-control-prev {
         left: 8rem;
     }
@@ -1012,7 +1150,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1090px) {
+@media screen and (min-width : 1055px) {
     .carousel-control-prev {
         left: 8.5rem;
     }
@@ -1022,7 +1160,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1100px) {
+@media screen and (min-width : 1070px) {
     .carousel-control-prev {
         left: 9rem;
     }
@@ -1032,7 +1170,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1115px) {
+@media screen and (min-width : 1090px) {
     .carousel-control-prev {
         left: 9.5rem;
     }
@@ -1042,7 +1180,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1125px) {
+@media screen and (min-width : 1100px) {
     .carousel-control-prev {
         left: 10rem;
     }
@@ -1052,7 +1190,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1140px) {
+@media screen and (min-width : 1115px) {
     .carousel-control-prev {
         left: 10.5rem;
     }
@@ -1062,7 +1200,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1155px) {
+@media screen and (min-width : 1125px) {
     .carousel-control-prev {
         left: 11rem;
     }
@@ -1072,7 +1210,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1170px) {
+@media screen and (min-width : 1140px) {
     .carousel-control-prev {
         left: 11.5rem;
     }
@@ -1082,7 +1220,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1190px) {
+@media screen and (min-width : 1155px) {
     .carousel-control-prev {
         left: 12rem;
     }
@@ -1092,7 +1230,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1205px) {
+@media screen and (min-width : 1170px) {
     .carousel-control-prev {
         left: 12.5rem;
     }
@@ -1102,7 +1240,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1220px) {
+@media screen and (min-width : 1190px) {
     .carousel-control-prev {
         left: 13rem;
     }
@@ -1112,7 +1250,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1240px) {
+@media screen and (min-width : 1205px) {
     .carousel-control-prev {
         left: 13.5rem;
     }
@@ -1122,7 +1260,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1255px) {
+@media screen and (min-width : 1220px) {
     .carousel-control-prev {
         left: 14rem;
     }
@@ -1132,7 +1270,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1270px) {
+@media screen and (min-width : 1240px) {
     .carousel-control-prev {
         left: 14.5rem;
     }
@@ -1142,7 +1280,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1285px) {
+@media screen and (min-width : 1255px) {
     .carousel-control-prev {
         left: 15rem;
     }
@@ -1152,7 +1290,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1300px) {
+@media screen and (min-width : 1270px) {
     .carousel-control-prev {
         left: 15.5rem;
     }
@@ -1162,7 +1300,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1315px) {
+@media screen and (min-width : 1285px) {
     .carousel-control-prev {
         left: 16rem;
     }
@@ -1172,7 +1310,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1330px) {
+@media screen and (min-width : 1300px) {
     .carousel-control-prev {
         left: 16.5rem;
     }
@@ -1182,7 +1320,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1345px) {
+@media screen and (min-width : 1315px) {
     .carousel-control-prev {
         left: 17rem;
     }
@@ -1192,7 +1330,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1365px) {
+@media screen and (min-width : 1330px) {
     .carousel-control-prev {
         left: 17.5rem;
     }
@@ -1202,7 +1340,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1380px) {
+@media screen and (min-width : 1345px) {
     .carousel-control-prev {
         left: 18rem;
     }
@@ -1212,7 +1350,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1395px) {
+@media screen and (min-width : 1365px) {
     .carousel-control-prev {
         left: 18.5rem;
     }
@@ -1222,7 +1360,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1410px) {
+@media screen and (min-width : 1380px) {
     .carousel-control-prev {
         left: 19rem;
     }
@@ -1232,7 +1370,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1425px) {
+@media screen and (min-width : 1395px) {
     .carousel-control-prev {
         left: 19.5rem;
     }
@@ -1242,7 +1380,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1445px) {
+@media screen and (min-width : 1410px) {
     .carousel-control-prev {
         left: 20rem;
     }
@@ -1252,7 +1390,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1460px) {
+@media screen and (min-width : 1425px) {
     .carousel-control-prev {
         left: 20.5rem;
     }
@@ -1262,7 +1400,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1475px) {
+@media screen and (min-width : 1445px) {
     .carousel-control-prev {
         left: 21rem;
     }
@@ -1272,7 +1410,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1510px) {
+@media screen and (min-width : 1460px) {
     .carousel-control-prev {
         left: 21.5rem;
     }
@@ -1282,7 +1420,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1525px) {
+@media screen and (min-width : 1475px) {
     .carousel-control-prev {
         left: 22rem;
     }
@@ -1292,7 +1430,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1540px) {
+@media screen and (min-width : 1510px) {
     .carousel-control-prev {
         left: 22.5rem;
     }
@@ -1302,7 +1440,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1560px) {
+@media screen and (min-width : 1525px) {
     .carousel-control-prev {
         left: 23rem;
     }
@@ -1312,7 +1450,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1575px) {
+@media screen and (min-width : 1540px) {
     .carousel-control-prev {
         left: 23.5rem;
     }
@@ -1322,7 +1460,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1590px) {
+@media screen and (min-width : 1560px) {
     .carousel-control-prev {
         left: 24rem;
     }
@@ -1332,7 +1470,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1605px) {
+@media screen and (min-width : 1575px) {
     .carousel-control-prev {
         left: 24.5rem;
     }
@@ -1342,7 +1480,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1620px) {
+@media screen and (min-width : 1590px) {
     .carousel-control-prev {
         left: 25rem;
     }
@@ -1352,7 +1490,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1635px) {
+@media screen and (min-width : 1605px) {
     .carousel-control-prev {
         left: 25.5rem;
     }
@@ -1362,7 +1500,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1650px) {
+@media screen and (min-width : 1620px) {
     .carousel-control-prev {
         left: 26rem;
     }
@@ -1372,7 +1510,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1670px) {
+@media screen and (min-width : 1635px) {
     .carousel-control-prev {
         left: 26.5rem;
     }
@@ -1382,7 +1520,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1685px) {
+@media screen and (min-width : 1650px) {
     .carousel-control-prev {
         left: 27rem;
     }
@@ -1392,7 +1530,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1700px) {
+@media screen and (min-width : 1670px) {
     .carousel-control-prev {
         left: 27.5rem;
     }
@@ -1402,7 +1540,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1715px) {
+@media screen and (min-width : 1685px) {
     .carousel-control-prev {
         left: 28rem;
     }
@@ -1412,7 +1550,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1730px) {
+@media screen and (min-width : 1700px) {
     .carousel-control-prev {
         left: 28.5rem;
     }
@@ -1422,7 +1560,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1745px) {
+@media screen and (min-width : 1715px) {
     .carousel-control-prev {
         left: 29rem;
     }
@@ -1432,7 +1570,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1760px) {
+@media screen and (min-width : 1730px) {
     .carousel-control-prev {
         left: 29.5rem;
     }
@@ -1442,7 +1580,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1775px) {
+@media screen and (min-width : 1745px) {
     .carousel-control-prev {
         left: 30rem;
     }
@@ -1452,7 +1590,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1795px) {
+@media screen and (min-width : 1760px) {
     .carousel-control-prev {
         left: 30.5rem;
     }
@@ -1462,7 +1600,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1810px) {
+@media screen and (min-width : 1775px) {
     .carousel-control-prev {
         left: 31rem;
     }
@@ -1472,7 +1610,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1825px) {
+@media screen and (min-width : 1795px) {
     .carousel-control-prev {
         left: 31.5rem;
     }
@@ -1482,7 +1620,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1845px) {
+@media screen and (min-width : 1810px) {
     .carousel-control-prev {
         left: 32rem;
     }
@@ -1492,7 +1630,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1860px) {
+@media screen and (min-width : 1825px) {
     .carousel-control-prev {
         left: 32.5rem;
     }
@@ -1502,7 +1640,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1875px) {
+@media screen and (min-width : 1845px) {
     .carousel-control-prev {
         left: 33rem;
     }
@@ -1512,7 +1650,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1890px) {
+@media screen and (min-width : 1860px) {
     .carousel-control-prev {
         left: 33.5rem;
     }
@@ -1522,7 +1660,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1905px) {
+@media screen and (min-width : 1875px) {
     .carousel-control-prev {
         left: 34rem;
     }
@@ -1532,7 +1670,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1920px) {
+@media screen and (min-width : 1890px) {
     .carousel-control-prev {
         left: 34.5rem;
     }
@@ -1542,7 +1680,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1940px) {
+@media screen and (min-width : 1905px) {
     .carousel-control-prev {
         left: 35rem;
     }
@@ -1552,7 +1690,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1955px) {
+@media screen and (min-width : 1920px) {
     .carousel-control-prev {
         left: 35.5rem;
     }
@@ -1562,7 +1700,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1975px) {
+@media screen and (min-width : 1940px) {
     .carousel-control-prev {
         left: 36rem;
     }
@@ -1572,7 +1710,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 1990px) {
+@media screen and (min-width : 1955px) {
     .carousel-control-prev {
         left: 36.5rem;
     }
@@ -1582,7 +1720,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2005px) {
+@media screen and (min-width : 1975px) {
     .carousel-control-prev {
         left: 37rem;
     }
@@ -1592,7 +1730,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2025px) {
+@media screen and (min-width : 1990px) {
     .carousel-control-prev {
         left: 37.5rem;
     }
@@ -1602,7 +1740,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2035px) {
+@media screen and (min-width : 2005px) {
     .carousel-control-prev {
         left: 38rem;
     }
@@ -1612,7 +1750,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2050px) {
+@media screen and (min-width : 2025px) {
     .carousel-control-prev {
         left: 38.5rem;
     }
@@ -1622,7 +1760,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2065px) {
+@media screen and (min-width : 2035px) {
     .carousel-control-prev {
         left: 39rem;
     }
@@ -1632,7 +1770,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2080px) {
+@media screen and (min-width : 2050px) {
     .carousel-control-prev {
         left: 39.5rem;
     }
@@ -1642,7 +1780,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2095px) {
+@media screen and (min-width : 2065px) {
     .carousel-control-prev {
         left: 40rem;
     }
@@ -1652,7 +1790,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2115px) {
+@media screen and (min-width : 2080px) {
     .carousel-control-prev {
         left: 40.5rem;
     }
@@ -1662,8 +1800,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2130px) {
-
+@media screen and (min-width : 2095px) {
     .carousel-control-prev {
         left: 41rem;
     }
@@ -1673,7 +1810,18 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2145px) {
+@media screen and (min-width : 2115px) {
+    .carousel-control-prev {
+        left: 41.5rem;
+    }
+
+    .carousel-control-next {
+        right: 41.5rem;
+    }
+}
+
+@media screen and (min-width : 2130px) {
+
     .carousel-control-prev {
         left: 42rem;
     }
@@ -1683,7 +1831,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2160px) {
+@media screen and (min-width : 2145px) {
     .carousel-control-prev {
         left: 42.5rem;
     }
@@ -1693,7 +1841,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2175px) {
+@media screen and (min-width : 2160px) {
     .carousel-control-prev {
         left: 43rem;
     }
@@ -1703,17 +1851,7 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2190px) {
-    .carousel-control-prev {
-        left: 43.5rem;
-    }
-
-    .carousel-control-next {
-        right: 43.5rem;
-    }
-}
-
-@media screen and (min-width : 2210px) {
+@media screen and (min-width : 2175px) {
     .carousel-control-prev {
         left: 44rem;
     }
@@ -1723,32 +1861,52 @@ h5 {
     }
 }
 
-@media screen and (min-width : 2225px) {
+@media screen and (min-width : 2190px) {
     .carousel-control-prev {
-        left: 44.4rem;
+        left: 44.5rem;
     }
 
     .carousel-control-next {
-        right: 44.4rem;
+        right: 44.5rem;
+    }
+}
+
+@media screen and (min-width : 2210px) {
+    .carousel-control-prev {
+        left: 45rem;
+    }
+
+    .carousel-control-next {
+        right: 45rem;
+    }
+}
+
+@media screen and (min-width : 2225px) {
+    .carousel-control-prev {
+        left: 45.4rem;
+    }
+
+    .carousel-control-next {
+        right: 45.4rem;
     }
 }
 
 @media screen and (min-width : 2560px) {
     .carousel-control-prev {
-        left: 50rem;
+        left: 55rem;
     }
 
     .carousel-control-next {
-        right: 50rem;
+        right: 55rem;
     }
 }
 
 @media screen and (min-width : 3840px) {
     .carousel-control-prev {
-        left: 80rem;
+        left: 96rem;
     }
 
     .carousel-control-next {
-        right: 80rem;
+        right: 96rem;
     }
 }
