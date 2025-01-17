@@ -122,12 +122,14 @@ object {
 
 
 /* carousel styles */
-.carousel{
+.carousel {
     height: 100vh;
 }
-.carousel-inner{
+
+.carousel-inner {
     height: 100vh;
 }
+
 .carousel-inner {
     max-width: 50rem;
     margin: 0 auto;
@@ -183,7 +185,7 @@ object {
 .play-pause-icon {
     position: absolute;
     z-index: 11;
-    bottom: 0;
+    bottom: 2rem;
     right: 0;
     cursor: pointer;
 }
@@ -360,12 +362,17 @@ object {
 }
 
 .date {
+    width: 100%;
+    position: absolute;
     text-align: center;
     margin-top: 12rem;
     color: #5c5c5c;
+    left: 1rem !important;
 }
 
 .address {
+    position: absolute;
+    left: .7rem;
     margin-top: 19rem;
     text-align: center !important;
     color: #5c5c5c;
@@ -427,8 +434,8 @@ object {
     width: 100%;
     /* height: 100vh; */
     margin-top: 12.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .weddings-plan>h1 {
@@ -443,7 +450,7 @@ object {
 .Serving-Finger-Foods,
 .Dancing-and-Music {
     font-size: 1.5rem !important;
-    line-height: 1.7rem !important;
+    line-height: 1.5rem !important;
 }
 
 h5 {
@@ -471,39 +478,16 @@ h5 {
     }
 }
 
-@media screen and (max-width : 321px) and (max-height : 569px) {
-    object {
-        width: 70px !important;
-        height: 70px !important;
-    }
-
-    #z {
-        position: absolute;
-        top: -.5rem !important;
-    }
-
-    .wedding-title {
-        margin-top: 3rem !important;
-    }
-
-    .weddings-plan {
-        margin-top: 6.5rem !important;
-    }
-
-    .Welcoming-the-Guests,
-    .Aryan-Wedding-Ceremony,
-    .Serving-Guests-with-Fruits-and-Sweets,
-    .Serving-Natural-Juices,
-    .Serving-Sherbet,
-    .Serving-Finger-Foods,
-    .Dancing-and-Music {
-        font-size: 1rem !important;
-
-    }
-}
-
 /* for small and nearly old mobiles*/
 @media screen and (min-width: 300px) and (min-height: 400px) and (max-width: 360px) and (max-height: 700px) {
+    .play-pause-icon {
+        position: absolute;
+        z-index: 11;
+        bottom: 3rem;
+        right: 0;
+        cursor: pointer;
+    }
+
     object {
         width: 100px !important;
         height: 100px !important;
@@ -520,26 +504,26 @@ h5 {
     .maghbareh {
         width: 20rem;
         height: 17rem;
-        bottom: 2.2rem;
+        bottom: 3rem;
     }
 
     .voorodi {
         width: 23rem;
-        height: 10rem;
-        bottom: -2.1rem;
-        right: 1rem;
+        height: 13rem;
+        bottom: -2.2rem;
+        right: 0;
     }
 
     .button-flower {
         width: 80px !important;
         height: 80px !important;
-        bottom: 5rem;
+        bottom: 4rem !important;
         right: 15rem !important;
     }
 
     .left-flower-input {
         position: absolute;
-        bottom: -1rem;
+        bottom: .5rem;
         right: -1.5rem;
         width: 10rem;
         height: 10rem;
@@ -547,7 +531,7 @@ h5 {
 
     .left-flower-input-1 {
         position: absolute;
-        bottom: -1rem;
+        bottom: .5rem;
         right: -3rem !important;
         width: 10rem;
         height: 10rem;
@@ -555,7 +539,7 @@ h5 {
 
     .left-flower-input-2 {
         position: absolute;
-        bottom: -1rem;
+        bottom: .5rem;
         right: -5rem !important;
         width: 10rem;
         height: 10rem;
@@ -565,7 +549,162 @@ h5 {
         width: 5rem;
         height: 5rem;
         right: 0 !important;
-        bottom: 11.5rem;
+        bottom: 12rem;
+    }
+
+    .poetry {
+        margin-top: 6rem;
+    }
+
+    .date {
+        margin-top: 11rem;
+        left: 3%;
+    }
+
+    .address {
+        margin-top: 17rem;
+        text-align: start !important;
+    }
+
+    .nine-pm {
+        position: absolute;
+        top: 4.5rem;
+        left: 7rem;
+    }
+
+    .wedding-title {
+        margin-top: 5.5rem;
+        font-size: 1rem !important;
+    }
+
+    .wedding-title>h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .weddings-plan {
+        margin-top: 10rem;
+    }
+
+    .Welcoming-the-Guests,
+    .Aryan-Wedding-Ceremony,
+    .Serving-Guests-with-Fruits-and-Sweets,
+    .Serving-Natural-Juices,
+    .Serving-Sherbet,
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
+        font-size: 1.2rem !important;
+        line-height: 1.3rem !important;
+    }
+
+    h5 {
+        font-size: .9rem;
+    }
+}
+
+/* for smaller mobiles */
+@media screen and (max-width : 321px) and (max-height : 569px) {
+    object {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    #z {
+        position: absolute;
+        top: -.5rem !important;
+    }
+
+    .wedding-title {
+        margin-top: 3.5rem !important;
+    }
+
+    .weddings-plan {
+        margin-top: 7.5rem !important;
+    }
+
+    .Welcoming-the-Guests,
+    .Aryan-Wedding-Ceremony,
+    .Serving-Guests-with-Fruits-and-Sweets,
+    .Serving-Natural-Juices,
+    .Serving-Sherbet,
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
+        font-size: 1rem !important;
+        line-height: 1rem !important;
+    }
+}
+
+/* for iphone 6/7/8 iOS 11 and also iphone SE 2nd gen iOS 14.6 */
+@media screen and (min-width: 375px) and (max-width: 414px) and (min-height: 667px) and (max-height: 736px) {
+    .play-pause-icon {
+        position: absolute;
+        z-index: 11;
+        bottom: 3rem;
+        right: 0;
+        cursor: pointer;
+    }
+
+    object {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .invite-message {
+        padding-top: 7rem;
+    }
+
+    .couples-name {
+        margin-top: 2rem;
+    }
+
+    .maghbareh {
+        width: 20rem;
+        height: 17rem;
+        bottom: 3rem;
+    }
+
+    .voorodi {
+        width: 23rem;
+        height: 13rem;
+        bottom: -2.2rem;
+        right: 0;
+    }
+
+    .button-flower {
+        width: 80px !important;
+        height: 80px !important;
+        bottom: 4rem !important;
+        right: 15rem !important;
+    }
+
+    .left-flower-input {
+        position: absolute;
+        bottom: .5rem;
+        right: -1.5rem;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .left-flower-input-1 {
+        position: absolute;
+        bottom: .5rem;
+        right: -3rem !important;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .left-flower-input-2 {
+        position: absolute;
+        bottom: .5rem;
+        right: -5rem !important;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .tavoos {
+        width: 5rem;
+        height: 5rem;
+        right: 0 !important;
+        bottom: 12rem;
     }
 
     .poetry {
@@ -619,8 +758,16 @@ h5 {
 
 /* for nearly old mobiles and around medium size but not for new mobiles */
 @media screen and (min-width: 360px) and (min-height: 701px) and (max-width: 400px) and (max-height: 855px) {
+    .play-pause-icon {
+        position: absolute;
+        z-index: 11;
+        bottom: 3.5rem;
+        right: 0;
+        cursor: pointer;
+    }
+
     .button-flower {
-        bottom: 1.5rem !important;
+        bottom: 3rem !important;
         right: 18rem !important;
         z-index: 9999;
     }
@@ -628,36 +775,40 @@ h5 {
     .maghbareh {
         width: 25rem;
         height: 22rem;
-        bottom: 1rem;
+        bottom: 4rem;
     }
 
     .tavoos {
         width: 6.5rem;
         height: 6.5rem;
         right: 1rem !important;
-        bottom: 13.5rem !important;
+        bottom: 17rem !important;
     }
 
     .voorodi {
         width: 21rem;
-        height: 10rem;
-        bottom: -2.1rem;
-        right: 3.5rem;
+        height: 15rem;
+        bottom: -2.3rem;
+        right: 3rem;
     }
 
     .left-flower-input {
-        bottom: -1rem;
-        right: 1rem;
+        bottom: .5rem;
+        right: .5rem;
     }
 
     .left-flower-input-1 {
-        bottom: -1rem;
-        right: -1rem !important;
+        bottom: .5rem;
+        right: -2rem !important;
     }
 
     .left-flower-input-2 {
-        bottom: -1rem;
-        right: -3rem !important;
+        bottom: .5rem;
+        right: -4rem !important;
+    }
+
+    .address {
+        margin-top: 18rem;
     }
 
     .Welcoming-the-Guests,
@@ -670,48 +821,72 @@ h5 {
         font-size: 1.2rem !important;
         line-height: 1.5rem !important;
     }
+
+    .weddings-plan {
+        margin-top: 11rem;
+    }
 }
 
-@media screen and (min-width: 400px) and (min-height: 856px) and (max-width: 500px) and (max-height: 930px) {
+@media screen and (min-width: 400px) and (min-height: 856px) and (max-width: 450px) and (max-height: 930px) {
+    .play-pause-icon {
+        position: absolute;
+        z-index: 11;
+        bottom: 3.5rem;
+        right: 0;
+        cursor: pointer;
+    }
+
     .button-flower {
-        bottom: 1.5rem !important;
+        bottom: 3rem !important;
         right: 18.5rem !important;
         z-index: 9999;
     }
 
     .maghbareh {
-        width: 27rem;
-        height: 23rem;
-        bottom: 1rem;
+        width: 25rem;
+        height: 22rem;
+        bottom: 4rem;
     }
 
     .tavoos {
         width: 6.5rem;
         height: 6.5rem;
         right: 1rem !important;
-        bottom: 13.5rem !important;
+        bottom: 17rem !important;
     }
 
     .voorodi {
         width: 21rem;
-        height: 10rem;
-        bottom: -2.1rem;
-        right: 5rem !important;
+        height: 15rem;
+        bottom: -2.3rem;
+        right: 3rem;
     }
 
     .left-flower-input {
-        bottom: -1rem;
-        right: 2rem;
+        bottom: .5rem;
+        right: .5rem;
     }
 
     .left-flower-input-1 {
-        bottom: -1rem;
-        right: 0 !important;
+        bottom: .5rem;
+        right: -2rem !important;
     }
 
     .left-flower-input-2 {
-        bottom: -1rem;
-        right: -2rem !important;
+        bottom: .5rem;
+        right: -4rem !important;
+    }
+
+    .wedding-title {
+        margin-top: 6rem;
+    }
+
+    .wedding-title>h1 {
+        font-size: 2rem !important;
+    }
+
+    .weddings-plan {
+        margin-top: 13rem !important;
     }
 }
 
@@ -791,8 +966,59 @@ h5 {
 }
 
 @media screen and (min-width : 450px) {
+    .play-pause-icon {
+        position: absolute;
+        z-index: 11;
+        bottom: 1rem;
+        right: 0;
+        cursor: pointer;
+    }
+
+    .play-pause-music {
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+    }
+
+    .button-flower {
+        bottom: 1.5rem !important;
+        right: 18.5rem !important;
+        z-index: 9999;
+    }
+
+    .maghbareh {
+        width: 27rem;
+        height: 23rem;
+        bottom: 1rem;
+    }
+
+    .tavoos {
+        width: 6.5rem;
+        height: 6.5rem;
+        right: 1rem !important;
+        bottom: 13.5rem !important;
+    }
+
+    .voorodi {
+        width: 21rem;
+        height: 10rem;
+        bottom: -2.1rem;
+        right: 5rem !important;
+    }
+
     .left-flower-input {
-        margin-left: -3.3rem;
+        bottom: -1rem;
+        right: 2rem;
+    }
+
+    .left-flower-input-1 {
+        bottom: -1rem;
+        right: 0 !important;
+    }
+
+    .left-flower-input-2 {
+        bottom: -1rem;
+        right: -2rem !important;
     }
 
     .nine-pm {
@@ -970,6 +1196,32 @@ h5 {
         top: 4.5rem;
         left: 18rem;
     }
+
+    .wedding-title {
+        margin-top: 5rem;
+    }
+
+    .wedding-title>h1 {
+        font-size: 2.5rem
+    }
+
+    .weddings-plan {
+        margin-top: 13rem;
+    }
+
+    .Welcoming-the-Guests,
+    .Aryan-Wedding-Ceremony,
+    .Serving-Guests-with-Fruits-and-Sweets,
+    .Serving-Natural-Juices,
+    .Serving-Sherbet,
+    .Serving-Finger-Foods,
+    .Dancing-and-Music {
+        font-size: 1.8rem !important;
+        line-height: 2rem !important;
+    }
+    h5{
+        font-size: 1.3rem !important;
+    }
 }
 
 @media screen and (min-width : 660px) {
@@ -978,6 +1230,7 @@ h5 {
         top: 4.5rem;
         left: 18.5rem;
     }
+
 }
 
 @media screen and (min-width : 670px) {
@@ -1025,6 +1278,9 @@ h5 {
         position: absolute;
         top: 4.5rem;
         left: 21.4rem;
+    }
+    .weddings-plan {
+        margin-top: 14rem;
     }
 }
 
