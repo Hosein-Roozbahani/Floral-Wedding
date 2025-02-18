@@ -7,7 +7,2445 @@
     <title>Animation's Website</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+    <style>
+        @font-face {
+            font-family: 'charm';
+            src: url('assets/fonts/Charm-Regular.ttf') format('ttf');
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'IRANNastaliq';
+            src: url('assets/fonts/IranNastaliq.ttf') format('ttf'),
+                url('assets/fonts/IranNastaliq.woff2') format('woff2'),
+                url('assets/fonts/IranNastaliq.woff') format('woff'),
+                url('assets/fonts/IranNastaliq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        section {
+            overflow: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        .h-100 {
+            height: 100%;
+        }
+
+        img:is(.zanguleh) {
+            width: 100px;
+            height: 100px;
+        }
+
+        object {
+            width: 110px;
+            height: 110px;
+        }
+
+        .right-0 {
+            right: 0;
+        }
+
+        /* dark mode */
+
+        /* کد CSS برای دارک مود */
+        /* استایل‌های حالت دارک مود */
+        .dark-mode body {
+            background-color: black !important;
+            color: #fff !important;
+        }
+
+        .dark-mode .invite-message,
+        .dark-mode .grooms-name,
+        .dark-mode .brides-name,
+        .dark-mode .poetry,
+        .dark-mode .date,
+        .dark-mode .address,
+        .dark-mode .white {
+            color: crimson !important;
+        }
+
+        .dark-mode .zanguleh,
+        .dark-mode .top-right-flower,
+        .dark-mode .top-left-flower,
+        .dark-mode .maghbareh,
+        .dark-mode .voorodi,
+        .dark-mode .left-flower-input,
+        .dark-mode .left-flower-input-1,
+        .dark-mode .left-flower-input-2,
+        .dark-mode .button-flower,
+        .dark-mode .top-left-middle-flower-image object {
+            filter: brightness(1.2) !important;
+        }
+
+        .dark-mode .tavoos {
+            filter: brightness(1.4) !important;
+        }
+
+        /* استایل‌های حالت لایت مود */
+        .light-mode body {
+            background-color: white !important;
+            /* تغییر رنگ پس‌زمینه به سفید */
+            color: #444 !important;
+            /* رنگ متن پیش‌فرض */
+        }
+
+        .light-mode .invite-message,
+        .light-mode .grooms-name,
+        .light-mode .brides-name,
+        .light-mode .poetry,
+        .light-mode .date,
+        .light-mode .address,
+        .light-mode .white {
+            color: black !important;
+            /* رنگ متن برای حالت لایت */
+        }
+
+        /* snow */
+
+        .snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: white;
+            opacity: 0.9;
+            border-radius: 50%;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* loader */
+
+        .loader {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(227, 247, 255);
+        }
+
+        .loader>img {
+            width: 100px;
+        }
+
+        .loader.hidden {
+            animation: fadeOut 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeOut {
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* carousel styles */
+        .carousel {
+            height: 100vh;
+        }
+
+        .carousel-inner {
+            height: 100vh;
+        }
+
+        .carousel-inner {
+            max-width: 50rem;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            width: 50px !important;
+            height: 50px !important;
+            opacity: 1;
+            z-index: 10;
+            top: 42%;
+            transform: translateY(-50%);
+            font-size: 4rem;
+            border-radius: 50%;
+            margin: 0 -.5rem;
+            padding: 0 10px;
+        }
+
+        .carousel-control-prev {
+            left: 0;
+            /* دکمه قبلی در سمت چپ */
+        }
+
+        .carousel-control-next {
+            right: 0;
+            /* دکمه بعدی در سمت راست */
+        }
+
+        .arrows {
+            width: 70px;
+            height: 70px;
+        }
+
+        .disabled-button {
+            pointer-events: none;
+            /* جلوگیری از کلیک روی دکمه */
+            opacity: 0.5;
+            /* کاهش شفافیت دکمه برای نمایش غیرفعالی */
+            cursor: not-allowed;
+            /* تغییر نشانگر ماوس */
+        }
+
+        .carousel-item {
+            animation-timeline: view();
+            animation-range: entry 0% cover 50%;
+        }
+
+        /* play and pause icons */
+
+        .play-pause-icon {
+            position: absolute;
+            z-index: 11;
+            bottom: 2.5rem !important;
+            right: 0;
+            cursor: pointer;
+            z-index: 9999999999999999999;
+        }
+
+        .play-pause-music {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 9999999999999999999;
+        }
+
+        /* first slide styles */
+
+        .background-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+            z-index: -11;
+        }
+
+        /* .div-zanguleh{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+} */
+
+        #z {
+            position: absolute;
+            top: 1rem;
+            z-index: 999999999;
+            text-align: center;
+            width: 100%;
+        }
+
+        .images {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .invite-message {
+            text-align: center;
+            color: #515050;
+            padding-top: 8rem;
+            font-weight: 500;
+            transition: opacity 1s ease;
+            z-index: 99999999999999999999999999999999999999999;
+        }
+
+        .couples-name {
+            font-family: 'charm';
+            font-style: italic;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 4rem;
+            color: #515050;
+            z-index: 999999999999999999999999999999999999;
+        }
+
+        #brides-name {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            font-size: 2.5rem !important;
+        }
+
+        .grooms-name {
+            font-size: 2.5rem !important;
+        }
+
+        .top-right-flower {
+            position: absolute;
+            top: -1.5rem;
+            right: -.8rem;
+            filter: brightness(0.95);
+            /* transform: scale(1.3); */
+        }
+
+        .top-left-flower {
+            /* transform: scaleX(-1) !important; */
+            position: absolute;
+            top: -2.2rem;
+            filter: brightness(0.95);
+            margin-left: 1rem;
+        }
+
+
+        .maghbareh {
+            position: absolute;
+            bottom: 2.8rem;
+            right: -3.5rem;
+            width: 26rem;
+            height: 20rem;
+            background-size: contain;
+            z-index: 9999;
+        }
+
+        .voorodi {
+            position: absolute;
+            bottom: -2.2rem !important;
+            right: 4.4rem;
+            width: 25rem;
+            height: 14rem;
+            background-size: cover;
+
+        }
+
+        .left-flower-input {
+            position: absolute;
+            bottom: -1rem;
+            right: .5rem;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .left-flower-input-1 {
+            position: absolute;
+            bottom: -.5rem;
+            right: 2.4rem;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .left-flower-input-2 {
+            position: absolute;
+            bottom: -.5rem;
+            right: -2rem;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .tavoos {
+            z-index: 99999;
+            position: absolute;
+            right: -.7rem;
+            bottom: 14.5rem;
+            width: 10rem;
+            height: 8rem !important;
+            background-size: contain;
+        }
+
+        .button-flower {
+            position: absolute;
+            bottom: 2.5rem !important;
+            right: 20.5rem !important;
+            filter: brightness(0.95);
+            /* z-index: 999; */
+            width: 6rem !important;
+            height: 6rem !important;
+        }
+
+        .top-left-middle-flower-image {
+            position: absolute;
+            top: 0;
+        }
+
+        .top-middle-left-flower {
+            position: absolute;
+            top: 9rem;
+            left: -1rem;
+            transform: scaleX(-1) !important;
+            filter: brightness(0.95) !important;
+            z-index: 999999999999;
+        }
+
+        .custom-fadeIn {
+            animation-duration: 3s;
+            animation-delay: 2.5s;
+        }
+
+        /* second-slide styles */
+
+        .poetry {
+            margin-top: 6rem;
+            text-align: center !important;
+            color: #5c5c5c;
+            font-family: 'IRANNastaliq' !important;
+        }
+
+        .poetry>h1 {
+            font-size: 1.2rem !important;
+        }
+
+        .date {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            margin-top: 12rem;
+            color: #5c5c5c;
+            left: 1rem !important;
+        }
+
+        .address {
+            position: absolute;
+            left: .7rem;
+            margin-top: 19rem;
+            text-align: center !important;
+            color: #5c5c5c;
+            font-weight: 100;
+        }
+
+        .december {
+            margin-left: 1rem;
+            font-size: .8rem;
+            margin-top: .5rem;
+        }
+
+        .thirty {
+            font-size: 3rem;
+            margin: 1.5rem 0 1.5rem 1.5rem;
+            padding-right: 1rem;
+        }
+
+        .nine-pm {
+            position: absolute;
+            top: 4.5rem;
+            left: 13rem !important;
+        }
+
+        .Horizontal-data {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            /* margin-right: 1rem; */
+            margin-top: -2rem;
+        }
+
+        .friday {
+            margin-left: -1rem !important;
+        }
+
+        .friday,
+        .the-year {
+            border-bottom: 1px solid;
+            border-top: 1px solid;
+            line-height: 2rem;
+            position: relative;
+            bottom: .5rem;
+        }
+
+        /* thrid slide styles */
+
+        .our-plan {
+            height: 100vh;
+        }
+
+        .wedding-title {
+            width: 100%;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .wedding-title>h1 {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .weddings-plan {
+            width: 100%;
+            /* height: 100vh; */
+            margin-top: 12.5rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .weddings-plan>h1 {
+            font-size: 2rem !important;
+        }
+
+        .Welcoming-the-Guests,
+        .Aryan-Wedding-Ceremony,
+        .Serving-Guests-with-Fruits-and-Sweets,
+        .Serving-Natural-Juices,
+        .Serving-Sherbet,
+        .Serving-Finger-Foods,
+        .Dancing-and-Music {
+            font-size: 1.5rem !important;
+            line-height: 1.5rem !important;
+        }
+
+        h5 {
+            margin-left: .7rem;
+            font-size: 17px;
+            color: #4d4d4d !important;
+            /* line-height: 1.5rem; */
+        }
+
+        .disabled-button {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* responsive */
+
+        @media screen and (max-width : 300px) and (max-height : 399) {
+            .address {
+                text-align: start;
+            }
+
+            object {
+                width: 70px !important;
+                height: 70px !important;
+            }
+        }
+
+        /* for small and nearly old mobiles*/
+        @media screen and (min-width: 300px) and (min-height: 400px) and (max-width: 360px) and (max-height: 700px) {
+            .play-pause-icon {
+                position: fixed !important;
+                z-index: 11;
+                bottom: 3rem !important;
+                right: .5rem;
+                cursor: pointer;
+            }
+
+            object {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .top-right-flower {
+                position: fixed !important;
+                top: -1rem !important;
+                right: -.8rem;
+                filter: brightness(0.95);
+            }
+
+            .invite-message {
+                padding-top: 7rem;
+            }
+
+            .couples-name {
+                margin-top: 2rem;
+            }
+
+            .maghbareh {
+                position: fixed !important;
+                width: 20rem;
+                height: 17rem;
+                bottom: 3rem;
+            }
+
+            .voorodi {
+                position: fixed !important;
+                width: 22rem;
+                height: 13rem;
+                bottom: -2.5rem;
+                right: 0;
+            }
+
+            .button-flower {
+                position: fixed !important;
+                width: 80px !important;
+                height: 80px !important;
+                bottom: 4.2rem !important;
+                right: 15rem !important;
+            }
+
+            .left-flower-input {
+                position: fixed;
+                bottom: .5rem;
+                right: -1.5rem;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .left-flower-input-1 {
+                position: fixed;
+                bottom: .5rem;
+                right: -3rem !important;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .left-flower-input-2 {
+                position: fixed;
+                bottom: .5rem;
+                right: -5rem !important;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .tavoos {
+                position: fixed !important;
+                width: 5rem;
+                height: 5rem;
+                right: 0 !important;
+                bottom: 12rem;
+            }
+
+            .poetry {
+                margin-top: 6rem;
+            }
+
+            .date {
+                margin-top: 11rem;
+                left: 3%;
+            }
+
+            .address {
+                margin-top: 17rem;
+                text-align: start !important;
+            }
+
+            .nine-pm {
+                position: absolute;
+                top: 4.5rem;
+                left: 8.5rem !important;
+            }
+
+            .wedding-title {
+                margin-top: 5.5rem;
+                font-size: 1rem !important;
+            }
+
+            .wedding-title>h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 10rem;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1.2rem !important;
+                line-height: 1.3rem !important;
+            }
+
+            h5 {
+                font-size: .9rem;
+            }
+        }
+
+        /* for smaller mobiles */
+        @media screen and (max-width : 321px) and (max-height : 569px) {
+            object {
+                width: 70px !important;
+                height: 70px !important;
+            }
+
+            #z {
+                position: absolute;
+                top: -.5rem !important;
+            }
+
+            .couples-name {
+                margin-top: .8rem;
+            }
+
+            .top-right-flower {
+                position: fixed !important;
+                top: -1rem !important;
+                right: -.8rem;
+                filter: brightness(0.95);
+            }
+
+            .wedding-title {
+                margin-top: 3.5rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 7.5rem !important;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1rem !important;
+                line-height: 1rem !important;
+            }
+        }
+
+        /* for iphone 6/7/8 iOS 11 and also iphone SE 2nd gen iOS 14.6 */
+        @media screen and (min-width: 375px) and (max-width: 414px) and (min-height: 667px) and (max-height: 736px) {
+            .play-pause-icon {
+                position: fixed;
+                z-index: 11;
+                bottom: 3rem !important;
+                right: .5rem;
+                cursor: pointer;
+            }
+
+            .play-pause-music {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+
+            object {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .top-right-flower {
+                position: fixed !important;
+                top: -1rem !important;
+                right: -.8rem;
+                filter: brightness(0.95);
+            }
+
+            .invite-message {
+                padding-top: 7rem;
+            }
+
+            .couples-name {
+                margin-top: 2rem;
+            }
+
+            .maghbareh {
+                position: fixed !important;
+                width: 20rem;
+                height: 17rem;
+                bottom: 3rem;
+            }
+
+            .voorodi {
+                position: fixed !important;
+                width: 23rem;
+                height: 13rem;
+                bottom: -2.5rem !important;
+                right: 0;
+            }
+
+            .button-flower {
+                position: fixed !important;
+                width: 80px !important;
+                height: 80px !important;
+                bottom: 4.5rem !important;
+                right: 15rem !important;
+            }
+
+            .left-flower-input {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -1.5rem;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .left-flower-input-1 {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -3rem !important;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .left-flower-input-2 {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -5rem !important;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .tavoos {
+                position: fixed !important;
+                width: 5rem;
+                height: 5rem;
+                right: 0 !important;
+                bottom: 12rem;
+            }
+
+            .poetry {
+                margin-top: 6rem;
+            }
+
+            .poetry>h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .date {
+                margin-top: 11rem;
+                left: 3%;
+            }
+
+            .address {
+                margin-top: 17rem;
+                text-align: start !important;
+            }
+
+            .nine-pm {
+                position: absolute;
+                top: 4.5rem;
+                left: 10rem;
+            }
+
+            .wedding-title {
+                margin-top: 5.5rem;
+                font-size: 1rem !important;
+            }
+
+            .wedding-title>h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 10rem;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1.2rem !important;
+                line-height: 1.5rem !important;
+            }
+
+            h5 {
+                font-size: .9rem;
+            }
+        }
+
+        /* for nearly old mobiles and around medium size but not for new mobiles */
+        @media screen and (min-width: 360px) and (min-height: 701px) and (max-width: 400px) and (max-height: 855px) {
+            .play-pause-icon {
+                position: fixed !important;
+                z-index: 11;
+                bottom: 3rem !important;
+                right: .5rem;
+                cursor: pointer;
+            }
+
+            .play-pause-music {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+
+            .top-right-flower {
+                position: fixed !important;
+                top: -1rem !important;
+                right: -.8rem;
+                filter: brightness(0.95);
+            }
+
+            .poetry>h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .button-flower {
+                position: fixed !important;
+                bottom: 3.5rem !important;
+                right: 18rem !important;
+                z-index: 9999;
+            }
+
+            .maghbareh {
+                position: fixed !important;
+                width: 25rem;
+                height: 22rem;
+                bottom: 4rem;
+            }
+
+            .tavoos {
+                position: fixed !important;
+                width: 6.5rem;
+                height: 6.5rem;
+                right: 1rem !important;
+                bottom: 17rem !important;
+            }
+
+            .voorodi {
+                position: fixed !important;
+                width: 21rem;
+                height: 15rem;
+                bottom: -2rem;
+                right: 3rem;
+            }
+
+            .left-flower-input {
+                position: fixed !important;
+                bottom: .5rem;
+                right: .5rem;
+            }
+
+            .left-flower-input-1 {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -2rem !important;
+            }
+
+            .left-flower-input-2 {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -4rem !important;
+            }
+
+            .address {
+                margin-top: 18rem;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1.2rem !important;
+                line-height: 1.5rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 11rem;
+            }
+        }
+
+        @media screen and (min-width: 400px) and (min-height: 856px) and (max-width: 450px) and (max-height: 930px) {
+            .play-pause-icon {
+                position: fixed !important;
+                z-index: 11;
+                bottom: 3rem !important;
+                right: .5rem;
+                cursor: pointer;
+            }
+
+            .play-pause-music {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+
+            .top-right-flower {
+                position: fixed !important;
+                top: -1rem !important;
+                right: -.8rem;
+                filter: brightness(0.95);
+            }
+
+            .poetry>h1 {
+                font-size: 3rem !important;
+            }
+
+            .button-flower {
+                position: fixed !important;
+                bottom: 3rem !important;
+                right: 18.5rem !important;
+                z-index: 9999;
+            }
+
+            .maghbareh {
+                position: fixed !important;
+                width: 25rem;
+                height: 22rem;
+                bottom: 4rem;
+            }
+
+            .tavoos {
+                position: fixed !important;
+                width: 6.5rem;
+                height: 6.5rem;
+                right: 1rem !important;
+                bottom: 17rem !important;
+            }
+
+            .voorodi {
+                position: fixed !important;
+                width: 21rem;
+                height: 15rem;
+                bottom: -2.6rem !important;
+                right: 3.5rem !important;
+            }
+
+            .left-flower-input {
+                position: fixed !important;
+                bottom: .5rem;
+                right: .5rem;
+            }
+
+            .left-flower-input-1 {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -2rem !important;
+            }
+
+            .left-flower-input-2 {
+                position: fixed !important;
+                bottom: .5rem;
+                right: -4rem !important;
+            }
+
+            .wedding-title {
+                margin-top: 6rem;
+            }
+
+            .wedding-title>h1 {
+                font-size: 2rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 13rem !important;
+            }
+
+        }
+
+        @media screen and (min-width : 320px) {
+            .nine-pm {
+                position: absolute;
+                top: 4.5rem;
+                left: 9rem !important;
+            }
+        }
+
+        @media screen and (min-width : 340px) {
+            .nine-pm {
+                position: absolute;
+                top: 4.5rem;
+                left: 9.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 355px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 10rem !important;
+            }
+
+            .address {
+                text-align: center !important;
+            }
+        }
+
+        @media screen and (min-width : 370px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 10.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 385px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 11rem !important;
+            }
+        }
+
+        @media screen and (min-width : 400px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 11.5rem !important;
+            }
+
+            .poetry>h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .date {
+                margin-top: 13rem !important;
+            }
+
+            .address {
+                margin-top: 19rem;
+            }
+        }
+
+        @media screen and (min-width : 415px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 12rem !important;
+            }
+        }
+
+        @media screen and (min-width : 430px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 12.5rem !important;
+            }
+        }
+
+        @media screen and (max-width : 449px) {
+            .play-pause-icon {
+                position: fixed;
+                z-index: 11111111;
+                bottom: 1rem !important;
+                right: 0;
+                cursor: pointer;
+            }
+
+            .play-pause-music {
+                width: 3rem !important;
+                height: 3rem !important;
+                cursor: pointer;
+            }
+
+            .top-right-flower {
+                position: absolute;
+                top: -1.5rem;
+                right: -.8rem;
+                filter: brightness(0.95);
+            }
+        }
+
+        @media screen and (min-width : 450px) {
+            .play-pause-icon {
+                position: absolute;
+                z-index: 11111111;
+                bottom: 1rem;
+                right: 0;
+                cursor: pointer;
+            }
+
+            .play-pause-music {
+                width: 2.5rem;
+                height: 2.5rem;
+                cursor: pointer;
+            }
+
+            .button-flower {
+                bottom: 1.5rem !important;
+                right: 18.5rem !important;
+                z-index: 9999;
+            }
+
+            .maghbareh {
+                width: 27rem;
+                height: 23rem;
+                bottom: 1rem;
+            }
+
+            .tavoos {
+                width: 6.5rem;
+                height: 6.5rem;
+                right: 1rem !important;
+                bottom: 13.5rem !important;
+            }
+
+            .voorodi {
+                width: 21rem;
+                height: 10rem;
+                bottom: -2rem;
+                right: 5rem !important;
+            }
+
+            .left-flower-input {
+                bottom: -1rem;
+                right: 2rem;
+            }
+
+            .left-flower-input-1 {
+                bottom: -1rem;
+                right: 0 !important;
+            }
+
+            .left-flower-input-2 {
+                bottom: -1rem;
+                right: -2rem !important;
+            }
+
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 13rem !important;
+            }
+
+            .wedding-title>h1 {
+                font-size: 2rem;
+                margin-top: 1rem;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1.7rem !important;
+                margin-top: -.5rem;
+                line-height: 1.5rem;
+            }
+
+            h5 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (min-width : 465px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 13.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 480px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 14rem !important;
+            }
+        }
+
+        @media screen and (min-width : 490px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 14.4rem !important;
+            }
+        }
+
+        @media screen and (min-width : 505px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 14.8rem !important;
+            }
+
+            .play-pause-music {
+                width: 3rem;
+                height: 3rem;
+                cursor: pointer;
+            }
+
+            .weddings-plan {
+                margin-top: 14rem;
+            }
+        }
+
+        @media screen and (min-width : 515px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 15rem !important;
+            }
+        }
+
+        @media screen and (min-width : 525px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 15.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 535px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 15.8rem !important;
+            }
+        }
+
+        @media screen and (min-width : 550px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 16.3rem !important;
+            }
+        }
+
+        @media screen and (min-width : 570px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 17rem !important;
+            }
+        }
+
+        @media screen and (min-width : 590px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 17.5rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 12rem;
+            }
+
+            .wedding-title>h1 {
+                margin-top: .5rem;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1.8rem !important;
+                line-height: 1.5rem;
+            }
+
+            h5 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media screen and (min-width : 600px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 17.9rem !important;
+            }
+
+        }
+
+        @media screen and (min-width : 615px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 18.3rem !important;
+            }
+
+            .poetry>h1 {
+                font-size: 2rem !important;
+            }
+        }
+
+        @media screen and (min-width : 625px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 18.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 640px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 18.9rem !important;
+            }
+        }
+
+        @media screen and (min-width : 650px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 19.3rem !important;
+            }
+
+            .wedding-title {
+                margin-top: 5rem;
+            }
+
+            .wedding-title>h1 {
+                font-size: 2.5rem
+            }
+
+            .weddings-plan {
+                margin-top: 13rem;
+            }
+
+            .Welcoming-the-Guests,
+            .Aryan-Wedding-Ceremony,
+            .Serving-Guests-with-Fruits-and-Sweets,
+            .Serving-Natural-Juices,
+            .Serving-Sherbet,
+            .Serving-Finger-Foods,
+            .Dancing-and-Music {
+                font-size: 1.8rem !important;
+                line-height: 2rem !important;
+            }
+
+            h5 {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        @media screen and (min-width : 660px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 19.6rem !important;
+            }
+
+        }
+
+        @media screen and (min-width : 670px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 19.9rem !important;
+            }
+        }
+
+        @media screen and (min-width : 685px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 20.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 700px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 20.9rem !important;
+            }
+        }
+
+        @media screen and (min-width : 715px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 21.4rem !important;
+            }
+        }
+
+        @media screen and (min-width : 725px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 21.7rem !important;
+            }
+        }
+
+        @media screen and (min-width : 735px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 22rem !important;
+            }
+        }
+
+        @media screen and (min-width : 750px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 22.5rem !important;
+            }
+
+            .weddings-plan {
+                margin-top: 14rem;
+            }
+        }
+
+        @media screen and (min-width : 768px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 23rem !important;
+            }
+
+            /* making a white space from right anf left to moveing the porject in the center */
+            .carousel-inner {
+                max-width: 50rem;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (min-width : 780px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 23.5rem !important;
+            }
+        }
+
+        @media screen and (min-width : 800px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 23.8rem !important;
+            }
+        }
+
+        @media screen and (min-width : 810px) {
+            .carousel-control-prev {
+                left: 1rem;
+            }
+
+            .carousel-control-next {
+                right: 1rem;
+            }
+        }
+
+        @media screen and (min-width : 835px) {
+            .carousel-control-prev {
+                left: 1.5rem;
+            }
+
+            .carousel-control-next {
+                right: 1.5rem;
+            }
+        }
+
+        @media screen and (min-width : 850px) {
+            .carousel-control-prev {
+                left: 2rem;
+            }
+
+            .carousel-control-next {
+                right: 2rem;
+            }
+        }
+
+        @media screen and (min-width : 875px) {
+            .nine-pm {
+                position: absolute;
+                top: 5rem;
+                left: 22.8rem;
+            }
+
+            .carousel-control-prev {
+                left: 2.5rem;
+            }
+
+            .carousel-control-next {
+                right: 2.5rem;
+            }
+        }
+
+        @media screen and (min-width : 890px) {
+            .carousel-control-prev {
+                left: 3rem;
+            }
+
+            .carousel-control-next {
+                right: 3rem;
+            }
+        }
+
+        @media screen and (min-width : 900px) {
+            .carousel-control-prev {
+                left: 3.5rem;
+            }
+
+            .carousel-control-next {
+                right: 3.5rem;
+            }
+        }
+
+        @media screen and (min-width : 925px) {
+            .carousel-control-prev {
+                left: 4rem;
+            }
+
+            .carousel-control-next {
+                right: 4rem;
+            }
+        }
+
+        @media screen and (min-width : 940px) {
+            .carousel-control-prev {
+                left: 4.5rem;
+            }
+
+            .carousel-control-next {
+                right: 4.5rem;
+            }
+        }
+
+        @media screen and (min-width : 950px) {
+            .carousel-control-prev {
+                left: 5rem;
+            }
+
+            .carousel-control-next {
+                right: 5rem;
+            }
+        }
+
+        @media screen and (min-width : 975px) {
+            .carousel-control-prev {
+                left: 6rem;
+            }
+
+            .carousel-control-next {
+                right: 6rem;
+            }
+        }
+
+        @media screen and (min-width : 992px) {
+            .carousel-control-prev {
+                left: 6.5rem;
+            }
+
+            .carousel-control-next {
+                right: 6.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1000px) {
+            .carousel-control-prev {
+                left: 7rem;
+            }
+
+            .carousel-control-next {
+                right: 7rem;
+            }
+        }
+
+        @media screen and (min-width : 1024px) {
+            .carousel-control-prev {
+                left: 7.5rem;
+            }
+
+            .carousel-control-next {
+                right: 7.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1040px) {
+            .carousel-control-prev {
+                left: 8rem;
+            }
+
+            .carousel-control-next {
+                right: 8rem;
+            }
+        }
+
+        @media screen and (min-width : 1055px) {
+            .carousel-control-prev {
+                left: 8.5rem;
+            }
+
+            .carousel-control-next {
+                right: 8.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1070px) {
+            .carousel-control-prev {
+                left: 9rem;
+            }
+
+            .carousel-control-next {
+                right: 9rem;
+            }
+        }
+
+        @media screen and (min-width : 1090px) {
+            .carousel-control-prev {
+                left: 9.5rem;
+            }
+
+            .carousel-control-next {
+                right: 9.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1100px) {
+            .carousel-control-prev {
+                left: 10rem;
+            }
+
+            .carousel-control-next {
+                right: 10rem;
+            }
+        }
+
+        @media screen and (min-width : 1115px) {
+            .carousel-control-prev {
+                left: 10.5rem;
+            }
+
+            .carousel-control-next {
+                right: 10.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1125px) {
+            .carousel-control-prev {
+                left: 11rem;
+            }
+
+            .carousel-control-next {
+                right: 11rem;
+            }
+        }
+
+        @media screen and (min-width : 1140px) {
+            .carousel-control-prev {
+                left: 11.5rem;
+            }
+
+            .carousel-control-next {
+                right: 11.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1155px) {
+            .carousel-control-prev {
+                left: 12rem;
+            }
+
+            .carousel-control-next {
+                right: 12rem;
+            }
+        }
+
+        @media screen and (min-width : 1170px) {
+            .carousel-control-prev {
+                left: 12.5rem;
+            }
+
+            .carousel-control-next {
+                right: 12.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1190px) {
+            .carousel-control-prev {
+                left: 13rem;
+            }
+
+            .carousel-control-next {
+                right: 13rem;
+            }
+        }
+
+        @media screen and (min-width : 1205px) {
+            .carousel-control-prev {
+                left: 13.5rem;
+            }
+
+            .carousel-control-next {
+                right: 13.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1220px) {
+            .carousel-control-prev {
+                left: 14rem;
+            }
+
+            .carousel-control-next {
+                right: 14rem;
+            }
+        }
+
+        @media screen and (min-width : 1240px) {
+            .carousel-control-prev {
+                left: 14.5rem;
+            }
+
+            .carousel-control-next {
+                right: 14.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1255px) {
+            .carousel-control-prev {
+                left: 15rem;
+            }
+
+            .carousel-control-next {
+                right: 15rem;
+            }
+        }
+
+        @media screen and (min-width : 1270px) {
+            .carousel-control-prev {
+                left: 15.5rem;
+            }
+
+            .carousel-control-next {
+                right: 15.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1285px) {
+            .carousel-control-prev {
+                left: 16rem;
+            }
+
+            .carousel-control-next {
+                right: 16rem;
+            }
+        }
+
+        @media screen and (min-width : 1300px) {
+            .carousel-control-prev {
+                left: 16.5rem;
+            }
+
+            .carousel-control-next {
+                right: 16.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1315px) {
+            .carousel-control-prev {
+                left: 17rem;
+            }
+
+            .carousel-control-next {
+                right: 17rem;
+            }
+        }
+
+        @media screen and (min-width : 1330px) {
+            .carousel-control-prev {
+                left: 17.5rem;
+            }
+
+            .carousel-control-next {
+                right: 17.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1345px) {
+            .carousel-control-prev {
+                left: 18rem;
+            }
+
+            .carousel-control-next {
+                right: 18rem;
+            }
+        }
+
+        @media screen and (min-width : 1365px) {
+            .carousel-control-prev {
+                left: 18.5rem;
+            }
+
+            .carousel-control-next {
+                right: 18.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1380px) {
+            .carousel-control-prev {
+                left: 19rem;
+            }
+
+            .carousel-control-next {
+                right: 19rem;
+            }
+        }
+
+        @media screen and (min-width : 1395px) {
+            .carousel-control-prev {
+                left: 19.5rem;
+            }
+
+            .carousel-control-next {
+                right: 19.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1410px) {
+            .carousel-control-prev {
+                left: 20rem;
+            }
+
+            .carousel-control-next {
+                right: 20rem;
+            }
+        }
+
+        @media screen and (min-width : 1425px) {
+            .carousel-control-prev {
+                left: 20.5rem;
+            }
+
+            .carousel-control-next {
+                right: 20.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1445px) {
+            .carousel-control-prev {
+                left: 21rem;
+            }
+
+            .carousel-control-next {
+                right: 21rem;
+            }
+        }
+
+        @media screen and (min-width : 1460px) {
+            .carousel-control-prev {
+                left: 21.5rem;
+            }
+
+            .carousel-control-next {
+                right: 21.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1475px) {
+            .carousel-control-prev {
+                left: 22rem;
+            }
+
+            .carousel-control-next {
+                right: 22rem;
+            }
+        }
+
+        @media screen and (min-width : 1510px) {
+            .carousel-control-prev {
+                left: 22.5rem;
+            }
+
+            .carousel-control-next {
+                right: 22.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1525px) {
+            .carousel-control-prev {
+                left: 23rem;
+            }
+
+            .carousel-control-next {
+                right: 23rem;
+            }
+        }
+
+        @media screen and (min-width : 1540px) {
+            .carousel-control-prev {
+                left: 23.5rem;
+            }
+
+            .carousel-control-next {
+                right: 23.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1560px) {
+            .carousel-control-prev {
+                left: 24rem;
+            }
+
+            .carousel-control-next {
+                right: 24rem;
+            }
+        }
+
+        @media screen and (min-width : 1575px) {
+            .carousel-control-prev {
+                left: 24.5rem;
+            }
+
+            .carousel-control-next {
+                right: 24.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1590px) {
+            .carousel-control-prev {
+                left: 25rem;
+            }
+
+            .carousel-control-next {
+                right: 25rem;
+            }
+        }
+
+        @media screen and (min-width : 1605px) {
+            .carousel-control-prev {
+                left: 25.5rem;
+            }
+
+            .carousel-control-next {
+                right: 25.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1620px) {
+            .carousel-control-prev {
+                left: 26rem;
+            }
+
+            .carousel-control-next {
+                right: 26rem;
+            }
+        }
+
+        @media screen and (min-width : 1635px) {
+            .carousel-control-prev {
+                left: 26.5rem;
+            }
+
+            .carousel-control-next {
+                right: 26.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1650px) {
+            .carousel-control-prev {
+                left: 27rem;
+            }
+
+            .carousel-control-next {
+                right: 27rem;
+            }
+        }
+
+        @media screen and (min-width : 1670px) {
+            .carousel-control-prev {
+                left: 27.5rem;
+            }
+
+            .carousel-control-next {
+                right: 27.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1685px) {
+            .carousel-control-prev {
+                left: 28rem;
+            }
+
+            .carousel-control-next {
+                right: 28rem;
+            }
+        }
+
+        @media screen and (min-width : 1700px) {
+            .carousel-control-prev {
+                left: 28.5rem;
+            }
+
+            .carousel-control-next {
+                right: 28.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1715px) {
+            .carousel-control-prev {
+                left: 29rem;
+            }
+
+            .carousel-control-next {
+                right: 29rem;
+            }
+        }
+
+        @media screen and (min-width : 1730px) {
+            .carousel-control-prev {
+                left: 29.5rem;
+            }
+
+            .carousel-control-next {
+                right: 29.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1745px) {
+            .carousel-control-prev {
+                left: 30rem;
+            }
+
+            .carousel-control-next {
+                right: 30rem;
+            }
+        }
+
+        @media screen and (min-width : 1760px) {
+            .carousel-control-prev {
+                left: 30.5rem;
+            }
+
+            .carousel-control-next {
+                right: 30.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1775px) {
+            .carousel-control-prev {
+                left: 31rem;
+            }
+
+            .carousel-control-next {
+                right: 31rem;
+            }
+        }
+
+        @media screen and (min-width : 1795px) {
+            .carousel-control-prev {
+                left: 31.5rem;
+            }
+
+            .carousel-control-next {
+                right: 31.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1810px) {
+            .carousel-control-prev {
+                left: 32rem;
+            }
+
+            .carousel-control-next {
+                right: 32rem;
+            }
+        }
+
+        @media screen and (min-width : 1825px) {
+            .carousel-control-prev {
+                left: 32.5rem;
+            }
+
+            .carousel-control-next {
+                right: 32.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1845px) {
+            .carousel-control-prev {
+                left: 33rem;
+            }
+
+            .carousel-control-next {
+                right: 33rem;
+            }
+        }
+
+        @media screen and (min-width : 1860px) {
+            .carousel-control-prev {
+                left: 33.5rem;
+            }
+
+            .carousel-control-next {
+                right: 33.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1875px) {
+            .carousel-control-prev {
+                left: 34rem;
+            }
+
+            .carousel-control-next {
+                right: 34rem;
+            }
+        }
+
+        @media screen and (min-width : 1890px) {
+            .carousel-control-prev {
+                left: 34.5rem;
+            }
+
+            .carousel-control-next {
+                right: 34.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1905px) {
+            .carousel-control-prev {
+                left: 35rem;
+            }
+
+            .carousel-control-next {
+                right: 35rem;
+            }
+        }
+
+        @media screen and (min-width : 1920px) {
+            .carousel-control-prev {
+                left: 35.5rem;
+            }
+
+            .carousel-control-next {
+                right: 35.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1940px) {
+            .carousel-control-prev {
+                left: 36rem;
+            }
+
+            .carousel-control-next {
+                right: 36rem;
+            }
+        }
+
+        @media screen and (min-width : 1955px) {
+            .carousel-control-prev {
+                left: 36.5rem;
+            }
+
+            .carousel-control-next {
+                right: 36.5rem;
+            }
+        }
+
+        @media screen and (min-width : 1975px) {
+            .carousel-control-prev {
+                left: 37rem;
+            }
+
+            .carousel-control-next {
+                right: 37rem;
+            }
+        }
+
+        @media screen and (min-width : 1990px) {
+            .carousel-control-prev {
+                left: 37.5rem;
+            }
+
+            .carousel-control-next {
+                right: 37.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2005px) {
+            .carousel-control-prev {
+                left: 38rem;
+            }
+
+            .carousel-control-next {
+                right: 38rem;
+            }
+        }
+
+        @media screen and (min-width : 2025px) {
+            .carousel-control-prev {
+                left: 38.5rem;
+            }
+
+            .carousel-control-next {
+                right: 38.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2035px) {
+            .carousel-control-prev {
+                left: 39rem;
+            }
+
+            .carousel-control-next {
+                right: 39rem;
+            }
+        }
+
+        @media screen and (min-width : 2050px) {
+            .carousel-control-prev {
+                left: 39.5rem;
+            }
+
+            .carousel-control-next {
+                right: 39.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2065px) {
+            .carousel-control-prev {
+                left: 40rem;
+            }
+
+            .carousel-control-next {
+                right: 40rem;
+            }
+        }
+
+        @media screen and (min-width : 2080px) {
+            .carousel-control-prev {
+                left: 40.5rem;
+            }
+
+            .carousel-control-next {
+                right: 40.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2095px) {
+            .carousel-control-prev {
+                left: 41rem;
+            }
+
+            .carousel-control-next {
+                right: 41rem;
+            }
+        }
+
+        @media screen and (min-width : 2115px) {
+            .carousel-control-prev {
+                left: 41.5rem;
+            }
+
+            .carousel-control-next {
+                right: 41.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2130px) {
+
+            .carousel-control-prev {
+                left: 42rem;
+            }
+
+            .carousel-control-next {
+                right: 42rem;
+            }
+        }
+
+        @media screen and (min-width : 2145px) {
+            .carousel-control-prev {
+                left: 42.5rem;
+            }
+
+            .carousel-control-next {
+                right: 42.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2160px) {
+            .carousel-control-prev {
+                left: 43rem;
+            }
+
+            .carousel-control-next {
+                right: 43rem;
+            }
+        }
+
+        @media screen and (min-width : 2175px) {
+            .carousel-control-prev {
+                left: 44rem;
+            }
+
+            .carousel-control-next {
+                right: 44rem;
+            }
+        }
+
+        @media screen and (min-width : 2190px) {
+            .carousel-control-prev {
+                left: 44.5rem;
+            }
+
+            .carousel-control-next {
+                right: 44.5rem;
+            }
+        }
+
+        @media screen and (min-width : 2210px) {
+            .carousel-control-prev {
+                left: 45rem;
+            }
+
+            .carousel-control-next {
+                right: 45rem;
+            }
+        }
+
+        @media screen and (min-width : 2225px) {
+            .carousel-control-prev {
+                left: 45.4rem;
+            }
+
+            .carousel-control-next {
+                right: 45.4rem;
+            }
+        }
+
+        @media screen and (min-width : 2560px) {
+            .carousel-control-prev {
+                left: 55rem;
+            }
+
+            .carousel-control-next {
+                right: 55rem;
+            }
+        }
+
+        @media screen and (min-width : 3840px) {
+            .carousel-control-prev {
+                left: 96rem;
+            }
+
+            .carousel-control-next {
+                right: 96rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -15,14 +2453,10 @@
     <div class="loader">
         <img src="/assets/images/loading.gif" alt="loading...">
     </div>
-    <!-- <audio id="background-music" loop>
+    <audio id="background-music" loop>
         <source src="/assets/music/Shadmehr bi ehsas vilion.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio> -->
-    <audio id="background-music" loop>  
-        <source src="/assets/music/Shadmehr bi ehsas vilion.mp3" type="audio/mpeg">  
-        Your browser does not support the audio element.  
-    </audio> 
+    </audio>
 
     <div id="carouselExample" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
@@ -32,8 +2466,8 @@
                     <img src="/assets/images/Background-tablet.png" class="background-image" alt="">
                     <div class="snow"></div> <!-- اضافه کردن این خط برای بارش برف -->
                     <div class="images">
-                        <img src="/assets/images/SVG's/zanguleh.svg" class="zanguleh animate__animated animate__fadeInDownBig animate__delay-2s"
-                            id="z" alt="">
+                        <img src="/assets/images/SVG's/zanguleh.svg"
+                            class="zanguleh animate__animated animate__fadeInDownBig animate__delay-2s" id="z" alt="">
                         <div class="top-left-flower-image">
                             <object type="image/svg+xml"
                                 data="/assets/images/SVG's/Top-Left-Flower(lower Size)(SVGATOR).svg"
@@ -49,7 +2483,7 @@
                         </div>
                         <div class="top-left-middle-flower-image animate__animated animate__backInLeft animate__delay-2s"
                             id="flower3">
-                            <object type="image/svg+xml" data="/assets//images/SVG's/Right-Top-Flower(SVGATOR).svg"
+                            <object type="image/svg+xml" data="/assets/images/SVG's/Right-Top-Flower(SVGATOR).svg"
                                 class="top-middle-left-flower animated-move-y" alt="">
                             </object>
                         </div>
@@ -83,9 +2517,11 @@
                             <img src="/assets/images/left-flower-input-maghbareh.png"
                                 class="left-flower-input-2 animate__animated animate__fadeIn custom-fadeIn" alt="">
                         </div>
-                        <div class="play-pause-icon animate__animated animate__fadeIn animate__delay-3s" id="playPauseButton">  <!-- افزودن id به div -->  
-                            <img src="/assets/images/SVG's/play-icon.svg" class="play-pause-music" alt="Play">  
-                        </div>  
+                        <div class="play-pause-icon animate__animated animate__fadeIn animate__delay-3s"
+                            id="playPauseButton">
+                            <!-- افزودن id به div -->
+                            <img src="/assets/images/SVG's/play-icon.svg" class="play-pause-music" alt="Play">
+                        </div>
                     </div>
                     <div class="absolute w-100">
                         <h3 class="invite-message animate__animated fs-6" id="invite-message"></h3>
@@ -110,8 +2546,8 @@
                     <img src="/assets/images/Background-tablet.png" class="background-image" alt="">
                     <div class="snow"></div> <!-- اضافه کردن این خط برای بارش برف -->
                     <div class="images">
-                        <img src="/assets/images/SVG's/zanguleh.svg" class="zanguleh animate__animated animate__fadeInDownBig animate__delay-2s"
-                            id="z" alt="">
+                        <img src="/assets/images/SVG's/zanguleh.svg"
+                            class="zanguleh animate__animated animate__fadeInDownBig animate__delay-2s" id="z" alt="">
                         <div class="top-left-flower-image">
                             <object type="image/svg+xml"
                                 data="/assets/images/SVG's/Top-Left-Flower(lower Size)(SVGATOR).svg"
@@ -127,7 +2563,7 @@
                         </div>
                         <div class="top-left-middle-flower-image animate__animated animate__backInLeft animate__delay-2s"
                             id="flower3">
-                            <object type="image/svg+xml" data="/assets//images/SVG's/Right-Top-Flower(SVGATOR).svg"
+                            <object type="image/svg+xml" data="/assets/images/SVG's/Right-Top-Flower(SVGATOR).svg"
                                 class="top-middle-left-flower animated-move-y" alt="">
                             </object>
                         </div>
@@ -145,7 +2581,7 @@
                                 class="voorodi animate__animated animate__fadeIn custom-fadeIn" alt="">
                         </div>
                         <div class="button-flower-image">
-                            <object  type="image/svg+xml" data="/assets/images/SVG's/buttom-flower(SVGATOR).svg"
+                            <object type="image/svg+xml" data="/assets/images/SVG's/buttom-flower(SVGATOR).svg"
                                 class="button-flower animate__animated animate__fadeIn custom-fadeIn" alt="">
                             </object>
                         </div>
@@ -163,9 +2599,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="poetry absolute w-100 animate__animated animate__fadeInDownBig animate__animated animate__delay-2s">
-                    <h6>Two souls, one heart. Join us as we <br> celebrate love, laughter and the beginning <br> of our
-                        forever</h6>
+                <div
+                    class="poetry absolute w-100 animate__animated animate__fadeInDownBig animate__animated animate__delay-2s">
+                    <h1>Two souls, one heart. Join us as we <br> celebrate love, laughter and the beginning <br> of our
+                        forever</h1>
                 </div>
                 <div class="date absolute w-100">
                     <div class="december animate__animated animate__fadeInDownBig animate__delay-2s">DECEMBER</div>
@@ -187,8 +2624,8 @@
                     <img src="/assets/images/Background-tablet.png" class="background-image" alt="">
                     <div class="snow"></div> <!-- اضافه کردن این خط برای بارش برف -->
                     <div class="images">
-                        <img src="/assets/images/SVG's/zanguleh.svg" class="zanguleh animate__animated animate__fadeInDownBig animate__delay-2s"
-                            id="z" alt="">
+                        <img src="/assets/images/SVG's/zanguleh.svg"
+                            class="zanguleh animate__animated animate__fadeInDownBig animate__delay-2s" id="z" alt="">
                         <div class="top-left-flower-image">
                             <object type="image/svg+xml"
                                 data="/assets/images/SVG's/Top-Left-Flower(lower Size)(SVGATOR).svg"
@@ -204,7 +2641,7 @@
                         </div>
                         <div class="top-left-middle-flower-image animate__animated animate__backInLeft animate__delay-2s"
                             id="flower3">
-                            <object type="image/svg+xml" data="/assets//images/SVG's/Right-Top-Flower(SVGATOR).svg"
+                            <object type="image/svg+xml" data="/assets/images/SVG's/Right-Top-Flower(SVGATOR).svg"
                                 class="top-middle-left-flower animated-move-y" alt="">
                             </object>
                         </div>
@@ -276,11 +2713,206 @@
             </button>
         </div>
     </div>
+    <script>
+        const message = "YOU ARE INVITED TO A WEDDING PARTY";
+        const inviteElement = document.getElementById("invite-message");
+        let index = 0;
 
-    <script src="/assets/js/script.js"></script>
+        function typeWriter() {
+            if (index < message.length) {
+                inviteElement.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50); // زمان تاخیر بین حروف (100 میلی‌ثانیه)  
+            }
+        }
+
+        // اجرای انیمیشن محو شدن  
+        inviteElement.style.opacity = 1; // محو بودن  
+        inviteElement.style.animation = 'show 1s forwards'; // نمایش  
+        setTimeout(typeWriter, 1000); // شروع تایپ بعد از 1 ثانیه  
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var inviteMessage = document.getElementById('invite-message');
+            inviteMessage.classList.add('animate__animated', 'animate__fadeInDownBig');
+        });
+
+        // couples-name  
+        document.addEventListener('DOMContentLoaded', function () {
+            var groomsElements = document.querySelectorAll('#couples-name .animated-item');
+            var bridesElements = document.querySelectorAll('#brides-name .animated-item');
+            var groomsDelay = 2; // زمان پایه تاخیر برای grooms-name  
+            var bridesDelay = 2.5; // زمان پایه تاخیر برای brides-name  
+
+            // انیمیشن grooms-name  
+            groomsElements.forEach((element, index) => {
+                var animationDelay = `${groomsDelay + index * 0.2}s`;
+                element.style.animationDelay = animationDelay;
+                element.style.opacity = '0'; // برای شروع با شفافیت صفر  
+                element.classList.add('animate__animated',
+                'animate__fadeInUp'); // اضافه کردن کلاس انیمیشن  
+
+                // یک تایمر برای نمایش دادن آن  
+                setTimeout(() => {
+                    element.style.opacity = '1'; // تنظیم شفافیت به 1 برای ظهور  
+                }, groomsDelay * 1000 + index * 200); // زمان بر حسب میلی ثانیه  
+            });
+
+            // محاسبه زمان پایان انیمیشن grooms-name  
+            var totalGroomsAnimationTime = (groomsDelay + (groomsElements.length - 1) * 0.2) * 1000 +
+                groomsElements.length * 200;
+
+            // انیمیشن brides-name بعد از اتمام grooms-name  
+            setTimeout(() => {
+                bridesElements.forEach((element, index) => {
+                    var animationDelay = `${bridesDelay + index * 0.2}s`;
+                    element.style.animationDelay = animationDelay;
+                    element.style.opacity = '0'; // برای شروع با شفافیت صفر  
+                    element.classList.add('animate__animated',
+                    'animate__fadeInUpBig'); // اضافه کردن کلاس انیمیشن  
+
+                    // یک تایمر برای نمایش دادن آن  
+                    setTimeout(() => {
+                        element.style.opacity = '1'; // تنظیم شفافیت به 1 برای ظهور  
+                    }, bridesDelay * 1000 + index * 200); // زمان بر حسب میلی ثانیه  
+                });
+
+                // تنظیم شفافیت کل brides-name به 1  
+                document.getElementById('brides-name').style.opacity = '1';
+            }, totalGroomsAnimationTime); // شروع انیمیشن brides-name بعد از اتمام grooms-name  
+        });
+
+        // snow
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // تابع ایجاد برف  
+            function createSnowflake(snowContainer) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+
+                // تنظیم موقعیت افقی برف  
+                const randomX = Math.random() * window.innerWidth;
+                snowflake.style.left = `${randomX}px`;
+
+                // تنظیم اندازه ذره برف  
+                const size = Math.random() * 5 + 2; // اندازه‌ای بین 2 تا 7 پیکسل  
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+
+                // افزودن برف به صفحه  
+                snowContainer.appendChild(snowflake);
+
+                // انیمیشن سقوط  
+                const duration = `${Math.random() * 3 + 2}s`; // بین 2 تا 5 ثانیه  
+                snowflake.style.animation = `fall ${duration} linear`;
+
+                // حذف ذره برف بعد از اتمام انیمیشن  
+                snowflake.addEventListener('animationend', () => {
+                    snowflake.remove();
+                });
+            }
+
+            // تابع شروع بارش برف  
+            function startSnowfall() {
+                const snowContainers = document.querySelectorAll('.snow'); // انتخاب تمامی عناصر برف  
+                // شروع بارش برف در تمامی اسلایدها  
+                setTimeout(() => {
+                    snowContainers.forEach(snowContainer => {
+                        setInterval(() => createSnowflake(snowContainer),
+                        200); // هر 200 میلی‌ثانیه یک ذره برف ایجاد کن  
+                    });
+                }, 1000); // 1 ثانیه تاخیر قبل از شروع بارش  
+            }
+
+            // آغاز بارش برف  
+            startSnowfall();
+        });
+
+        //perload
+        let loader = document.querySelector('.loader');
+        window.addEventListener('load', function () {
+            loader.classList.add('hidden');
+        });
+
+        // handling the background music
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const playPauseButton = document.getElementById('playPauseButton'); // این حالا درست است  
+            const music = document.getElementById('background-music');
+            const playIcon = '/assets/images/SVG\'s/play-icon.svg'; // مسیر تصویر Play  
+            const pauseIcon = '/assets/images/SVG\'s/pause-icon.svg'; // مسیر تصویر Pause  
+            const img = playPauseButton.querySelector('img');
+
+            music.oncanplaythrough = function () {
+                playPauseButton.style.display = 'block'; // نمایش دکمه play/pause  
+            };
+
+            playPauseButton.addEventListener('click', function () {
+                if (music.paused) {
+                    music.play().then(() => { // pخplay و مدیریت خطا  
+                        img.src = pauseIcon; // تغییر تصویر به Pause  
+                        img.alt = 'Pause'; // تغییر متن alt  
+                    }).catch(error => {
+                        console.error('Error trying to play the audio:', error);
+                    });
+                } else {
+                    music.pause(); // توقف موسیقی  
+                    img.src = playIcon; // تغییر تصویر به Play  
+                    img.alt = 'Play'; // تغییر متن alt  
+                }
+            });
+        });
+
+        // disable the prve btn arrow for firt slide
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const carouselElement = document.querySelector('#carouselExample');
+
+            // دکمه قبلی  
+            const prevButton = document.querySelector('#prevButton');
+            // console.log(prevButton);
+
+            // بررسی وضعیت اسلاید  
+            carouselElement.addEventListener('slid.bs.carousel', function () {
+                const activeIndex = [...carouselElement.querySelectorAll('.carousel-item')].findIndex(
+                    item => item.classList.contains('active'));
+
+                if (activeIndex === 0) {
+                    prevButton.classList.add('disabled-button');
+                } else {
+                    prevButton.classList.remove('disabled-button');
+                }
+            });
+            // غیر فعال کردن دکمه در بارگذاری اولیه  
+            prevButton.classList.add('disabled-button');
+        });
+
+        //dark mode for samsung brower 
+
+        // تابع برای تشخیص مرورگر Samsung Internet  
+        function isSamsungBrowser() {
+            const ua = navigator.userAgent;
+            return /SamsungBrowser/i.test(ua);
+        }
+
+        // تابع برای افزودن کلاس دارک و لایت مود  
+        function setTheme() {
+            if (isSamsungBrowser()) {
+                const darkMode = true; // اینجا میتوانید منطق خود را تعیین کنید  
+                if (darkMode) {
+                    document.body.classList.add('dark-mode');
+                    document.body.classList.remove('light-mode'); // اطمینان از پاک کردن علمکرد روشن  
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode'); // فعال سازی حالت لایت  
+                }
+            }
+        }
+        // فراخوانی تابع برای تنظیم تم  
+        setTheme();
+    </script>
+    <!-- <script src="/assets/js/script.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
 </html>
-
